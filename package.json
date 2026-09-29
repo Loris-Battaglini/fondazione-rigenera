@@ -1,0 +1,15 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "sass scss/main.scss css/main.css",
+    "build:css:min": "sass --style=compressed --no-source-map scss/main.scss css/main.min.css",
+    "build:css:all": "npm run build:css && npm run build:css:min",
+    "watch:css": "sass --watch scss/main.scss:css/main.css",
+    "watch:css:min": "sass --watch --style=compressed --no-source-map scss/main.scss:css/main.min.css"
+  },
+  "devDependencies": {
+    "sass": "^1.89.0"
+  }
+}

@@ -1,0 +1,55 @@
+// Bootstrap theme values. Keep these before the Bootstrap import when Sass is compiled.
+$primary: #1b6b3a;
+$primary-dark: #0f3d24;
+$primary-light: #a7e0bd;
+$primary-subtle: #e3f1e8;
+$accent: #f4b942;
+$accent-subtle: #fdf1d6;
+
+$secondary: #5c636a;
+$success: $primary;
+$warning: $accent;
+$danger: #b02a37;
+$light: #f8f9fa;
+$white: #fff;
+$body-color: #212529;
+$body-bg: $white;
+$border-color: #dee2e6;
+$secondary-color: $secondary;
+$danger-bg-subtle: #f8d7da;
+
+$link-color: $primary;
+$link-hover-color: $primary-dark;
+$font-family-base: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+
+$border-radius: .375rem;
+$border-radius-lg: .5rem;
+$border-radius-xl: 1rem;
+$border-radius-xxl: 2rem;
+$border-radius-pill: 50rem;
+
+$rg-azione-riparazione: #a3470a;
+$rg-azione-scambio: #6f42c1;
+$rg-azione-donazione: #0a58ca;
+$rg-azione-riciclo: #0e6672;
+$rg-control-height: 38px;
+$rg-control-height-lg: 48px;
+$rg-touch-min: 44px;
+$rg-fs-lead: 1.25rem;
+$rg-fs-small: .875em;
+$rg-focus-shadow: 0 0 0 .125rem #fff, 0 0 0 .3125rem $primary-dark;
+
+$primary-rgb: 27, 107, 58;
+$primary-dark-rgb: 15, 61, 36;
+$secondary-rgb: 92, 99, 106;
+$body-color-rgb: 33, 37, 41;
+$body-bg-rgb: 255, 255, 255;
+$light-rgb: 248, 249, 250;
+$accent-rgb: 244, 185, 66;
+$danger-rgb: 176, 42, 55;
+
+$color-text: $body-color;
+$color-background: $body-bg;
+$container-width: 72rem;

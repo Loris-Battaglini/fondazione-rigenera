@@ -1,0 +1,95 @@
+@use "abstracts/variables" as *;
+
+:root {
+  --rg-primary: #{$primary};
+  --rg-primary-dark: #{$primary-dark};
+  --rg-primary-light: #{$primary-light};
+  --rg-primary-subtle: #{$primary-subtle};
+  --rg-accent: #{$accent};
+  --rg-accent-subtle: #{$accent-subtle};
+
+  --rg-azione-riparazione: #{$rg-azione-riparazione};
+  --rg-azione-scambio: #{$rg-azione-scambio};
+  --rg-azione-donazione: #{$rg-azione-donazione};
+  --rg-azione-riciclo: #{$rg-azione-riciclo};
+
+  --bs-primary: #{$primary};
+  --bs-primary-rgb: #{$primary-rgb};
+  --bs-primary-bg-subtle: #{$primary-subtle};
+  --bs-primary-text-emphasis: #{$primary-dark};
+  --bs-primary-border-subtle: #{$primary-light};
+  --bs-secondary: #{$secondary};
+  --bs-secondary-rgb: #{$secondary-rgb};
+  --bs-secondary-color: #{$secondary-color};
+  --bs-success: #{$success};
+  --bs-success-rgb: #{$primary-rgb};
+  --bs-warning: #{$warning};
+  --bs-warning-rgb: #{$accent-rgb};
+  --bs-danger: #{$danger};
+  --bs-danger-rgb: #{$danger-rgb};
+  --bs-danger-bg-subtle: #{$danger-bg-subtle};
+  --bs-light: #{$light};
+  --bs-light-rgb: #{$light-rgb};
+  --bs-white: #{$white};
+  --bs-body-color: #{$body-color};
+  --bs-body-color-rgb: #{$body-color-rgb};
+  --bs-body-bg: #{$body-bg};
+  --bs-body-bg-rgb: #{$body-bg-rgb};
+  --bs-border-color: #{$border-color};
+  --bs-link-color: #{$link-color};
+  --bs-link-color-rgb: #{$primary-rgb};
+  --bs-link-hover-color: #{$link-hover-color};
+  --bs-link-hover-color-rgb: #{$primary-dark-rgb};
+  --bs-form-invalid-color: #{$danger};
+  --bs-form-invalid-border-color: #{$danger};
+  --bs-focus-ring-color: #{$primary-dark};
+  --bs-border-radius: #{$border-radius};
+  --bs-border-radius-lg: #{$border-radius-lg};
+  --bs-border-radius-xl: #{$border-radius-xl};
+  --bs-border-radius-xxl: #{$border-radius-xxl};
+  --bs-border-radius-pill: #{$border-radius-pill};
+  --bs-body-font-family: #{$font-family-base};
+  --bs-body-font-size: #{$font-size-base};
+  --bs-body-line-height: #{$line-height-base};
+  --rg-control-height: #{$rg-control-height};
+  --rg-control-height-lg: #{$rg-control-height-lg};
+  --rg-touch-min: #{$rg-touch-min};
+  --rg-fs-lead: #{$rg-fs-lead};
+  --rg-fs-small: #{$rg-fs-small};
+  --rg-focus-shadow: #{$rg-focus-shadow};
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: $color-text;
+  background: $color-background;
+  font-family: $font-family-base;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+  font-weight: 700;
+}
+
+h5,
+.h5,
+h6,
+.h6 {
+  font-weight: 600;
+}
+
+.display-5 {
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.05;
+}

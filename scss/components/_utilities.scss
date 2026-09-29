@@ -1,0 +1,29 @@
+@use "../abstracts/variables" as *;
+
+.bg-azione-riparazione {
+  background-color: $rg-azione-riparazione;
+}
+
+.bg-azione-scambio {
+  background-color: $rg-azione-scambio;
+}
+
+.bg-azione-donazione {
+  background-color: $rg-azione-donazione;
+}
+
+.bg-azione-riciclo {
+  background-color: $rg-azione-riciclo;
+}
+
+.bg-primary-dark {
+  background-color: $primary-dark;
+}
+
+.bg-accent-subtle {
+  background-color: $accent-subtle;
+}
+
+.text-primary-light {
+  color: $primary-light;
+}

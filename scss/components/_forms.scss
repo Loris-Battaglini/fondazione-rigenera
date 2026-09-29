@@ -1,0 +1,23 @@
+@use "../abstracts/variables" as *;
+
+.form-control,
+.form-select {
+  border-color: $secondary;
+}
+
+.form-control:focus,
+.form-select:focus,
+.tile-azione:focus-visible,
+.visually-hidden-focusable:focus {
+  border-color: $primary-dark;
+  outline: 0;
+  box-shadow: $rg-focus-shadow;
+}
+
+@media (max-width: 991.98px) {
+  .btn,
+  .form-control,
+  .form-select {
+    min-height: $rg-control-height-lg;
+  }
+}
