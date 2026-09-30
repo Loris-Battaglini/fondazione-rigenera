@@ -1,66 +1,12 @@
-/* inizio header */
+/* Hero Section - Guida al Riuso */
 
-/* Sezione principale con sfondo e spaziatura */
-.hero-section {
-  background-color: #f3f7f4; 
-  padding: 4rem 1.5rem;
-}
-
-/* Contenitore centrale con margini automatici per non rompersi mai */
-.hero-container {
-  max-width: 1200px;
-  margin: 0 auto; 
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
-
-  /* qui assegno i nomi casuali per creare l'area */
-  grid-template-areas:
-    "testo immagine"
-    "statistiche immagine"; 
-  gap: 3rem 4rem;
-  align-items: center;
-}
-
-/* Collegamento delle aree personalizzate */
-.hero-testo {
-  grid-area: testo;
-}
-
-.hero-immagine {
-  grid-area: immagine;
-  justify-self: center; 
-}
-
-.hero-statistiche {
-  grid-area: statistiche;
-  display: flex;
-  gap: 3rem;
-}
-
-/* Stili rapidi per le statistiche */
-.stat-item .stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  display: block;
-  color: #1b3d2f;
-}
-
-.stat-item .stat-label {
-  font-size: 0.9rem;
-  color: #6c757d;
-}
+  .hero-section {
+   background-color: var(--rg-primary-subtle); 
+   padding: 3rem 1.5rem;
+  }
 
 
 
-
-/* 
-   Hero Section — Guida al Riuso
-    */
-
-.hero-section {
-  background-color: var(--rg-primary-subtle); 
-  padding: 3rem 1.5rem;
-}
 
 /* 1. Struttura Mobile-First (elementi in pila) */
 .hero-container {

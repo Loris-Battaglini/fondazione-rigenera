@@ -329,6 +329,22 @@ h6,
   color: #a7e0bd;
 }
 
+.bg-azione-riparazione {
+  background-color: #a3470a;
+}
+
+.bg-azione-scambio {
+  background-color: #6f42c1;
+}
+
+.bg-azione-donazione {
+  background-color: #0a58ca;
+}
+
+.bg-azione-riciclo {
+  background-color: #0e6672;
+}
+
 form {
   display: grid;
   gap: 1rem;
@@ -367,57 +383,7 @@ footer {
 }
 
 /* fine navbar */
-/* inizio header */
-/* Sezione principale con sfondo e spaziatura */
-.hero-section {
-  background-color: #f3f7f4;
-  padding: 4rem 1.5rem;
-}
-
-/* Contenitore centrale con margini automatici per non rompersi mai */
-.hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* qui assegno i nomi casuali per creare l'area */
-  grid-template-areas: "testo immagine" "statistiche immagine";
-  gap: 3rem 4rem;
-  align-items: center;
-}
-
-/* Collegamento delle aree personalizzate */
-.hero-testo {
-  grid-area: testo;
-}
-
-.hero-immagine {
-  grid-area: immagine;
-  justify-self: center;
-}
-
-.hero-statistiche {
-  grid-area: statistiche;
-  display: flex;
-  gap: 3rem;
-}
-
-/* Stili rapidi per le statistiche */
-.stat-item .stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  display: block;
-  color: #1b3d2f;
-}
-
-.stat-item .stat-label {
-  font-size: 0.9rem;
-  color: #6c757d;
-}
-
-/* 
-   Hero Section — Guida al Riuso
-    */
+/* Hero Section - Guida al Riuso */
 .hero-section {
   background-color: var(--rg-primary-subtle);
   padding: 3rem 1.5rem;
@@ -486,5 +452,52 @@ footer {
   }
   .hero-immagine img {
     max-width: 100%;
+  }
+}
+/* --------------------------------------------------------------------------
+   SECTION AZIONI E COME FUNZIONA
+   -------------------------------------------------------------------------- */
+/* Sezioni: 96px sopra e sotto (Bootstrap arriva al massimo a 48px con py-5) */
+.section {
+  padding-block: 3rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 6rem;
+  }
+}
+/* Etichetta sopra i titoli: solo la spaziatura delle lettere, il resto è Bootstrap */
+.eyebrow {
+  letter-spacing: 0.08em;
+}
+
+.tile-azione {
+  transition: box-shadow 0.15s ease-in-out;
+}
+.tile-azione:hover {
+  color: #fff;
+  box-shadow: var(--bs-box-shadow-lg) !important;
+}
+.tile-azione:hover .tile-count, .tile-azione:focus-visible .tile-count {
+  text-decoration: underline;
+}
+
+.tile-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.75rem;
+}
+
+/* Numero dei passi: cerchio da 56px (48px su telefono e tablet) */
+.step-num {
+  width: 3rem;
+  height: 3rem;
+}
+
+@media (min-width: 992px) {
+  .step-num {
+    width: 3.5rem;
+    height: 3.5rem;
   }
 }/*# sourceMappingURL=main.css.map */

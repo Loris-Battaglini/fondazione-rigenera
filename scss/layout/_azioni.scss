@@ -1,0 +1,45 @@
+/* --------------------------------------------------------------------------
+   SECTION AZIONI E COME FUNZIONA
+   -------------------------------------------------------------------------- */
+
+/* Sezioni: 96px sopra e sotto (Bootstrap arriva al massimo a 48px con py-5) */
+.section { padding-block: 3rem; }
+@media (min-width: 768px) {
+  .section { padding-block: 6rem; }
+}
+
+/* Etichetta sopra i titoli: solo la spaziatura delle lettere, il resto è Bootstrap */
+.eyebrow { letter-spacing: .08em; }
+
+
+
+
+
+.tile-azione {
+  transition: box-shadow .15s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    box-shadow: var(--bs-box-shadow-lg) !important;
+  }
+
+  &:hover .tile-count,
+  &:focus-visible .tile-count {
+    text-decoration: underline;
+  }
+}
+
+.tile-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.75rem;
+}
+
+
+
+/* Numero dei passi: cerchio da 56px (48px su telefono e tablet) */
+.step-num { width: 3rem; height: 3rem; }
+@media (min-width: 992px) {
+  .step-num { width: 3.5rem; height: 3.5rem; }
+}
+
