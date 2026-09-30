@@ -1,0 +1,192 @@
+/* ==========================================================================
+   Guida al riuso — Fondazione Rigenera
+   Variabili CSS dal file Figma "Guida al riuso – Fondazione Rigenera (Bootstrap 5)"
+   Da caricare DOPO bootstrap.min.css (Bootstrap 5.3.x)
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------------
+     1 · COLORI — brand (verde + giallo)
+     ------------------------------------------------------------------------ */
+  --rg-primary:            #1B6B3A;  /* color/brand/primary */
+  --rg-primary-dark:       #0F3D24;  /* color/brand/primary-dark  (hover, banda "Segnala", focus) */
+  --rg-primary-light:      #A7E0BD;  /* color/brand/primary-light (solo su primary-dark) */
+  --rg-primary-subtle:     #E3F1E8;  /* color/brand/primary-subtle */
+  --rg-accent:             #F4B942;  /* color/brand/accent */
+  --rg-accent-subtle:      #FDF1D6;  /* color/brand/accent-subtle */
+
+  /* 1 · COLORI — azione (categorie di servizi) */
+  --rg-azione-riparazione: #A3470A;
+  --rg-azione-scambio:     #6F42C1;
+  --rg-azione-donazione:   #0A58CA;
+  --rg-azione-riciclo:     #0E6672;
+
+  /* ------------------------------------------------------------------------
+     Mappatura sulle variabili di Bootstrap
+     (le versioni -rgb servono alle utility .bg-*, .text-*, .border-*)
+     ------------------------------------------------------------------------ */
+  --bs-primary:              var(--rg-primary);
+  --bs-primary-rgb:          27, 107, 58;
+  --bs-primary-bg-subtle:    var(--rg-primary-subtle);
+  --bs-primary-text-emphasis: var(--rg-primary-dark);
+  --bs-primary-border-subtle: #A7E0BD;
+
+  /* neutral */
+  --bs-body-color:           #212529;  /* color/neutral/body-color */
+  --bs-body-color-rgb:       33, 37, 41;
+  --bs-body-bg:              #FFFFFF;  /* color/neutral/white */
+  --bs-body-bg-rgb:          255, 255, 255;
+  --bs-secondary:            #5C636A;  /* color/neutral/secondary */
+  --bs-secondary-rgb:        92, 99, 106;
+  --bs-secondary-color:      #5C636A;  /* .text-body-secondary (6.09:1 invece del default semitrasparente) */
+  --bs-border-color:         #DEE2E6;  /* color/neutral/border-color (solo divisori) */
+  --bs-light:                #F8F9FA;  /* color/neutral/light */
+  --bs-light-rgb:            248, 249, 250;
+  --bs-white:                #FFFFFF;
+
+  /* feedback: conferma e avviso riusano i colori brand */
+  --bs-success:              var(--rg-primary);
+  --bs-success-rgb:          27, 107, 58;
+  --bs-success-bg-subtle:    var(--rg-primary-subtle);
+  --bs-success-text-emphasis: var(--rg-primary-dark);
+  --bs-success-border-subtle: var(--rg-primary);
+  --bs-warning:              var(--rg-accent);
+  --bs-warning-rgb:          244, 185, 66;
+  --bs-warning-bg-subtle:    var(--rg-accent-subtle);
+  --bs-warning-text-emphasis: #212529;
+  --bs-warning-border-subtle: var(--rg-accent);
+  --bs-danger:               #B02A37;  /* color/feedback/danger (unico colore in più) */
+  --bs-danger-rgb:           176, 42, 55;
+  --bs-danger-bg-subtle:     #F8D7DA;  /* color/feedback/danger-bg-subtle */
+  --bs-danger-text-emphasis: #212529;
+  --bs-danger-border-subtle: #B02A37;
+  --bs-form-invalid-color:        #B02A37;
+  --bs-form-invalid-border-color: #B02A37;
+
+  /* link */
+  --bs-link-color:           var(--rg-primary);
+  --bs-link-color-rgb:       27, 107, 58;
+  --bs-link-hover-color:     var(--rg-primary-dark);
+  --bs-link-hover-color-rgb: 15, 61, 36;
+
+  /* focus: doppio anello 2px bianco + 3px verde scuro */
+  --bs-focus-ring-color:     var(--rg-primary-dark);
+  --rg-focus-shadow:         0 0 0 .125rem #fff, 0 0 0 .3125rem var(--rg-primary-dark);
+
+  /* ------------------------------------------------------------------------
+     2 · SPAZIATURE E MISURE
+     (gli spacer 1–5 sono già quelli di Bootstrap: 4, 8, 16, 24, 48 px)
+     ------------------------------------------------------------------------ */
+  --bs-border-radius:        .375rem;  /* 6px  radius/default */
+  --bs-border-radius-lg:     .5rem;    /* 8px  radius/lg */
+  --bs-border-radius-xl:     1rem;     /* 16px radius/xl  → .rounded-4 */
+  --bs-border-radius-xxl:    2rem;     /* 32px radius/xxl → .rounded-5 */
+  --bs-border-radius-pill:   50rem;    /*      radius/pill */
+  --rg-control-height:       38px;     /* size/control */
+  --rg-control-height-lg:    48px;     /* size/control-lg (mobile) */
+  --rg-touch-min:            44px;     /* size/touch-min */
+
+  /* ------------------------------------------------------------------------
+     3 · TIPOGRAFIA
+     (h1–h4 e .display-5 si riducono da soli su mobile con l'RFS di Bootstrap:
+      a 375px diventano 28 / 26 / 24 / 22 / 31 px, come nella modalità Mobile di Figma)
+     ------------------------------------------------------------------------ */
+  --bs-body-font-family:     "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --bs-body-font-size:       1rem;     /* 16px */
+  --bs-body-line-height:     1.5;
+  --rg-fs-lead:              1.25rem;  /* 20px */
+  --rg-fs-small:             .875em;   /* 14px */
+}
+
+/* --------------------------------------------------------------------------
+   Pesi dei titoli (Bootstrap usa 500 per tutti)
+   -------------------------------------------------------------------------- */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 { font-weight: 700; }
+h5, .h5, h6, .h6 { font-weight: 600; }
+.display-5 { font-weight: 800; letter-spacing: -.02em; line-height: 1.05; }
+
+/* --------------------------------------------------------------------------
+   Componenti: i colori dei bottoni sono compilati in Bootstrap,
+   quindi vanno riassegnati tramite le loro variabili
+   -------------------------------------------------------------------------- */
+.btn { --bs-btn-focus-box-shadow: var(--rg-focus-shadow); }
+
+.btn-primary {
+  --bs-btn-bg: var(--rg-primary);
+  --bs-btn-border-color: var(--rg-primary);
+  --bs-btn-hover-bg: var(--rg-primary-dark);
+  --bs-btn-hover-border-color: var(--rg-primary-dark);
+  --bs-btn-active-bg: var(--rg-primary-dark);
+  --bs-btn-active-border-color: var(--rg-primary-dark);
+  --bs-btn-disabled-bg: var(--rg-primary);
+  --bs-btn-disabled-border-color: var(--rg-primary);
+}
+.btn-outline-primary {
+  --bs-btn-color: var(--rg-primary);
+  --bs-btn-border-color: var(--rg-primary);
+  --bs-btn-hover-bg: var(--rg-primary);
+  --bs-btn-hover-border-color: var(--rg-primary);
+  --bs-btn-active-bg: var(--rg-primary);
+  --bs-btn-active-border-color: var(--rg-primary);
+  --bs-btn-disabled-color: var(--rg-primary);
+  --bs-btn-disabled-border-color: var(--rg-primary);
+}
+
+/* Campi del form: bordo più scuro dei divisori (6.09:1) e stesso focus dei bottoni */
+.form-control, .form-select { border-color: var(--bs-secondary); }
+.form-control:focus, .form-select:focus,
+.tile-azione:focus-visible, .visually-hidden-focusable:focus {
+  border-color: var(--rg-primary-dark);
+  outline: 0;
+  box-shadow: var(--rg-focus-shadow);
+}
+
+/* Target touch ≥ 44px su mobile */
+@media (max-width: 991.98px) {
+  .btn, .form-control, .form-select { min-height: var(--rg-control-height-lg); }
+}
+.btn-fav { min-width: var(--rg-touch-min); min-height: var(--rg-touch-min); }
+
+/* --------------------------------------------------------------------------
+   Utility per le categorie (card-header, tile, badge)
+   -------------------------------------------------------------------------- */
+.bg-azione-riparazione { background-color: var(--rg-azione-riparazione); }
+.bg-azione-scambio     { background-color: var(--rg-azione-scambio); }
+.bg-azione-donazione   { background-color: var(--rg-azione-donazione); }
+.bg-azione-riciclo     { background-color: var(--rg-azione-riciclo); }
+
+.bg-primary-dark  { background-color: var(--rg-primary-dark); }
+.bg-accent-subtle { background-color: var(--rg-accent-subtle); }
+.text-primary-light { color: var(--rg-primary-light); }
+
+/* Fondo bianco al 20% dietro le icone di card-header e tile */
+.icon-circle, .tile-icon { background-color: rgba(255, 255, 255, .2); }
+
+
+/* --------------------------------------------------------------------------
+   SECTION AZIONI E COME FUNZIONA
+   -------------------------------------------------------------------------- */
+
+/* Sezioni: 96px sopra e sotto (Bootstrap arriva al massimo a 48px con py-5) */
+.section { padding-block: 3rem; }
+@media (min-width: 768px) {
+  .section { padding-block: 6rem; }
+}
+
+/* Etichetta sopra i titoli: solo la spaziatura delle lettere, il resto è Bootstrap */
+.eyebrow { letter-spacing: .08em; }
+
+/* Riquadri azione: effetti al passaggio del mouse */
+.tile-azione { transition: box-shadow .15s ease-in-out; }
+.tile-azione:hover { color: #fff; box-shadow: var(--bs-box-shadow-lg) !important; }
+.tile-azione:hover .tile-count,
+.tile-azione:focus-visible .tile-count { text-decoration: underline; }
+
+/* Quadratino dell'icona: 56px esatti */
+.tile-icon { width: 3.5rem; height: 3.5rem; font-size: 1.75rem; }
+
+/* Numero dei passi: cerchio da 56px (48px su telefono e tablet) */
+.step-num { width: 3rem; height: 3rem; }
+@media (min-width: 992px) {
+  .step-num { width: 3.5rem; height: 3.5rem; }
+}
