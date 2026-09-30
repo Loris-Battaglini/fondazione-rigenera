@@ -1,0 +1,490 @@
+@charset "UTF-8";
+/*
+implementazione sezione e guida dettagliata alle classi Bootstrap
+
+  [GUIDA ALLE CLASSI BOOTSTRAP UTILIZZATE NEL CODICE]
+
+  1. GRIGLIA E LAYOUT RESPONSIVE:
+     - .container / .container-fluid: Contenitori a larghezza massima o fluidi al 100%, servono per centrare i contenuti e gestire i margini laterali corretti.
+     - .row: Rappresenta la riga orizzontale del sistema a griglia (12 colonne totali).
+     - .col-12, .col-md-3, .col-md-4, .col-md-6: Colonne responsive. Dicono al browser quanto spazio occupare. Es. .col-md-4 su desktop divide lo spazio in 3 colonne uguali (4+4+4=12), mentre su mobile si adattano.
+
+  2. FLEXBOX E ALLINEAMENTI:
+     - .d-flex: Attiva il modello Flexbox rendendo il contenitore flessibile.
+     - .flex-wrap: Permette agli elementi flessibili di andare a capo automaticamente se non c'è abbastanza spazio orizzontale.
+     - .justify-content-between: Spinge gli elementi ai lati opposti del contenitore (uno a sinistra e uno a destra).
+     - .align-items-center: Centra verticalmente gli elementi figli all'interno di un blocco flex.
+     - .gap-2, .gap-3: Crea uno spazio uniforme (gap) tra gli elementi senza dover usare margini manuali.
+
+  3. SPAZIATURE (Margini e Padding):
+     - .m-* / .mb-* / .mt-*: Gestiscono i margini esterni (m = all, mb = margin-bottom, mt = margin-top).
+     - .p-* / .py-*: Gestiscono il padding interno (p = all, py = padding verticale sopra e sotto).
+
+  4. TIPOGRAFIA E TESTI:
+     - .fw-bold, .fw-semibold, .fw-medium: Definiscono il peso (spessore) del font.
+     - .text-uppercase: Converte tutto il testo in lettere maiuscole.
+     - .small: Riduce leggermente le dimensioni del testo.
+     - .text-muted, .text-secondary, .text-success, .text-white: Applicano i colori testuali definiti dalla palette di Bootstrap o personalizzati.
+
+  5. COMPONENTI E UTILITY VISIVE:
+     - .card, .card-header, .card-body: Strutture a blocchi con bordi e sfondi ideali per racchiudere informazioni.
+     - .border-0: Rimuove i bordi nativi del componente.
+     - .shadow-sm: Applica un'ombra leggera per dare profondità e tridimensionalità.
+     - .rounded-4: Arrotonda i angoli del box in modo marcato (16px).
+     - .overflow-hidden: Taglia tutto ciò che esce dai bordi arrotondati (fondamentale per le card con header colorati).
+     - .h-100: Forza l'altezza del blocco al 100%, utile per avere card perfettamente allineate nella stessa riga.
+     - .badge: Crea etichette piccole stile pillola per mostrare categorie brevi.
+     - .form-label, .form-control, .form-select: Classi native per stilizzare etichette, input di testo e menu a tendina." */
+:root {
+  --rg-primary: #1b6b3a;
+  --rg-primary-dark: #0f3d24;
+  --rg-primary-light: #a7e0bd;
+  --rg-primary-subtle: #e3f1e8;
+  --rg-accent: #f4b942;
+  --rg-accent-subtle: #fdf1d6;
+  --rg-azione-riparazione: #a3470a;
+  --rg-azione-scambio: #6f42c1;
+  --rg-azione-donazione: #0a58ca;
+  --rg-azione-riciclo: #0e6672;
+  --bs-primary: #1b6b3a;
+  --bs-primary-rgb: 27, 107, 58;
+  --bs-primary-bg-subtle: #e3f1e8;
+  --bs-primary-text-emphasis: #0f3d24;
+  --bs-primary-border-subtle: #a7e0bd;
+  --bs-secondary: #5c636a;
+  --bs-secondary-rgb: 92, 99, 106;
+  --bs-secondary-color: #5c636a;
+  --bs-success: #1b6b3a;
+  --bs-success-rgb: 27, 107, 58;
+  --bs-warning: #f4b942;
+  --bs-warning-rgb: 244, 185, 66;
+  --bs-danger: #b02a37;
+  --bs-danger-rgb: 176, 42, 55;
+  --bs-danger-bg-subtle: #f8d7da;
+  --bs-light: #f8f9fa;
+  --bs-light-rgb: 248, 249, 250;
+  --bs-white: #fff;
+  --bs-body-color: #212529;
+  --bs-body-color-rgb: 33, 37, 41;
+  --bs-body-bg: #fff;
+  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-border-color: #dee2e6;
+  --bs-link-color: #1b6b3a;
+  --bs-link-color-rgb: 27, 107, 58;
+  --bs-link-hover-color: #0f3d24;
+  --bs-link-hover-color-rgb: 15, 61, 36;
+  --bs-form-invalid-color: #b02a37;
+  --bs-form-invalid-border-color: #b02a37;
+  --bs-focus-ring-color: #0f3d24;
+  --bs-border-radius: 0.375rem;
+  --bs-border-radius-lg: 0.5rem;
+  --bs-border-radius-xl: 1rem;
+  --bs-border-radius-xxl: 2rem;
+  --bs-border-radius-pill: 50rem;
+  --bs-body-font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --bs-body-font-size: 1rem;
+  --bs-body-line-height: 1.5;
+  --rg-control-height: 38px;
+  --rg-control-height-lg: 48px;
+  --rg-touch-min: 44px;
+  --rg-fs-lead: 1.25rem;
+  --rg-fs-small: 0.875em;
+  --rg-focus-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #212529;
+  background: #fff;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4 {
+  font-weight: 700;
+}
+
+h5,
+.h5,
+h6,
+.h6 {
+  font-weight: 600;
+}
+
+.display-5 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.btn {
+  --bs-btn-focus-box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+}
+
+.btn-primary {
+  --bs-btn-bg: #1b6b3a;
+  --bs-btn-border-color: #1b6b3a;
+  --bs-btn-hover-bg: #0f3d24;
+  --bs-btn-hover-border-color: #0f3d24;
+  --bs-btn-active-bg: #0f3d24;
+  --bs-btn-active-border-color: #0f3d24;
+  --bs-btn-disabled-bg: #1b6b3a;
+  --bs-btn-disabled-border-color: #1b6b3a;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #1b6b3a;
+  --bs-btn-border-color: #1b6b3a;
+  --bs-btn-hover-bg: #1b6b3a;
+  --bs-btn-hover-border-color: #1b6b3a;
+  --bs-btn-active-bg: #1b6b3a;
+  --bs-btn-active-border-color: #1b6b3a;
+  --bs-btn-disabled-color: #1b6b3a;
+  --bs-btn-disabled-border-color: #1b6b3a;
+}
+
+.btn-fav {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* inizio Bottoni della Hero nell' header */
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-custom-primary,
+.btn-custom-outline {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--bs-border-radius-lg); /* 8px da variabili */
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid var(--rg-primary-dark);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-custom-primary {
+  background-color: var(--rg-primary);
+  color: var(--bs-white);
+  border-color: var(--rg-primary);
+}
+
+.btn-custom-primary:hover {
+  background-color: var(--rg-primary-dark);
+  border-color: var(--rg-primary-dark);
+}
+
+.btn-custom-outline {
+  background-color: transparent;
+  color: var(--rg-primary-dark);
+}
+
+.btn-custom-outline:hover {
+  background-color: var(--rg-primary-subtle);
+}
+
+/* 
+   inizio Stile per i bottoni a pillola sotto la barra di ricerca nella sezione Catalogo
+  */
+.pill-btn {
+  background-color: var(--bs-white);
+  border: 1px solid var(--bs-border-color);
+  color: var(--bs-secondary);
+  padding: 0.35rem 1rem;
+  border-radius: 50rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-btn:hover {
+  background-color: var(--bs-light);
+  color: var(--bs-dark);
+  border-color: #adb5bd;
+}
+
+.pill-btn.attivo {
+  background-color: var(--bs-dark);
+  color: var(--bs-white);
+  border-color: var(--bs-dark);
+}
+
+.form-control,
+.form-select {
+  border-color: #5c636a;
+}
+
+.form-control:focus,
+.form-select:focus,
+.tile-azione:focus-visible,
+.visually-hidden-focusable:focus {
+  border-color: #0f3d24;
+  outline: 0;
+  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+}
+
+@media (max-width: 991.98px) {
+  .btn,
+  .form-control,
+  .form-select {
+    min-height: 48px;
+  }
+}
+/* 
+  inizio modifiche per la  larghezza della barra di ricerca in catalogo, è stata aggiunta la classe .custom-search-bar per gestire la larghezza della barra di ricerca in modo più flessibile e responsive.
+  La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
+    */
+.custom-search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
+  background: var(--bs-white);
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  padding: 0 0.75rem;
+  height: 42px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.custom-search-bar:focus-within {
+  border-color: var(--rg-primary-dark);
+  box-shadow: var(--rg-focus-shadow);
+}
+
+.search-input-clean {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 0.95rem;
+  color: var(--bs-body-color);
+}
+
+.icon-circle,
+.tile-icon {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Colori delle intestazioni card nella sezione Catalogo */
+.card-header.bg-azione-riparazione {
+  background-color: var(--rg-azione-riparazione);
+}
+
+.card-header.bg-azione-scambio {
+  background-color: var(--rg-azione-scambio);
+}
+
+.card-header.bg-azione-donazione {
+  background-color: var(--rg-azione-donazione);
+}
+
+.card-header.bg-azione-riciclo {
+  background-color: var(--rg-azione-riciclo);
+}
+
+.bg-azione-riparazione {
+  background-color: #a3470a;
+}
+
+.bg-azione-scambio {
+  background-color: #6f42c1;
+}
+
+.bg-azione-donazione {
+  background-color: #0a58ca;
+}
+
+.bg-azione-riciclo {
+  background-color: #0e6672;
+}
+
+.bg-primary-dark {
+  background-color: #0f3d24;
+}
+
+.bg-accent-subtle {
+  background-color: #fdf1d6;
+}
+
+.text-primary-light {
+  color: #a7e0bd;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+footer {
+  padding: 2rem;
+}
+
+/* inizio navbar */
+/* Gestione del layout principale della navbar personalizzata */
+.custom-navbar .container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Stile per raggruppare i bottoni a destra */
+.custom-navbar .navbar-collapse {
+  flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
+}
+
+.custom-navbar .navbar-nav {
+  margin-right: 2rem; /* Distanza tra i link centrali e i bottoni */
+  gap: 1rem;
+}
+
+.custom-navbar .nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sottotitolo-navbar {
+  font-size: 0.875rem;
+}
+
+/* fine navbar */
+/* inizio header */
+/* Sezione principale con sfondo e spaziatura */
+.hero-section {
+  background-color: #f3f7f4;
+  padding: 4rem 1.5rem;
+}
+
+/* Contenitore centrale con margini automatici per non rompersi mai */
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* qui assegno i nomi casuali per creare l'area */
+  grid-template-areas: "testo immagine" "statistiche immagine";
+  gap: 3rem 4rem;
+  align-items: center;
+}
+
+/* Collegamento delle aree personalizzate */
+.hero-testo {
+  grid-area: testo;
+}
+
+.hero-immagine {
+  grid-area: immagine;
+  justify-self: center;
+}
+
+.hero-statistiche {
+  grid-area: statistiche;
+  display: flex;
+  gap: 3rem;
+}
+
+/* Stili rapidi per le statistiche */
+.stat-item .stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+  color: #1b3d2f;
+}
+
+.stat-item .stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+/* 
+   Hero Section — Guida al Riuso
+    */
+.hero-section {
+  background-color: var(--rg-primary-subtle);
+  padding: 3rem 1.5rem;
+}
+
+/* 1. Struttura Mobile-First (elementi in pila) */
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "testo" "immagine" "statistiche";
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero-testo {
+  grid-area: testo;
+}
+
+.hero-immagine {
+  grid-area: immagine;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Immagine con bordi arrotondati e ombra */
+.hero-immagine img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: var(--bs-border-radius-xl); /* 16px da variabili */
+  box-shadow: 0 12px 32px rgba(15, 61, 36, 0.08); /* Sfumatura basata su primary-dark */
+  background-color: var(--bs-white);
+}
+
+.hero-statistiche {
+  grid-area: statistiche;
+  display: flex;
+  gap: 2.5rem;
+}
+
+/* Tipografia statistiche con variabili */
+.stat-item .stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+  color: var(--rg-primary-dark);
+}
+
+.stat-item .stat-label {
+  font-size: 0.9rem;
+  color: var(--bs-secondary);
+}
+
+/*  Regola per responsiveness nei telefoni per la sezione Hero */
+@media (min-width: 992px) {
+  .hero-section {
+    padding: 5rem 2rem;
+  }
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "testo immagine" "statistiche immagine";
+    gap: 3rem 4rem;
+  }
+  .hero-immagine img {
+    max-width: 100%;
+  }
+}/*# sourceMappingURL=main.css.map */

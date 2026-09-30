@@ -2,3 +2,13 @@
 .tile-icon {
   background-color: rgba(255, 255, 255, .2);
 }
+
+
+
+/* Colori delle intestazioni card nella sezione Catalogo */
+.card-header.bg-azione-riparazione { background-color: var(--rg-azione-riparazione); }
+.card-header.bg-azione-scambio     { background-color: var(--rg-azione-scambio); }
+.card-header.bg-azione-donazione   { background-color: var(--rg-azione-donazione); }
+.card-header.bg-azione-riciclo     { background-color: var(--rg-azione-riciclo); }
+
+// fine colori delle intestazioni card nella sezione Catalogo
