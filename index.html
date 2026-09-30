@@ -97,6 +97,159 @@
   </div>
 </section>
 
+<!-- fine header -->
+
+
+<!-- Inizio Sezione Catalogo -->
+<section class="py-5" id="catalogo">
+  <div class="container">
+    
+    <!-- Intestazione Catalogo -->
+    <div class="mb-4">
+      <span class="text-uppercase fw-bold text-success" style="font-size: 0.85rem; letter-spacing: 0.05em;">Catalogo</span>
+      <h2 class="fw-bold mt-1">Tutti i servizi di riuso</h2>
+      <p class="text-muted">48 servizi verificati dalla Fondazione in tutta la città.</p>
+    </div>
+
+    <!-- Box dei Filtri -->
+    <div class="card border-0 shadow-sm p-4 mb-4 rounded-4 bg-white">
+      <div class="row g-3">
+        
+       <!-- Cerca per nome/oggetto -->
+    <div class="col-md-6">
+     <label class="form-label small fw-semibold text-secondary">Cerca un servizio o un oggetto</label>
+    <div class="custom-search-bar">
+     <i class="bi bi-search text-muted me-2"></i>
+     <input type="text" class="search-input-clean" placeholder="Es. bici, lavatrice, vestiti...">
+    </div>
+    </div>
+
+        <!-- Categoria di oggetti -->
+        <div class="col-md-3">
+          <label class="form-label small fw-semibold text-secondary">Categoria di oggetti</label>
+          <select class="form-select">
+            <option selected>Tutte le categorie</option>
+            <option value="1">Abbigliamento</option>
+            <option value="2">Elettrodomestici</option>
+            <option value="3">Mobili</option>
+          </select>
+        </div>
+
+        <!-- Zona -->
+        <div class="col-md-3">
+          <label class="form-label small fw-semibold text-secondary">Zona</label>
+          <select class="form-select">
+            <option selected>Tutte le zone</option>
+            <option value="1">Centro storico</option>
+            <option value="2">Navile</option>
+            <option value="3">San Donato</option>
+          </select>
+        </div>
+
+        <!-- Tipo di azione (Bottoni filtro a pillola) -->
+        <div class="col-12 mt-3">
+          <label class="form-label small fw-semibold text-secondary d-block">Tipo di azione</label>
+          <div class="d-flex flex-wrap gap-2">
+            <button class="pill-btn attivo">Tutti</button>
+            <button class="pill-btn">Riparazione</button>
+            <button class="pill-btn">Scambio</button>
+            <button class="pill-btn">Donazione</button>
+            <button class="pill-btn">Riciclo</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Risultati e Reset -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <span class="fw-semibold text-dark">6 servizi trovati</span>
+      <a href="#" class="text-success text-decoration-none small fw-semibold">Azzera filtri</a>
+    </div>
+
+    <!-- Griglia delle Card dei Servizi (Bootstrap Nativo) -->
+    <div class="row g-4">
+      
+      <!-- Card 1: Riparazione -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+          <div class="card-header bg-azione-riparazione text-white p-3 d-flex justify-content-between align-items-center border-0">
+            <span class="fw-medium d-flex align-items-center gap-2"><i class="bi bi-tools"></i> Riparazione</span>
+            <button class="btn btn-link text-white p-0 text-decoration-none"><i class="bi bi-heart"></i></button>
+          </div>
+          <div class="card-body p-4 bg-white d-flex flex-column justify-content-between">
+            <div>
+              <h3 class="h5 fw-bold mb-2">Ciclofficina Popolare</h3>
+              <span class="badge bg-light text-dark border mb-3">Bici</span>
+              <p class="text-muted small mb-2"><i class="bi bi-geo-alt me-1"></i> Navile, Via del Lavoro 12</p>
+              <p class="text-muted small mb-3"><i class="bi bi-clock me-1"></i> Mar–Sab 15:00–19:00</p>
+              <p class="small text-secondary mb-0">Attrezzi e volontari per sistemare la tua bici da solo: freni, catena, forature. Porta la bici, ti insegniamo come fare.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Scambio -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+          <div class="card-header bg-azione-scambio text-white p-3 d-flex justify-content-between align-items-center border-0">
+            <span class="fw-medium d-flex align-items-center gap-2"><i class="bi bi-arrow-left-right"></i> Scambio</span>
+            <button class="btn btn-link text-white p-0 text-decoration-none"><i class="bi bi-heart"></i></button>
+          </div>
+          <div class="card-body p-4 bg-white d-flex flex-column justify-content-between">
+            <div>
+              <h3 class="h5 fw-bold mb-2">Swap Party Vestiti</h3>
+              <span class="badge bg-light text-dark border mb-3">Abbigliamento</span>
+              <p class="text-muted small mb-2"><i class="bi bi-geo-alt me-1"></i> Centro storico, Piazza Maggiore</p>
+              <p class="text-muted small mb-3"><i class="bi bi-clock me-1"></i> 1ª domenica del mese, 10:00–17:00</p>
+              <p class="small text-secondary mb-0">Porta fino a 10 capi puliti e in buono stato e scegli quelli che ti piacciono. Gratuito, senza soldi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Riciclo -->
+      <div class="col-md-4">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+          <div class="card-header bg-azione-riciclo text-white p-3 d-flex justify-content-between align-items-center border-0">
+            <span class="fw-medium d-flex align-items-center gap-2"><i class="bi bi-recycle"></i> Riciclo</span>
+            <button class="btn btn-link text-white p-0 text-decoration-none"><i class="bi bi-heart"></i></button>
+          </div>
+          <div class="card-body p-4 bg-white d-flex flex-column justify-content-between">
+            <div>
+              <h3 class="h5 fw-bold mb-2">Centro di raccolta comunale</h3>
+              <span class="badge bg-light text-dark border mb-3">RAEE</span>
+              <p class="text-muted small mb-2"><i class="bi bi-geo-alt me-1"></i> Borgo Panigale, Via Lepido 186</p>
+              <p class="text-muted small mb-3"><i class="bi bi-clock me-1"></i> Lun–Sab 8:00–19:00</p>
+              <p class="small text-secondary mb-0">Consegna elettrodomestici, pile, lampadine e piccoli apparecchi elettronici non più riparabili. Gratuito per i residenti.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- Fine Sezione Catalogo -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
