@@ -93,7 +93,8 @@ implementazione sezione e guida dettagliata alle classi Bootstrap
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -160,10 +161,13 @@ h6,
 
 /* inizio Bottoni della Hero nell' header */
 .hero-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .btn-custom-primary,
@@ -173,12 +177,19 @@ h6,
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   border: 2px solid var(--rg-primary-dark);
   text-decoration: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .btn-custom-primary {
@@ -213,6 +224,7 @@ h6,
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
@@ -239,7 +251,8 @@ h6,
 .visually-hidden-focusable:focus {
   border-color: #0f3d24;
   outline: 0;
-  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+  -webkit-box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+          box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
 }
 
 @media (max-width: 991.98px) {
@@ -254,20 +267,28 @@ h6,
   La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
     */
 .custom-search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
   background: var(--bs-white);
   border: 1px solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
   padding: 0 0.75rem;
   height: 42px;
+  -webkit-transition: border-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: border-color 0.2s, -webkit-box-shadow 0.2s;
   transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
 }
 
 .custom-search-bar:focus-within {
   border-color: var(--rg-primary-dark);
-  box-shadow: var(--rg-focus-shadow);
+  -webkit-box-shadow: var(--rg-focus-shadow);
+          box-shadow: var(--rg-focus-shadow);
 }
 
 .search-input-clean {
@@ -357,14 +378,22 @@ footer {
 /* inizio navbar */
 /* Gestione del layout principale della navbar personalizzata */
 .custom-navbar .container-fluid {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /* Stile per raggruppare i bottoni a destra */
 .custom-navbar .navbar-collapse {
-  flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
 }
 
 .custom-navbar .navbar-nav {
@@ -373,8 +402,12 @@ footer {
 }
 
 .custom-navbar .nav-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 0.75rem;
 }
 
@@ -385,8 +418,8 @@ footer {
 /* fine navbar */
 /* Hero Section - Guida al Riuso */
 .hero-section {
-  background-color: var(--rg-primary-subtle);
   padding: 3rem 1.5rem;
+  background-color: var(--rg-primary-subtle);
 }
 
 /* 1. Struttura Mobile-First (elementi in pila) */
@@ -397,7 +430,9 @@ footer {
   grid-template-columns: 1fr;
   grid-template-areas: "testo" "immagine" "statistiche";
   gap: 2.5rem;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .hero-testo {
@@ -407,8 +442,12 @@ footer {
 .hero-immagine {
   grid-area: immagine;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 /* Immagine con bordi arrotondati e ombra */
@@ -417,12 +456,15 @@ footer {
   max-width: 450px;
   height: auto;
   border-radius: var(--bs-border-radius-xl); /* 16px da variabili */
-  box-shadow: 0 12px 32px rgba(15, 61, 36, 0.08); /* Sfumatura basata su primary-dark */
+  -webkit-box-shadow: 0 12px 32px rgba(15, 61, 36, 0.08);
+          box-shadow: 0 12px 32px rgba(15, 61, 36, 0.08); /* Sfumatura basata su primary-dark */
   background-color: var(--bs-white);
 }
 
 .hero-statistiche {
   grid-area: statistiche;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 2.5rem;
 }
@@ -473,11 +515,15 @@ footer {
 }
 
 .tile-azione {
+  -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-box-shadow 0.15s ease-in-out;
   transition: box-shadow 0.15s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 .tile-azione:hover {
   color: #fff;
-  box-shadow: var(--bs-box-shadow-lg) !important;
+  -webkit-box-shadow: var(--bs-box-shadow-lg) !important;
+          box-shadow: var(--bs-box-shadow-lg) !important;
 }
 .tile-azione:hover .tile-count, .tile-azione:focus-visible .tile-count {
   text-decoration: underline;
@@ -501,5 +547,3 @@ footer {
     height: 3.5rem;
   }
 }
-
-/*# sourceMappingURL=main.css.map */
