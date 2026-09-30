@@ -1,0 +1,32 @@
+@use "../abstracts/variables" as *;
+
+.btn {
+  --bs-btn-focus-box-shadow: #{$rg-focus-shadow};
+}
+
+.btn-primary {
+  --bs-btn-bg: #{$primary};
+  --bs-btn-border-color: #{$primary};
+  --bs-btn-hover-bg: #{$primary-dark};
+  --bs-btn-hover-border-color: #{$primary-dark};
+  --bs-btn-active-bg: #{$primary-dark};
+  --bs-btn-active-border-color: #{$primary-dark};
+  --bs-btn-disabled-bg: #{$primary};
+  --bs-btn-disabled-border-color: #{$primary};
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #{$primary};
+  --bs-btn-border-color: #{$primary};
+  --bs-btn-hover-bg: #{$primary};
+  --bs-btn-hover-border-color: #{$primary};
+  --bs-btn-active-bg: #{$primary};
+  --bs-btn-active-border-color: #{$primary};
+  --bs-btn-disabled-color: #{$primary};
+  --bs-btn-disabled-border-color: #{$primary};
+}
+
+.btn-fav {
+  min-width: $rg-touch-min;
+  min-height: $rg-touch-min;
+}
