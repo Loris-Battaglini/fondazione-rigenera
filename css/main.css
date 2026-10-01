@@ -1,40 +1,4 @@
 @charset "UTF-8";
-/*
-implementazione sezione e guida dettagliata alle classi Bootstrap
-
-  [GUIDA ALLE CLASSI BOOTSTRAP UTILIZZATE NEL CODICE]
-
-  1. GRIGLIA E LAYOUT RESPONSIVE:
-     - .container / .container-fluid: Contenitori a larghezza massima o fluidi al 100%, servono per centrare i contenuti e gestire i margini laterali corretti.
-     - .row: Rappresenta la riga orizzontale del sistema a griglia (12 colonne totali).
-     - .col-12, .col-md-3, .col-md-4, .col-md-6: Colonne responsive. Dicono al browser quanto spazio occupare. Es. .col-md-4 su desktop divide lo spazio in 3 colonne uguali (4+4+4=12), mentre su mobile si adattano.
-
-  2. FLEXBOX E ALLINEAMENTI:
-     - .d-flex: Attiva il modello Flexbox rendendo il contenitore flessibile.
-     - .flex-wrap: Permette agli elementi flessibili di andare a capo automaticamente se non c'è abbastanza spazio orizzontale.
-     - .justify-content-between: Spinge gli elementi ai lati opposti del contenitore (uno a sinistra e uno a destra).
-     - .align-items-center: Centra verticalmente gli elementi figli all'interno di un blocco flex.
-     - .gap-2, .gap-3: Crea uno spazio uniforme (gap) tra gli elementi senza dover usare margini manuali.
-
-  3. SPAZIATURE (Margini e Padding):
-     - .m-* / .mb-* / .mt-*: Gestiscono i margini esterni (m = all, mb = margin-bottom, mt = margin-top).
-     - .p-* / .py-*: Gestiscono il padding interno (p = all, py = padding verticale sopra e sotto).
-
-  4. TIPOGRAFIA E TESTI:
-     - .fw-bold, .fw-semibold, .fw-medium: Definiscono il peso (spessore) del font.
-     - .text-uppercase: Converte tutto il testo in lettere maiuscole.
-     - .small: Riduce leggermente le dimensioni del testo.
-     - .text-muted, .text-secondary, .text-success, .text-white: Applicano i colori testuali definiti dalla palette di Bootstrap o personalizzati.
-
-  5. COMPONENTI E UTILITY VISIVE:
-     - .card, .card-header, .card-body: Strutture a blocchi con bordi e sfondi ideali per racchiudere informazioni.
-     - .border-0: Rimuove i bordi nativi del componente.
-     - .shadow-sm: Applica un'ombra leggera per dare profondità e tridimensionalità.
-     - .rounded-4: Arrotonda i angoli del box in modo marcato (16px).
-     - .overflow-hidden: Taglia tutto ciò che esce dai bordi arrotondati (fondamentale per le card con header colorati).
-     - .h-100: Forza l'altezza del blocco al 100%, utile per avere card perfettamente allineate nella stessa riga.
-     - .badge: Crea etichette piccole stile pillola per mostrare categorie brevi.
-     - .form-label, .form-control, .form-select: Classi native per stilizzare etichette, input di testo e menu a tendina." */
 :root {
   --rg-primary: #1b6b3a;
   --rg-primary-dark: #0f3d24;
@@ -56,11 +20,19 @@ implementazione sezione e guida dettagliata alle classi Bootstrap
   --bs-secondary-color: #5c636a;
   --bs-success: #1b6b3a;
   --bs-success-rgb: 27, 107, 58;
+  --bs-success-bg-subtle: #e3f1e8;
+  --bs-success-text-emphasis: #0f3d24;
+  --bs-success-border-subtle: #1b6b3a;
   --bs-warning: #f4b942;
   --bs-warning-rgb: 244, 185, 66;
+  --bs-warning-bg-subtle: #fdf1d6;
+  --bs-warning-text-emphasis: #212529;
+  --bs-warning-border-subtle: #f4b942;
   --bs-danger: #b02a37;
   --bs-danger-rgb: 176, 42, 55;
   --bs-danger-bg-subtle: #f8d7da;
+  --bs-danger-text-emphasis: #212529;
+  --bs-danger-border-subtle: #b02a37;
   --bs-light: #f8f9fa;
   --bs-light-rgb: 248, 249, 250;
   --bs-white: #fff;
@@ -322,23 +294,6 @@ h6,
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Colori delle intestazioni card nella sezione Catalogo */
-.card-header.bg-azione-riparazione {
-  background-color: var(--rg-azione-riparazione);
-}
-
-.card-header.bg-azione-scambio {
-  background-color: var(--rg-azione-scambio);
-}
-
-.card-header.bg-azione-donazione {
-  background-color: var(--rg-azione-donazione);
-}
-
-.card-header.bg-azione-riciclo {
-  background-color: var(--rg-azione-riciclo);
-}
-
 .bg-azione-riparazione {
   background-color: #a3470a;
 }
@@ -528,6 +483,28 @@ h6,
 
 .hero-testo {
   grid-area: testo;
+}
+
+/* Etichetta sopra il titolo: pillola bianca con testo verde */
+.hero-badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: var(--bs-border-radius-pill);
+  background-color: var(--bs-white);
+  color: var(--rg-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em; /* stessa spaziatura dell'.eyebrow */
+}
+
+/* Testo introduttivo sotto il titolo */
+.hero-description {
+  max-width: 36rem;
+  margin-bottom: 0;
+  font-size: var(--rg-fs-lead); /* 20px da variabili */
+  line-height: 1.6;
+  color: var(--bs-secondary-color);
 }
 
 .hero-immagine {
