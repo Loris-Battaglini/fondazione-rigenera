@@ -128,6 +128,23 @@ h6,
   line-height: 1.05;
 }
 
+.section,
+#catalogo,
+.hero-section,
+.report-section {
+  width: min(100% - 2rem, 90rem);
+  margin-inline: auto;
+}
+
+.section > .container,
+#catalogo > .container,
+.report-section > .container,
+.hero-container {
+  width: 100%;
+  max-width: 70rem;
+  margin-inline: auto;
+}
+
 .btn {
   --bs-btn-focus-box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
 }
@@ -350,29 +367,105 @@ h6,
   color: #a7e0bd;
 }
 
-.bg-azione-riparazione {
-  background-color: #a3470a;
+.report-section {
+  background-color: #0f3d24;
+  color: #fff;
 }
 
-.bg-azione-scambio {
-  background-color: #6f42c1;
+/* Colonna di testo a sinistra */
+.report-title {
+  font-size: clamp(1.75rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.25;
 }
 
-.bg-azione-donazione {
-  background-color: #0a58ca;
+.report-lead {
+  max-width: 34rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
-.bg-azione-riciclo {
-  background-color: #0e6672;
+.report-checks .bi {
+  font-size: 1.1rem;
 }
 
-form {
-  display: grid;
-  gap: 1rem;
+/* Card bianca con il form */
+.report-card {
+  color: #212529;
+  border-radius: 1rem;
+}
+.report-card .card-body {
+  padding: 1.5rem;
+}
+@media (min-width: 576px) {
+  .report-card .card-body {
+    padding: 2.5rem;
+  }
+}
+.report-card textarea.form-control {
+  min-height: 4.5rem;
+  resize: vertical;
 }
 
-footer {
-  padding: 2rem;
+.report-card-title {
+  font-size: 1.5rem;
+}
+
+.site-footer {
+  padding: 2.5rem 0 1.5rem;
+  background-color: #f8f9fa;
+  font-size: 0.875rem;
+}
+.site-footer a {
+  color: #1b6b3a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.site-footer a:hover {
+  color: #0f3d24;
+}
+.site-footer .footer-brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.site-footer .footer-brand .bi {
+  color: #1b6b3a;
+  font-size: 1.2rem;
+}
+.site-footer .footer-text {
+  max-width: 28rem;
+  margin: 0;
+  color: #5c636a;
+  line-height: 1.6;
+}
+.site-footer .footer-heading {
+  margin-bottom: 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.site-footer .footer-contacts {
+  margin: 0;
+  line-height: 1.85;
+}
+.site-footer .footer-links li {
+  margin-bottom: 0.45rem;
+}
+.site-footer .footer-divider {
+  margin: 1.75rem 0 1rem;
+  border-color: #dee2e6;
+  opacity: 1;
+}
+.site-footer .footer-legal {
+  color: #5c636a;
+  font-size: 0.75rem;
 }
 
 /* inizio navbar */
@@ -424,8 +517,6 @@ footer {
 
 /* 1. Struttura Mobile-First (elementi in pila) */
 .hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: "testo" "immagine" "statistiche";
@@ -482,7 +573,6 @@ footer {
   color: var(--bs-secondary);
 }
 
-/*  Regola per responsiveness nei telefoni per la sezione Hero */
 @media (min-width: 992px) {
   .hero-section {
     padding: 5rem 2rem;

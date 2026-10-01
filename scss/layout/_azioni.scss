@@ -9,11 +9,9 @@
 }
 
 /* Etichetta sopra i titoli: solo la spaziatura delle lettere, il resto è Bootstrap */
-.eyebrow { letter-spacing: .08em; }
-
-
-
-
+.eyebrow { 
+  letter-spacing: .08em; 
+}
 
 .tile-azione {
   transition: box-shadow .15s ease-in-out;
