@@ -262,44 +262,6 @@ h6,
     min-height: 48px;
   }
 }
-/* 
-  inizio modifiche per la  larghezza della barra di ricerca in catalogo, è stata aggiunta la classe .custom-search-bar per gestire la larghezza della barra di ricerca in modo più flessibile e responsive.
-  La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
-    */
-.custom-search-bar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
-  background: var(--bs-white);
-  border: 1px solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius);
-  padding: 0 0.75rem;
-  height: 42px;
-  -webkit-transition: border-color 0.2s, -webkit-box-shadow 0.2s;
-  transition: border-color 0.2s, -webkit-box-shadow 0.2s;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  transition: border-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
-}
-
-.custom-search-bar:focus-within {
-  border-color: var(--rg-primary-dark);
-  -webkit-box-shadow: var(--rg-focus-shadow);
-          box-shadow: var(--rg-focus-shadow);
-}
-
-.search-input-clean {
-  border: none;
-  background: transparent;
-  outline: none;
-  width: 100%;
-  font-size: 0.95rem;
-  color: var(--bs-body-color);
-}
-
 .icon-circle,
 .tile-icon {
   background-color: rgba(255, 255, 255, 0.2);
@@ -417,15 +379,25 @@ footer {
 
 /* fine navbar */
 /* Hero Section - Guida al Riuso */
+/* Hero Section - Guida al Riuso */
 .hero-section {
-  padding: 3rem 1.5rem;
-  background-color: var(--rg-primary-subtle);
+  /* La sezione esterna fa solo da impalcatura. 
+     Mantiene il padding esterno per staccare il blocco verde dal menu in alto e dal resto della pagina. */
+  padding: 4.5rem 1.5rem;
 }
 
-/* 1. Struttura Mobile-First (elementi in pila) */
 .hero-container {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
+  background-color: var(--rg-primary-subtle);
+  border-radius: 1.25rem;
+  padding: 4.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+  background-image: url("../../assets/img/palla.svg"), url("../../assets/img/palla-sinistra.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right -3rem bottom -3rem, left -4rem top 0;
+  background-size: 14rem, 12rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: "testo" "immagine" "statistiche";
@@ -434,9 +406,46 @@ footer {
       -ms-flex-align: center;
           align-items: center;
 }
+@media (min-width: 768px) {
+  .hero-container {
+    background-position: right -4rem bottom -4rem, left -4rem top -1rem;
+    background-size: 18rem, 24rem;
+  }
+}
+@media (min-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-areas: "testo immagine" "statistiche statistiche";
+    background-image: url("../../assets/img/palla-sinistra.svg");
+    background-repeat: no-repeat;
+    background-position: left -2rem top -1rem;
+    background-size: 46.6rem;
+  }
+}
+@media (min-width: 1400px) {
+  .hero-container {
+    background-position: left -10rem top -1rem;
+    background-size: 75rem;
+  }
+}
 
 .hero-testo {
   grid-area: testo;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--rg-primary-dark, #0F3D24);
+  margin-bottom: 1.25rem;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--bs-secondary-color, #5c636a);
+  margin-bottom: 2rem;
 }
 
 .hero-immagine {
@@ -455,10 +464,10 @@ footer {
   width: 100%;
   max-width: 450px;
   height: auto;
-  border-radius: var(--bs-border-radius-xl); /* 16px da variabili */
-  -webkit-box-shadow: 0 12px 32px rgba(15, 61, 36, 0.08);
-          box-shadow: 0 12px 32px rgba(15, 61, 36, 0.08); /* Sfumatura basata su primary-dark */
-  background-color: var(--bs-white);
+  border-radius: var(--bs-border-radius-xl);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: transparent;
 }
 
 .hero-statistiche {
@@ -546,4 +555,52 @@ footer {
     width: 3.5rem;
     height: 3.5rem;
   }
+}
+/* 
+  inizio modifiche per la  larghezza della barra di ricerca in catalogo, è stata aggiunta la classe .custom-search-bar per gestire la larghezza della barra di ricerca in modo più flessibile e responsive.
+  La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
+    */
+.custom-search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
+  background: var(--bs-white);
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  padding: 0 0.75rem;
+  height: 42px;
+  -webkit-transition: border-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: border-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
+}
+
+.custom-search-bar:focus-within {
+  border-color: var(--rg-primary-dark);
+  -webkit-box-shadow: var(--rg-focus-shadow);
+          box-shadow: var(--rg-focus-shadow);
+}
+
+.search-input-clean {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 0.95rem;
+  color: var(--bs-body-color);
+}
+
+/* Sezione Servizi e Catalogo Ricerca con sfondo verde coordinato all hero */
+.sezione-catalogo {
+  padding: 4rem 1.5rem;
+}
+
+.container-catalogo {
+  background-color: var(--rg-primary-subtle);
+  border-radius: 1.25rem;
+  padding: 4.5rem 3rem;
 }

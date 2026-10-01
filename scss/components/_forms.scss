@@ -23,34 +23,3 @@
 }
 
 
-/* 
-  inizio modifiche per la  larghezza della barra di ricerca in catalogo, è stata aggiunta la classe .custom-search-bar per gestire la larghezza della barra di ricerca in modo più flessibile e responsive.
-  La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
-    */
-.custom-search-bar {
-  display: flex;
-  align-items: center;
-  width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
-  background: var(--bs-white);
-  border: 1px solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius);
-  padding: 0 0.75rem;
-  height: 42px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.custom-search-bar:focus-within {
-  border-color: var(--rg-primary-dark);
-  box-shadow: var(--rg-focus-shadow);
-}
-
-.search-input-clean {
-  border: none;
-  background: transparent;
-  outline: none;
-  width: 100%;
-  font-size: 0.95rem;
-  color: var(--bs-body-color);
-}
-
-// fine modifiche per la  larghezza della barra di ricerca in catalogo
