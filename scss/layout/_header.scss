@@ -1,72 +1,44 @@
-/* Hero Section - Guida al Riuso */
-
-/* Hero Section - Guida al Riuso */
+/* Hero Section - Guida al Riuso
+   Il layout (colonne, ordine, spazi) lo fa Bootstrap nell'HTML.
+   Qui restano solo il riquadro verde arrotondato e le "palle" decorative. */
 
 .hero-section {
-  /* La sezione esterna fa solo da impalcatura. 
-     Mantiene il padding esterno per staccare il blocco verde dal menu in alto e dal resto della pagina. */
-  padding: 4.5rem 1.5rem;
+  padding-block: 1.5rem;
+
+  @media (min-width: 992px) {
+    padding-block: 3rem;
+  }
 }
 
 .hero-container {
-  max-width: 1320px; // Aumentato per adattarsi e allinearsi alla griglia sottostante
-  margin: 0 auto; 
   background-color: var(--rg-primary-subtle);
-  border-radius: 1.25rem; 
-  padding: 4.5rem 3rem; 
-  
-  // --- SPOSTIAMO QUI LA GESTIONE DELLE IMMAGINI ---
-  position: relative;
-  overflow: hidden; // Fondamentale: taglia le "palle" seguendo il border-radius del contenitore
+  border-radius: 1.25rem;
+  overflow: hidden; // taglia le "palle" seguendo gli angoli arrotondati
 
-  // Impostazione di default per Mobile e Tablet (Entrambe le immagini)
+  // Mobile e tablet: due palle
   background-image: url('../../assets/img/palla.svg'), url('../../assets/img/palla-sinistra.svg');
   background-repeat: no-repeat, no-repeat;
-  
-  // Posizioni per Mobile (Fino a 767px)
   background-position: right -3rem bottom -3rem, left -4rem top 0;
   background-size: 14rem, 12rem;
 
-  // --- IMPOSTAZIONI GRIGLIA ---
-  display: grid;
-  grid-template-columns: 1fr; 
-  grid-template-areas:
-    "testo"
-    "immagine"
-    "statistiche"; 
-  gap: 2.5rem;
-  align-items: center;
-
-  // --- TABLET (Da 768px) ---
   @media (min-width: 768px) {
     background-position: right -4rem bottom -4rem, left -4rem top -1rem;
     background-size: 18rem, 24rem;
   }
-  
-  // --- DESKTOP (Da 992px) ---
+
+  // Desktop: solo la palla di sinistra
   @media (min-width: 992px) {
-    // Aggiorniamo la griglia per Desktop
-    grid-template-columns: 1.1fr 0.9fr;
-    grid-template-areas:
-      "testo immagine"
-      "statistiche statistiche";
-      
-    // Sovrascriviamo il background per mantenere SOLO la palla di sinistra
     background-image: url('../../assets/img/palla-sinistra.svg');
-    background-repeat: no-repeat; // Resettiamo a un valore singolo
-    
-    // Passiamo a coordinate e dimensioni singole relative al contenitore
+    background-repeat: no-repeat;
     background-position: left -2rem top -1rem;
     background-size: 46.6rem;
   }
 
-  // --- SCHERMI EXTRA LARGHI (Da 1400px) ---
   @media (min-width: 1400px) {
-    // Essendo l'immagine ancorata al contenitore, non serve più il calc(). 
-    // Usiamo semplicemente "left" con valore negativo per spingerla un po' in fuori.
     background-position: left -10rem top -1rem;
     background-size: 75rem;
   }
+<<<<<<< HEAD
 }
 
 
@@ -148,3 +120,6 @@
     max-width: 100%;
   }
 }
+=======
+}
+>>>>>>> main

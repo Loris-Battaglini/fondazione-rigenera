@@ -1,40 +1,4 @@
 @charset "UTF-8";
-/*
-implementazione sezione e guida dettagliata alle classi Bootstrap
-
-  [GUIDA ALLE CLASSI BOOTSTRAP UTILIZZATE NEL CODICE]
-
-  1. GRIGLIA E LAYOUT RESPONSIVE:
-     - .container / .container-fluid: Contenitori a larghezza massima o fluidi al 100%, servono per centrare i contenuti e gestire i margini laterali corretti.
-     - .row: Rappresenta la riga orizzontale del sistema a griglia (12 colonne totali).
-     - .col-12, .col-md-3, .col-md-4, .col-md-6: Colonne responsive. Dicono al browser quanto spazio occupare. Es. .col-md-4 su desktop divide lo spazio in 3 colonne uguali (4+4+4=12), mentre su mobile si adattano.
-
-  2. FLEXBOX E ALLINEAMENTI:
-     - .d-flex: Attiva il modello Flexbox rendendo il contenitore flessibile.
-     - .flex-wrap: Permette agli elementi flessibili di andare a capo automaticamente se non c'è abbastanza spazio orizzontale.
-     - .justify-content-between: Spinge gli elementi ai lati opposti del contenitore (uno a sinistra e uno a destra).
-     - .align-items-center: Centra verticalmente gli elementi figli all'interno di un blocco flex.
-     - .gap-2, .gap-3: Crea uno spazio uniforme (gap) tra gli elementi senza dover usare margini manuali.
-
-  3. SPAZIATURE (Margini e Padding):
-     - .m-* / .mb-* / .mt-*: Gestiscono i margini esterni (m = all, mb = margin-bottom, mt = margin-top).
-     - .p-* / .py-*: Gestiscono il padding interno (p = all, py = padding verticale sopra e sotto).
-
-  4. TIPOGRAFIA E TESTI:
-     - .fw-bold, .fw-semibold, .fw-medium: Definiscono il peso (spessore) del font.
-     - .text-uppercase: Converte tutto il testo in lettere maiuscole.
-     - .small: Riduce leggermente le dimensioni del testo.
-     - .text-muted, .text-secondary, .text-success, .text-white: Applicano i colori testuali definiti dalla palette di Bootstrap o personalizzati.
-
-  5. COMPONENTI E UTILITY VISIVE:
-     - .card, .card-header, .card-body: Strutture a blocchi con bordi e sfondi ideali per racchiudere informazioni.
-     - .border-0: Rimuove i bordi nativi del componente.
-     - .shadow-sm: Applica un'ombra leggera per dare profondità e tridimensionalità.
-     - .rounded-4: Arrotonda i angoli del box in modo marcato (16px).
-     - .overflow-hidden: Taglia tutto ciò che esce dai bordi arrotondati (fondamentale per le card con header colorati).
-     - .h-100: Forza l'altezza del blocco al 100%, utile per avere card perfettamente allineate nella stessa riga.
-     - .badge: Crea etichette piccole stile pillola per mostrare categorie brevi.
-     - .form-label, .form-control, .form-select: Classi native per stilizzare etichette, input di testo e menu a tendina." */
 :root {
   --rg-primary: #1b6b3a;
   --rg-primary-dark: #0f3d24;
@@ -56,11 +20,19 @@ implementazione sezione e guida dettagliata alle classi Bootstrap
   --bs-secondary-color: #5c636a;
   --bs-success: #1b6b3a;
   --bs-success-rgb: 27, 107, 58;
+  --bs-success-bg-subtle: #e3f1e8;
+  --bs-success-text-emphasis: #0f3d24;
+  --bs-success-border-subtle: #1b6b3a;
   --bs-warning: #f4b942;
   --bs-warning-rgb: 244, 185, 66;
+  --bs-warning-bg-subtle: #fdf1d6;
+  --bs-warning-text-emphasis: #212529;
+  --bs-warning-border-subtle: #f4b942;
   --bs-danger: #b02a37;
   --bs-danger-rgb: 176, 42, 55;
   --bs-danger-bg-subtle: #f8d7da;
+  --bs-danger-text-emphasis: #212529;
+  --bs-danger-border-subtle: #b02a37;
   --bs-light: #f8f9fa;
   --bs-light-rgb: 248, 249, 250;
   --bs-white: #fff;
@@ -93,7 +65,8 @@ implementazione sezione e guida dettagliata alle classi Bootstrap
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -125,6 +98,23 @@ h6,
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.05;
+}
+
+.container-xxl {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+}
+
+.section > .container,
+#catalogo > .container,
+.report-section > .container,
+.hero-container,
+.custom-navbar > .container,
+.site-footer > .container {
+  width: 100%;
+  max-width: 70rem;
+  margin-inline: auto;
 }
 
 .btn {
@@ -160,10 +150,13 @@ h6,
 
 /* inizio Bottoni della Hero nell' header */
 .hero-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .btn-custom-primary,
@@ -173,12 +166,19 @@ h6,
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   border: 2px solid var(--rg-primary-dark);
   text-decoration: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .btn-custom-primary {
@@ -213,6 +213,7 @@ h6,
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
@@ -239,7 +240,8 @@ h6,
 .visually-hidden-focusable:focus {
   border-color: #0f3d24;
   outline: 0;
-  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+  -webkit-box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+          box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
 }
 
 @media (max-width: 991.98px) {
@@ -249,56 +251,32 @@ h6,
     min-height: 48px;
   }
 }
-/* 
-  inizio modifiche per la  larghezza della barra di ricerca in catalogo, è stata aggiunta la classe .custom-search-bar per gestire la larghezza della barra di ricerca in modo più flessibile e responsive.
-  La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
-    */
-.custom-search-bar {
-  display: flex;
-  align-items: center;
-  width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
-  background: var(--bs-white);
-  border: 1px solid var(--bs-border-color);
-  border-radius: var(--bs-border-radius);
-  padding: 0 0.75rem;
-  height: 42px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.custom-search-bar:focus-within {
-  border-color: var(--rg-primary-dark);
-  box-shadow: var(--rg-focus-shadow);
-}
-
-.search-input-clean {
-  border: none;
-  background: transparent;
-  outline: none;
-  width: 100%;
-  font-size: 0.95rem;
-  color: var(--bs-body-color);
-}
-
 .icon-circle,
 .tile-icon {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Colori delle intestazioni card nella sezione Catalogo */
-.card-header.bg-azione-riparazione {
-  background-color: var(--rg-azione-riparazione);
+/* card preferiti Anna */
+/* Cerchio con il cuore accanto al titolo "I tuoi preferiti": 48px su mobile, 56px da desktop */
+.icon-circle-lg {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+@media (min-width: 992px) {
+  .icon-circle-lg {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.75rem;
+  }
 }
 
-.card-header.bg-azione-scambio {
-  background-color: var(--rg-azione-scambio);
-}
-
-.card-header.bg-azione-donazione {
-  background-color: var(--rg-azione-donazione);
-}
-
-.card-header.bg-azione-riciclo {
-  background-color: var(--rg-azione-riciclo);
+/* Badge categoria nella card: 14px e peso medio, come nel Figma */
+.card-servizio .badge {
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .bg-azione-riparazione {
@@ -329,42 +307,126 @@ h6,
   color: #a7e0bd;
 }
 
-.bg-azione-riparazione {
-  background-color: #a3470a;
+.report-section {
+  background-color: #0f3d24;
+  color: #fff;
 }
 
-.bg-azione-scambio {
-  background-color: #6f42c1;
+/* Colonna di testo a sinistra */
+.report-title {
+  font-size: clamp(1.75rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.25;
 }
 
-.bg-azione-donazione {
-  background-color: #0a58ca;
+.report-lead {
+  max-width: 34rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
 }
 
-.bg-azione-riciclo {
-  background-color: #0e6672;
+.report-checks .bi {
+  font-size: 1.1rem;
 }
 
-form {
-  display: grid;
-  gap: 1rem;
+/* Card bianca con il form */
+.report-card {
+  color: #212529;
+  border-radius: 1rem;
+}
+.report-card .card-body {
+  padding: 1.5rem;
+}
+@media (min-width: 576px) {
+  .report-card .card-body {
+    padding: 2.5rem;
+  }
+}
+.report-card textarea.form-control {
+  min-height: 4.5rem;
+  resize: vertical;
 }
 
-footer {
-  padding: 2rem;
+.report-card-title {
+  font-size: 1.5rem;
+}
+
+.site-footer {
+  padding: 2.5rem 0 1.5rem;
+  background-color: #f8f9fa;
+  font-size: 0.875rem;
+}
+.site-footer a {
+  color: #1b6b3a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.site-footer a:hover {
+  color: #0f3d24;
+}
+.site-footer .footer-brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.site-footer .footer-brand .bi {
+  color: #1b6b3a;
+  font-size: 1.2rem;
+}
+.site-footer .footer-text {
+  max-width: 28rem;
+  margin: 0;
+  color: #5c636a;
+  line-height: 1.6;
+}
+.site-footer .footer-heading {
+  margin-bottom: 0.6rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.site-footer .footer-contacts {
+  margin: 0;
+  line-height: 1.85;
+}
+.site-footer .footer-links li {
+  margin-bottom: 0.45rem;
+}
+.site-footer .footer-divider {
+  margin: 1.75rem 0 1rem;
+  border-color: #dee2e6;
+  opacity: 1;
+}
+.site-footer .footer-legal {
+  color: #5c636a;
+  font-size: 0.75rem;
 }
 
 /* inizio navbar */
 /* Gestione del layout principale della navbar personalizzata */
 .custom-navbar .container-fluid {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /* Stile per raggruppare i bottoni a destra */
 .custom-navbar .navbar-collapse {
-  flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
 }
 
 .custom-navbar .navbar-nav {
@@ -373,8 +435,12 @@ footer {
 }
 
 .custom-navbar .nav-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 0.75rem;
 }
 
@@ -383,77 +449,48 @@ footer {
 }
 
 /* fine navbar */
-/* Hero Section - Guida al Riuso */
+/* Hero Section - Guida al Riuso
+   Il layout (colonne, ordine, spazi) lo fa Bootstrap nell'HTML.
+   Qui restano solo il riquadro verde arrotondato e le "palle" decorative. */
 .hero-section {
-  background-color: var(--rg-primary-subtle);
-  padding: 3rem 1.5rem;
+  padding-block: 1.5rem;
 }
-
-/* 1. Struttura Mobile-First (elementi in pila) */
-.hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "testo" "immagine" "statistiche";
-  gap: 2.5rem;
-  align-items: center;
-}
-
-.hero-testo {
-  grid-area: testo;
-}
-
-.hero-immagine {
-  grid-area: immagine;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-/* Immagine con bordi arrotondati e ombra */
-.hero-immagine img {
-  width: 100%;
-  max-width: 450px;
-  height: auto;
-  border-radius: var(--bs-border-radius-xl); /* 16px da variabili */
-  box-shadow: 0 12px 32px rgba(15, 61, 36, 0.08); /* Sfumatura basata su primary-dark */
-  background-color: var(--bs-white);
-}
-
-.hero-statistiche {
-  grid-area: statistiche;
-  display: flex;
-  gap: 2.5rem;
-}
-
-/* Tipografia statistiche con variabili */
-.stat-item .stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  display: block;
-  color: var(--rg-primary-dark);
-}
-
-.stat-item .stat-label {
-  font-size: 0.9rem;
-  color: var(--bs-secondary);
-}
-
-/*  Regola per responsiveness nei telefoni per la sezione Hero */
 @media (min-width: 992px) {
   .hero-section {
-    padding: 5rem 2rem;
-  }
-  .hero-container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "testo immagine" "statistiche immagine";
-    gap: 3rem 4rem;
-  }
-  .hero-immagine img {
-    max-width: 100%;
+    padding-block: 3rem;
   }
 }
+
+.hero-container {
+  background-color: var(--rg-primary-subtle);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background-image: url("../../assets/img/palla.svg"), url("../../assets/img/palla-sinistra.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right -3rem bottom -3rem, left -4rem top 0;
+  background-size: 14rem, 12rem;
+}
+@media (min-width: 768px) {
+  .hero-container {
+    background-position: right -4rem bottom -4rem, left -4rem top -1rem;
+    background-size: 18rem, 24rem;
+  }
+}
+@media (min-width: 992px) {
+  .hero-container {
+    background-image: url("../../assets/img/palla-sinistra.svg");
+    background-repeat: no-repeat;
+    background-position: left -2rem top -1rem;
+    background-size: 46.6rem;
+  }
+}
+@media (min-width: 1400px) {
+  .hero-container {
+    background-position: left -10rem top -1rem;
+    background-size: 75rem;
+  }
+}
+
 /* --------------------------------------------------------------------------
    SECTION AZIONI E COME FUNZIONA
    -------------------------------------------------------------------------- */
@@ -472,12 +509,19 @@ footer {
   letter-spacing: 0.08em;
 }
 
+/* Card azione: ombra come da Figma (0 4px 12px verde scuro al 12%) */
 .tile-azione {
+  -webkit-box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
+          box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
+  -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-box-shadow 0.15s ease-in-out;
   transition: box-shadow 0.15s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 .tile-azione:hover {
   color: #fff;
-  box-shadow: var(--bs-box-shadow-lg) !important;
+  -webkit-box-shadow: var(--bs-box-shadow-lg);
+          box-shadow: var(--bs-box-shadow-lg);
 }
 .tile-azione:hover .tile-count, .tile-azione:focus-visible .tile-count {
   text-decoration: underline;
@@ -487,6 +531,11 @@ footer {
   width: 3.5rem;
   height: 3.5rem;
   font-size: 1.75rem;
+}
+
+/* Freccia accanto al conteggio: 20px */
+.tile-count .bi {
+  font-size: 1.25rem;
 }
 
 /* Numero dei passi: cerchio da 56px (48px su telefono e tablet) */
@@ -500,4 +549,52 @@ footer {
     width: 3.5rem;
     height: 3.5rem;
   }
-}/*# sourceMappingURL=main.css.map */
+}
+/* 
+  inizio modifiche per la  larghezza della barra di ricerca in catalogo, è stata aggiunta la classe .custom-search-bar per gestire la larghezza della barra di ricerca in modo più flessibile e responsive.
+  La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
+    */
+.custom-search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
+  background: var(--bs-white);
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  padding: 0 0.75rem;
+  height: 42px;
+  -webkit-transition: border-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: border-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
+}
+
+.custom-search-bar:focus-within {
+  border-color: var(--rg-primary-dark);
+  -webkit-box-shadow: var(--rg-focus-shadow);
+          box-shadow: var(--rg-focus-shadow);
+}
+
+.search-input-clean {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  font-size: 0.95rem;
+  color: var(--bs-body-color);
+}
+
+/* Sezione Servizi e Catalogo Ricerca con sfondo verde coordinato all hero */
+.sezione-catalogo {
+  padding: 4rem 1.5rem;
+}
+
+.container-catalogo {
+  background-color: var(--rg-primary-subtle);
+  border-radius: 1.25rem;
+  padding: 4.5rem 3rem;
+}
