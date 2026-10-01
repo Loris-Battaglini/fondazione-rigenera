@@ -13,13 +13,16 @@
   letter-spacing: .08em; 
 }
 
+/* Card azione: ombra come da Figma (0 4px 12px verde scuro al 12%) */
 .tile-azione {
+  box-shadow: 0 4px 12px rgba(15, 61, 36, .12);
   transition: box-shadow .15s ease-in-out;
 
   &:hover {
     color: #fff;
-    box-shadow: var(--bs-box-shadow-lg) !important;
+    box-shadow: var(--bs-box-shadow-lg);
   }
+
 
   &:hover .tile-count,
   &:focus-visible .tile-count {
@@ -33,6 +36,10 @@
   font-size: 1.75rem;
 }
 
+/* Freccia accanto al conteggio: 20px */
+.tile-count .bi {
+  font-size: 1.25rem;
+}
 
 
 /* Numero dei passi: cerchio da 56px (48px su telefono e tablet) */

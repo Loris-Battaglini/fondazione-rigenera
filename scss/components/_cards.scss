@@ -4,3 +4,25 @@
 }
 
 // I colori delle intestazioni card nella sezione Catalogo usano le classi .bg-azione-* di _utilities.scss
+
+
+/* card preferiti Anna */
+/* Cerchio con il cuore accanto al titolo "I tuoi preferiti": 48px su mobile, 56px da desktop */
+.icon-circle-lg {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem; // cuore da 24px
+  flex-shrink: 0;    // non si schiaccia se il titolo accanto è lungo
+
+  @media (min-width: 992px) {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.75rem; // cuore da 28px
+  }
+}
+
+/* Badge categoria nella card: 14px e peso medio, come nel Figma */
+.card-servizio .badge {
+  font-size: .875rem;
+  font-weight: 500;
+}

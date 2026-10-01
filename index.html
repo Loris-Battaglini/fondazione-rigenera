@@ -85,7 +85,7 @@
 
     <!-- Blocco Immagine / Illustrazione -->
     <div class="hero-immagine">
-      <img src="assets/img/prova-img-bicicletta1.jpg" alt="Illustrazione Guida al Riuso" class="img-fluid">
+      <img src="assets/img/bicicletta-anna.svg" alt="Illustrazione Guida al Riuso" class="img-fluid">
     </div>
 
     <!-- Blocco Statistiche -->
@@ -125,15 +125,15 @@
         Scegli un'azione: ti mostriamo subito i servizi giusti nel catalogo.
       </p>
 
-      <div class="row row-cols-2 row-cols-lg-4 g-3 g-lg-4 mt-2">
+            <div class="row row-cols-2 row-cols-lg-4 g-3 g-lg-4 mt-2">
         <div class="col">
           <a class="tile-azione bg-azione-riparazione d-flex flex-column gap-3 h-100 p-3 p-sm-4
-            rounded-4 shadow-sm text-white text-decoration-none" href="#catalogo">
-            <span class="tile-icon d-inline-flex align-items-center justify-content-center rounded-4"
+            rounded-4 text-white text-decoration-none" href="#catalogo">
+            <span class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
               aria-hidden="true">
               <i class="bi bi-tools"></i>
             </span>
-            <h3 class="h4 m-0">Riparare</h3>
+            <h3 class="h4 fw-bold m-0">Riparare</h3>
             <p class="d-none d-sm-block m-0">Officine, ciclofficine e repair café per bici, elettrodomestici e vestiti.</p>
             <span class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold">
               <span><span data-conteggio="riparazione">14</span> servizi</span>
@@ -143,50 +143,49 @@
         </div>
         <div class="col">
           <a class="tile-azione bg-azione-scambio d-flex flex-column gap-3 h-100 p-3 p-sm-4
-            rounded-4 shadow-sm text-white text-decoration-none" href="#catalogo">
-            <span class="tile-icon d-inline-flex align-items-center justify-content-center rounded-4"
+            rounded-4 text-white text-decoration-none" href="#catalogo">
+            <span class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
               aria-hidden="true">
               <i class="bi bi-arrow-left-right"></i>
             </span>
-            <h3 class="h4 m-0">Scambiare</h3>
+            <h3 class="h4 fw-bold m-0">Scambiare</h3>
             <p class="d-none d-sm-block m-0">Swap party, bookcrossing e scaffali di scambio: porti qualcosa, prendi qualcosa.</p>
-            <span class="tile-count">
-              <span><span data-conteggio="scambio">14</span> servizi</span>
+            <span class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold">
+              <span><span data-conteggio="scambio">11</span> servizi</span>
               <i class="bi bi-arrow-right" aria-hidden="true"></i>
             </span>
           </a>
         </div>
         <div class="col">
           <a class="tile-azione bg-azione-donazione d-flex flex-column gap-3 h-100 p-3 p-sm-4
-            rounded-4 shadow-sm text-white text-decoration-none" href="#catalogo">
-            <span class="tile-icon d-inline-flex align-items-center justify-content-center rounded-4"
+            rounded-4 text-white text-decoration-none" href="#catalogo">
+            <span class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
               aria-hidden="true">
               <i class="bi bi-gift"></i>
             </span>
-            <h3 class="h4 m-0">Donare</h3>
+            <h3 class="h4 fw-bold m-0">Donare</h3>
             <p class="d-none d-sm-block m-0">Mercatini solidali e associazioni che danno nuova vita a mobili, giochi e abiti.</p>
-            <span class="tile-count">
-              <span><span data-conteggio="donazione">14</span> servizi</span>
+            <span class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold">
+              <span><span data-conteggio="donazione">9</span> servizi</span>
               <i class="bi bi-arrow-right" aria-hidden="true"></i>
             </span>
           </a>
         </div>
         <div class="col">
           <a class="tile-azione bg-azione-riciclo d-flex flex-column gap-3 h-100 p-3 p-sm-4
-            rounded-4 shadow-sm text-white text-decoration-none" href="#catalogo">
-            <span class="tile-icon d-inline-flex align-items-center justify-content-center rounded-4"
+            rounded-4 text-white text-decoration-none" href="#catalogo">
+            <span class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
               aria-hidden="true">
               <i class="bi bi-recycle"></i>
             </span>
-            <h3 class="h4 m-0">Riciclare</h3>
+            <h3 class="h4 fw-bold m-0">Riciclare</h3>
             <p class="d-none d-sm-block m-0">Centri di raccolta per RAEE, pile, oli e tutto ciò che non si può più riparare.</p>
-            <span class="tile-count">
+            <span class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold">
               <span><span data-conteggio="riciclo">14</span> servizi</span>
               <i class="bi bi-arrow-right" aria-hidden="true"></i>
             </span>
           </a>
         </div>
-        
       </div>
 
     </div>
@@ -260,8 +259,8 @@
 </section>
 
 <!-- Inizio Sezione Catalogo -->
-<section class="py-5" id="catalogo">
-  <div class="container">
+<section class="py-5 sezione-catalogo" id="catalogo">
+  <div class="container container-catalogo">
     
     <!-- Intestazione Catalogo -->
     <div class="mb-4">
@@ -391,6 +390,57 @@
   </div>
 </section>
 <!-- Fine Sezione Catalogo -->
+
+<!-- Inizio Sezione Preferiti -->
+<section id="preferiti" class="section" aria-labelledby="titolo-preferiti">
+  <div class="container">
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <span class="icon-circle icon-circle-lg bg-primary-subtle d-inline-flex align-items-center justify-content-center rounded-circle"
+        aria-hidden="true">
+        <i class="bi bi-heart-fill text-primary"></i>
+      </span>
+      <div>
+        <h2 id="titolo-preferiti" class="fw-bold mb-1">I tuoi preferiti</h2>
+        <p class="text-body-secondary mb-0">2 servizi salvati su questo dispositivo.</p>
+      </div>
+    </div>
+    <div id="lista-preferiti" class="row row-cols-1 row-cols-lg-3 g-4">
+      <div class="col">
+        <div class="card card-servizio border-0 shadow-sm rounded-4 overflow-hidden h-100" data-azione="riparazione">
+          <div class="card-header border-0 d-flex align-items-center justify-content-between py-3 text-white bg-azione-riparazione">
+            <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-tools"></i>
+              <span class="fw-medium">Riparazione</span>
+            </div>
+            <button type="button" class="btn btn-light btn-fav" aria-pressed="true"
+              aria-label="Salva Ciclofficina Popolare nei preferiti">
+              <i class="bi bi-heart-fill text-primary" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="card-body p-4 d-flex flex-column gap-2">
+            <h3 class="card-title h5 mb-0">Ciclofficina Popolare</h3>
+            <span class="badge text-bg-light border align-self-start"> Bici</span>
+            <ul class="list-unstyled text-muted d-flex flex-column gap-1 mb-0">
+              <li class="d-flex gap-2">
+                <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                <span>Navile, Via del Lavoro 12</span>
+              </li>
+              <li class="d-flex gap-2">
+                <i class="bi bi-clock" aria-hidden="true"></i>
+                <span>Mar–Sab 15:00–19:00</span>
+              </li>
+            </ul>
+            <p class="card-text text-body-secondary mb-0">Attrezzi e volontari per sistemare la tua bici da solo: freni, catena, forature. Porta la bici, ti insegniamo come fare.</p>
+          </div>
+        </div>
+      </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Fine Sezione Preferiti -->
 
 <!-- inizio sezione Partecipa / Segnala un servizio -->
 <section id="segnala" class="section report-section" aria-labelledby="titolo-report">

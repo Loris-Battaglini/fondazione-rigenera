@@ -1,3 +1,14 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "ciclofficina-popolare",
+      "nome": "Ciclofficina Popolare",
+      "azione": "riparazione",
+      "categoria": "Bici",
+      "zona": "Navile",
+      "indirizzo": "Via del Lavoro 12",
+      "orari": "Mar–Sab 15:00–19:00",
+      "descrizione": "Attrezzi e volontari per sistemare la tua bici da solo: freni, catena, forature. Porta la bici, ti insegniamo come fare."
+    }
+  ]
 }
