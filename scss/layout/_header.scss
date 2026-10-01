@@ -1,12 +1,33 @@
 /* Hero Section - Guida al Riuso */
 
+/* Hero Section - Guida al Riuso */
+
 .hero-section {
-  padding: 3rem 1.5rem;
-  background-color: var(--rg-primary-subtle); 
+  /* La sezione esterna fa solo da impalcatura. 
+     Mantiene il padding esterno per staccare il blocco verde dal menu in alto e dal resto della pagina. */
+  padding: 4.5rem 1.5rem;
 }
 
-/* 1. Struttura Mobile-First (elementi in pila) */
 .hero-container {
+  max-width: 1320px; // Aumentato per adattarsi e allinearsi alla griglia sottostante
+  margin: 0 auto; 
+  background-color: var(--rg-primary-subtle);
+  border-radius: 1.25rem; 
+  padding: 4.5rem 3rem; 
+  
+  // --- SPOSTIAMO QUI LA GESTIONE DELLE IMMAGINI ---
+  position: relative;
+  overflow: hidden; // Fondamentale: taglia le "palle" seguendo il border-radius del contenitore
+
+  // Impostazione di default per Mobile e Tablet (Entrambe le immagini)
+  background-image: url('../../assets/img/palla.svg'), url('../../assets/img/palla-sinistra.svg');
+  background-repeat: no-repeat, no-repeat;
+  
+  // Posizioni per Mobile (Fino a 767px)
+  background-position: right -3rem bottom -3rem, left -4rem top 0;
+  background-size: 14rem, 12rem;
+
+  // --- IMPOSTAZIONI GRIGLIA ---
   display: grid;
   grid-template-columns: 1fr; 
   grid-template-areas:
@@ -15,32 +36,46 @@
     "statistiche"; 
   gap: 2.5rem;
   align-items: center;
+
+  // --- TABLET (Da 768px) ---
+  @media (min-width: 768px) {
+    background-position: right -4rem bottom -4rem, left -4rem top -1rem;
+    background-size: 18rem, 24rem;
+  }
+  
+  // --- DESKTOP (Da 992px) ---
+  @media (min-width: 992px) {
+    // Aggiorniamo la griglia per Desktop
+    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-areas:
+      "testo immagine"
+      "statistiche statistiche";
+      
+    // Sovrascriviamo il background per mantenere SOLO la palla di sinistra
+    background-image: url('../../assets/img/palla-sinistra.svg');
+    background-repeat: no-repeat; // Resettiamo a un valore singolo
+    
+    // Passiamo a coordinate e dimensioni singole relative al contenitore
+    background-position: left -2rem top -1rem;
+    background-size: 46.6rem;
+  }
+
+  // --- SCHERMI EXTRA LARGHI (Da 1400px) ---
+  @media (min-width: 1400px) {
+    // Essendo l'immagine ancorata al contenitore, non serve più il calc(). 
+    // Usiamo semplicemente "left" con valore negativo per spingerla un po' in fuori.
+    background-position: left -10rem top -1rem;
+    background-size: 75rem;
+  }
 }
+
+
+
+
+
 
 .hero-testo {
   grid-area: testo;
-}
-
-/* Etichetta sopra il titolo: pillola bianca con testo verde */
-.hero-badge {
-  display: inline-block;
-  margin-bottom: 1rem;
-  padding: 0.375rem 0.875rem;
-  border-radius: var(--bs-border-radius-pill);
-  background-color: var(--bs-white);
-  color: var(--rg-primary);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: .08em; /* stessa spaziatura dell'.eyebrow */
-}
-
-/* Testo introduttivo sotto il titolo */
-.hero-description {
-  max-width: 36rem;
-  margin-bottom: 0;
-  font-size: var(--rg-fs-lead); /* 20px da variabili */
-  line-height: 1.6;
-  color: var(--bs-secondary-color);
 }
 
 .hero-immagine {
@@ -55,9 +90,9 @@
   width: 100%;
   max-width: 450px;
   height: auto;
-  border-radius: var(--bs-border-radius-xl); /* 16px da variabili */
-  box-shadow: 0 12px 32px rgba(15, 61, 36, 0.08); /* Sfumatura basata su primary-dark */
-  background-color: var(--bs-white);
+  border-radius: var(--bs-border-radius-xl); 
+  box-shadow: none;              // Via l'ombra che crea l'alone
+  background-color: transparent; // Via il fondo bianco!
 }
 
 .hero-statistiche {
