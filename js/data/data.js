@@ -7,10 +7,8 @@ const URL_DATI = 'mock/data.json';
 
 export async function caricaServizi() {
   const risposta = await fetch(URL_DATI);
-
   const dati = await risposta.json();
 
-  // Se "items" manca o non è una lista, restituiamo una lista vuota
   return Array.isArray(dati.items) ? dati.items : [];
 }
 

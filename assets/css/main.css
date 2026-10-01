@@ -100,18 +100,18 @@ h6,
   line-height: 1.05;
 }
 
-.section,
-#catalogo,
-.hero-section,
-.report-section {
-  width: min(100% - 2rem, 90rem);
+.container-xxl {
+  width: 100%;
+  max-width: 1440px;
   margin-inline: auto;
 }
 
 .section > .container,
 #catalogo > .container,
 .report-section > .container,
-.hero-container {
+.hero-container,
+.custom-navbar > .container,
+.site-footer > .container {
   width: 100%;
   max-width: 70rem;
   margin-inline: auto;
@@ -451,18 +451,10 @@ h6,
 /* fine navbar */
 /* Hero Section - Guida al Riuso */
 /* Hero Section - Guida al Riuso */
-.hero-section {
-  /* La sezione esterna fa solo da impalcatura. 
-     Mantiene il padding esterno per staccare il blocco verde dal menu in alto e dal resto della pagina. */
-  padding: 4.5rem 1.5rem;
-}
-
 .hero-container {
-  max-width: 1320px;
   margin: 0 auto;
   background-color: var(--rg-primary-subtle);
   border-radius: 1.25rem;
-  padding: 4.5rem 3rem;
   position: relative;
   overflow: hidden;
   background-image: url("../../assets/img/palla.svg"), url("../../assets/img/palla-sinistra.svg");
