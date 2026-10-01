@@ -79,7 +79,7 @@
 }
 
 
-h1 {
+.h1-hero {
     // Usiamo un clamp più generoso o aumentiamo la dimensione base
     font-size: clamp(2.5rem, 4vw, 3.8rem); 
     font-weight: 800;
@@ -88,7 +88,7 @@ h1 {
     margin-bottom: 1.25rem;
   }
 
-  p {
+  .p-hero {
     font-size: 1.15rem; // Leggermente più grande e leggibile
     line-height: 1.6;
     color: var(--bs-secondary-color, #5c636a);
