@@ -65,8 +65,7 @@
 }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -150,13 +149,10 @@ h6,
 
 /* inizio Bottoni della Hero nell' header */
 .hero-actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .btn-custom-primary,
@@ -166,19 +162,12 @@ h6,
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   border: 2px solid var(--rg-primary-dark);
   text-decoration: none;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-custom-primary {
@@ -213,7 +202,6 @@ h6,
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
@@ -240,8 +228,7 @@ h6,
 .visually-hidden-focusable:focus {
   border-color: #0f3d24;
   outline: 0;
-  -webkit-box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
-          box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
 }
 
 @media (max-width: 991.98px) {
@@ -342,12 +329,8 @@ h6,
   color: #0f3d24;
 }
 .site-footer .footer-brand {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
   font-size: 1.05rem;
@@ -388,22 +371,14 @@ h6,
 /* inizio navbar */
 /* Gestione del layout principale della navbar personalizzata */
 .custom-navbar .container-fluid {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Stile per raggruppare i bottoni a destra */
 .custom-navbar .navbar-collapse {
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
+  flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
 }
 
 .custom-navbar .navbar-nav {
@@ -412,12 +387,8 @@ h6,
 }
 
 .custom-navbar .nav-actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 0.75rem;
 }
 
@@ -450,9 +421,7 @@ h6,
   grid-template-columns: 1fr;
   grid-template-areas: "testo" "immagine" "statistiche";
   gap: 2.5rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 @media (min-width: 768px) {
   .hero-container {
@@ -481,37 +450,11 @@ h6,
   grid-area: testo;
 }
 
-/* Etichetta sopra il titolo: pillola bianca con testo verde */
-.hero-badge {
-  display: inline-block;
-  margin-bottom: 1rem;
-  padding: 0.375rem 0.875rem;
-  border-radius: var(--bs-border-radius-pill);
-  background-color: var(--bs-white);
-  color: var(--rg-primary);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em; /* stessa spaziatura dell'.eyebrow */
-}
-
-/* Testo introduttivo sotto il titolo */
-.hero-description {
-  max-width: 36rem;
-  margin-bottom: 0;
-  font-size: var(--rg-fs-lead); /* 20px da variabili */
-  line-height: 1.6;
-  color: var(--bs-secondary-color);
-}
-
 .hero-immagine {
   grid-area: immagine;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 /* Immagine con bordi arrotondati e ombra */
@@ -520,15 +463,12 @@ h6,
   max-width: 450px;
   height: auto;
   border-radius: var(--bs-border-radius-xl);
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   background-color: transparent;
 }
 
 .hero-statistiche {
   grid-area: statistiche;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 2.5rem;
 }
@@ -577,16 +517,14 @@ h6,
   letter-spacing: 0.08em;
 }
 
+/* Card azione: ombra come da Figma (0 4px 12px verde scuro al 12%) */
 .tile-azione {
-  -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
-  transition: -webkit-box-shadow 0.15s ease-in-out;
+  box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
   transition: box-shadow 0.15s ease-in-out;
-  transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 .tile-azione:hover {
   color: #fff;
-  -webkit-box-shadow: var(--bs-box-shadow-lg) !important;
-          box-shadow: var(--bs-box-shadow-lg) !important;
+  box-shadow: var(--bs-box-shadow-lg);
 }
 .tile-azione:hover .tile-count, .tile-azione:focus-visible .tile-count {
   text-decoration: underline;
@@ -596,6 +534,11 @@ h6,
   width: 3.5rem;
   height: 3.5rem;
   font-size: 1.75rem;
+}
+
+/* Freccia accanto al conteggio: 20px */
+.tile-count .bi {
+  font-size: 1.25rem;
 }
 
 /* Numero dei passi: cerchio da 56px (48px su telefono e tablet) */
@@ -615,28 +558,20 @@ h6,
   La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
     */
 .custom-search-bar {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
   background: var(--bs-white);
   border: 1px solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
   padding: 0 0.75rem;
   height: 42px;
-  -webkit-transition: border-color 0.2s, -webkit-box-shadow 0.2s;
-  transition: border-color 0.2s, -webkit-box-shadow 0.2s;
   transition: border-color 0.2s, box-shadow 0.2s;
-  transition: border-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
 }
 
 .custom-search-bar:focus-within {
   border-color: var(--rg-primary-dark);
-  -webkit-box-shadow: var(--rg-focus-shadow);
-          box-shadow: var(--rg-focus-shadow);
+  box-shadow: var(--rg-focus-shadow);
 }
 
 .search-input-clean {
@@ -658,3 +593,5 @@ h6,
   border-radius: 1.25rem;
   padding: 4.5rem 3rem;
 }
+
+/*# sourceMappingURL=main.css.map */
