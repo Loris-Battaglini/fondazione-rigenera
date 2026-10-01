@@ -449,25 +449,26 @@ h6,
 }
 
 /* fine navbar */
-/* Hero Section - Guida al Riuso */
-/* Hero Section - Guida al Riuso */
+/* Hero Section - Guida al Riuso
+   Il layout (colonne, ordine, spazi) lo fa Bootstrap nell'HTML.
+   Qui restano solo il riquadro verde arrotondato e le "palle" decorative. */
+.hero-section {
+  padding-block: 1.5rem;
+}
+@media (min-width: 992px) {
+  .hero-section {
+    padding-block: 3rem;
+  }
+}
+
 .hero-container {
-  margin: 0 auto;
   background-color: var(--rg-primary-subtle);
   border-radius: 1.25rem;
-  position: relative;
   overflow: hidden;
   background-image: url("../../assets/img/palla.svg"), url("../../assets/img/palla-sinistra.svg");
   background-repeat: no-repeat, no-repeat;
   background-position: right -3rem bottom -3rem, left -4rem top 0;
   background-size: 14rem, 12rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "testo" "immagine" "statistiche";
-  gap: 2.5rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 @media (min-width: 768px) {
   .hero-container {
@@ -477,8 +478,6 @@ h6,
 }
 @media (min-width: 992px) {
   .hero-container {
-    grid-template-columns: 1.1fr 0.9fr;
-    grid-template-areas: "testo immagine" "statistiche statistiche";
     background-image: url("../../assets/img/palla-sinistra.svg");
     background-repeat: no-repeat;
     background-position: left -2rem top -1rem;
@@ -492,66 +491,6 @@ h6,
   }
 }
 
-.hero-testo {
-  grid-area: testo;
-}
-
-.hero-immagine {
-  grid-area: immagine;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-/* Immagine con bordi arrotondati e ombra */
-.hero-immagine img {
-  width: 100%;
-  max-width: 450px;
-  height: auto;
-  border-radius: var(--bs-border-radius-xl);
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  background-color: transparent;
-}
-
-.hero-statistiche {
-  grid-area: statistiche;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 2.5rem;
-}
-
-/* Tipografia statistiche con variabili */
-.stat-item .stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  display: block;
-  color: var(--rg-primary-dark);
-}
-
-.stat-item .stat-label {
-  font-size: 0.9rem;
-  color: var(--bs-secondary);
-}
-
-@media (min-width: 992px) {
-  .hero-section {
-    padding: 5rem 2rem;
-  }
-  .hero-container {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "testo immagine" "statistiche immagine";
-    gap: 3rem 4rem;
-  }
-  .hero-immagine img {
-    max-width: 100%;
-  }
-}
 /* --------------------------------------------------------------------------
    SECTION AZIONI E COME FUNZIONA
    -------------------------------------------------------------------------- */
