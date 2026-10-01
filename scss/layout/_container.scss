@@ -1,0 +1,28 @@
+@use "../abstracts/variables" as *;
+
+.section,
+#catalogo,
+.hero-section,
+.report-section {
+  width: min(calc(100% - 2rem), $section-width);
+  margin-inline: auto;
+}
+
+// .section > .container,
+// #catalogo > .container,
+// .report-section > .container,
+// .hero-container,
+// .custom-navbar > .container,
+// .site-footer > .container {
+//   width: 100%;
+//   max-width: $container-width;
+//   margin-inline: auto;
+// }
+.section > .container,
+#catalogo > .container,
+.report-section > .container,
+.hero-container {
+  width: 100%;
+  max-width: $container-width;
+  margin-inline: auto;
+}

@@ -1,0 +1,48 @@
+@use "../abstracts/variables" as *;
+
+.report-section {
+  background-color: $primary-dark;
+  color: $white;
+}
+
+/* Colonna di testo a sinistra */
+.report-title {
+  font-size: clamp(1.75rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.report-lead {
+  max-width: 34rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.report-checks {
+  .bi {
+    font-size: 1.1rem;
+  }
+}
+
+/* Card bianca con il form */
+.report-card {
+  color: $body-color;
+  border-radius: $border-radius-xl;
+
+  .card-body {
+    padding: 1.5rem;
+
+    @media (min-width: 576px) {
+      padding: 2.5rem;
+    }
+  }
+
+  textarea.form-control {
+    min-height: 4.5rem;
+    resize: vertical;
+  }
+}
+
+.report-card-title {
+  font-size: 1.5rem;
+}

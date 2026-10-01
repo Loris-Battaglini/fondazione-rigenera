@@ -1,9 +1,10 @@
 @use "base";
+@use "layout/container";
 @use "components/buttons";
 @use "components/forms";
 @use "components/cards";
 @use "components/utilities";
-@use "layout/form";
+@use "layout/report";
 @use "layout/footer";
 @use "layout/navbar";
 @use "layout/header";

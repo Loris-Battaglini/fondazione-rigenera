@@ -8,9 +8,11 @@ node_modules/
 # File di sistema
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # File temporanei degli editor
-.vscode/*.log
+.vscode/
+.idea/
 *.tmp
 *.swp
 
@@ -18,3 +20,9 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# Log locali
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
