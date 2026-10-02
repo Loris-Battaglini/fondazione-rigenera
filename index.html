@@ -1,641 +1,936 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
-<!-- link per il font Inter (Google Fonts) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <!-- link per il font Inter (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    />
 
-<!-- link per le icone di boootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+    <!-- link per le icone di boootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
 
     <!-- link per il css di bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- link per percorso css andrea  -->
-  <link rel="stylesheet" href="assets/css/main.min.css">
+    <!-- link per percorso css andrea  -->
+    <link rel="stylesheet" href="assets/css/main.min.css" />
+  </head>
+  <body>
+    <!-- inizio navbar -->
+    <nav class="navbar navbar-expand-lg custom-navbar">
+      <div class="container bg-body-tertiary rounded-3 p-3">
+        <!-- Brand e icona -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+          <i class="bi bi-recycle fs-2 text-success"></i>
+          <div>
+            <span class="d-block">Guida al riuso</span>
+            <small class="text-body-secondary sottotitolo-navbar"
+              >Fondazione Rigenera</small
+            >
+          </div>
+        </a>
 
-</head>
-<body>
+        <!-- Toggler mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <!-- inizio navbar -->
-
-<nav class="navbar navbar-expand-lg bg-body-tertiary custom-navbar">
-  <div class="container">
-  <!-- <div class="container-fluid"> -->
-    
-    <!-- Brand e icona -->
-    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <i class="bi bi-recycle fs-2 text-success"></i>
-      <div>
-        <span class="d-block">Guida al riuso</span>
-        <small class="text-body-secondary sottotitolo-navbar">Fondazione Rigenera</small>
-      </div>
-    </a>
-
-    <!-- Toggler mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Blocco di destra (Link + Bottoni) -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Catalogo</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Come funziona</a>
-        </li>
-      </ul>
-      <div class="nav-actions">
-        <button class="btn btn-outline-primary">Preferiti</button>
-        <button class="btn btn-primary">Segnala un luogo</button>
-      </div>
-    </div>
-
-  </div>
-</nav>
-
-<!-- fine navbar -->
-
-
-
-<!-- inizio header -->
-
-  <!-- <div class="hero-container"> -->
-    
-    <!-- Blocco Testo e Bottoni -->
-    <!-- <div class="hero-testo">
-      <span class="hero-badge">GUIDA GRATUITA · FONDAZIONE RIGENERA</span>
-      <h1 class="h1-hero">Dai una <span class="text-success">seconda vita</span> ai tuoi oggetti</h1>
-      <p class="hero-description p-hero">
-        Officine di riparazione, mercatini dell'usato, centri di raccolta e scambi di vestiti: tutti i servizi di riuso della città, verificati e in un unico posto. Cerca cosa ti serve e trova il posto giusto in pochi secondi.
-      </p>
-    <div class="hero-actions">
-     <button class="btn-custom-primary">Cerca un punto di riuso</button>
-     <button class="btn-custom-outline">Segnala un luogo / un'attività</button>
-    </div>
-    </div> -->
-
-    <!-- Blocco Immagine / Illustrazione -->
-    <!-- <div class="hero-immagine">
-      <img src="assets/img/bicicletta-anna.svg" alt="Illustrazione Guida al Riuso" class="img-fluid">
-    </div> -->
-
-    <!-- Blocco Statistiche -->
-    <!-- <div class="hero-statistiche">
-      <div class="stat-item">
-        <span class="stat-number">48</span>
-        <span class="stat-label">servizi verificati</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">12</span>
-        <span class="stat-label">quartieri</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">4</span>
-        <span class="stat-label">modi per il riuso</span>
-      </div>
-    </div>
-
-  </div> -->
-
-
-<!-- inizio header -->
-<section id="intro" class="hero-section" aria-labelledby="titolo-hero">
-  <div class="hero-container px-4 px-lg-5 py-5">
-    <div class="row flex-lg-row-reverse align-items-center g-5">
-
-      <!-- Immagine: prima nel codice, così su mobile sta sopra; da desktop va a destra -->
-      <div class="col-10 col-sm-8 col-lg-5 mx-auto">
-        <img src="assets/img/bicicletta-anna.svg" alt="" class="d-block mx-auto img-fluid">
-      </div>
-
-      <!-- Testo, bottoni e numeri -->
-      <div class="col-lg-7">
-        <p class="eyebrow text-uppercase fw-bold small text-primary mb-2">Guida gratuita · Fondazione Rigenera</p>
-        <h1 id="titolo-hero" class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-          Dai una <span class="text-primary">seconda vita</span> ai tuoi oggetti
-        </h1>
-        <p class="lead text-body-secondary mb-4">
-          Officine di riparazione, mercatini dell'usato, centri di raccolta e scambi di vestiti: tutti i servizi di riuso della città, verificati e in un unico posto. Cerca cosa ti serve e trova il posto giusto in pochi secondi.
-        </p>
-
-        <div class="d-grid gap-2 d-md-flex flex-md-wrap justify-content-md-start">
-          <a href="#catalogo" class="btn btn-primary btn-lg px-4 text-nowrap">Cerca un punto di riuso</a>
-          <a href="#segnala" class="btn btn-outline-primary btn-lg px-4 text-nowrap">Segnala un luogo</a>
+        <!-- Blocco di destra (Link + Bottoni) -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Catalogo</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Come funziona</a>
+            </li>
+          </ul>
+          <div class="nav-actions">
+            <button class="btn btn-outline-primary">Preferiti</button>
+            <button class="btn btn-primary">Segnala un luogo</button>
+          </div>
         </div>
-
-        <dl class="d-flex gap-4 pt-4 mt-4 mb-0 border-top">
-          <div class="d-flex flex-column-reverse justify-content-end">
-            <dt class="small fw-normal text-body-secondary">servizi verificati</dt>
-            <dd class="fs-2 fw-bold mb-0">48</dd>
-          </div>
-          <div class="d-flex flex-column-reverse justify-content-end">
-            <dt class="small fw-normal text-body-secondary">quartieri</dt>
-            <dd class="fs-2 fw-bold mb-0">12</dd>
-          </div>
-          <div class="d-flex flex-column-reverse justify-content-end">
-            <dt class="small fw-normal text-body-secondary">modi per il riuso</dt>
-            <dd class="fs-2 fw-bold mb-0">4</dd>
-          </div>
-        </dl>
       </div>
+    </nav>
+    <!-- fine navbar -->
+    <!-- inizio header -->
+    <section id="intro" class="hero-section" aria-labelledby="titolo-hero">
+      <!-- Padding adattativi: più compatti su mobile (px-3 py-4), più ampi da desktop -->
+      <div class="container hero-container px-3 px-md-4 px-lg-5 py-4 py-lg-5">
+        <div class="row align-items-center g-4 g-lg-5">
+          <!-- Testo, bottoni e numeri (su mobile occupa tutto lo spazio) -->
+          <div class="col-lg-7">
+            <p class="eyebrow text-uppercase fw-bold small text-primary mb-2">
+              Guida gratuita · Fondazione Rigenera
+            </p>
+            <h1
+              id="titolo-hero"
+              class="display-6 display-md-5 fw-bold text-body-emphasis lh-1 mb-3"
+            >
+              Dai una <span class="text-primary">seconda vita</span> ai tuoi
+              oggetti
+            </h1>
+            <p class="lead text-body-secondary mb-4 fs-6 fs-md-5">
+              <span class="d-none d-md-inline"
+                >Officine di riparazione, mercatini dell'usato, centri di
+                raccolta e scambi di vestiti:</span
+              >
+              <br class="d-none d-md-block d-lg-none" />
+              Tutti i servizi di riuso della città, verificati e in un unico
+              posto.
+            </p>
 
-    </div>
-  </div>
-</section>
-<!-- fine header -->
+            <!-- Bottoni -->
+            <div
+              class="d-grid gap-2 d-sm-flex justify-content-sm-start mb-4 mb-lg-0"
+            >
+              <a
+                href="#catalogo"
+                class="btn btn-primary btn-lg px-4 text-nowrap"
+                >Cerca un punto di riuso</a
+              >
+              <a
+                href="#segnala"
+                class="btn btn-outline-primary btn-lg px-4 text-nowrap"
+                >Segnala un luogo</a
+              >
+            </div>
 
+            <!-- Statistiche -->
+            <dl class="row g-2 pt-3 pt-sm-4 mt-3 mt-sm-4 mb-0 border-top">
+              <!-- Primo dato (1/3 di spazio) -->
+              <div
+                class="col-4 d-flex flex-column-reverse justify-content-end text-center text-sm-start align-items-center align-items-sm-start"
+              >
+                <dt class="small fw-normal text-body-secondary">
+                  servizi verificati
+                </dt>
+                <dd class="fs-2 fw-bold mb-0">48</dd>
+              </div>
 
-<!-- fine header -->
+              <!-- Secondo dato (1/3 di spazio) -->
+              <div
+                class="col-4 d-flex flex-column-reverse justify-content-end text-center text-sm-start align-items-center align-items-sm-start"
+              >
+                <dt class="small fw-normal text-body-secondary">quartieri</dt>
+                <dd class="fs-2 fw-bold mb-0">12</dd>
+              </div>
 
-<!-- --------------------------------------------------------------------------
+              <!-- Terzo dato (1/3 di spazio) -->
+              <div
+                class="col-4 d-flex flex-column-reverse justify-content-end text-center text-sm-start align-items-center align-items-sm-start"
+              >
+                <dt class="small fw-normal text-body-secondary">
+                  modi per il riuso
+                </dt>
+                <dd class="fs-2 fw-bold mb-0">4</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Immagine: 'd-none d-lg-block' la nasconde su mobile/tablet e la mostra solo da desktop -->
+          <div class="col-lg-5 d-none d-lg-block">
+            <img
+              src="assets/img/bicicletta-anna.svg"
+              alt=""
+              class="d-block mx-auto img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- fine header -->
+    <!-- --------------------------------------------------------------------------
    SECTION 1: AZIONI
    -------------------------------------------------------------------------- -->
 
-  <section id="azioni" class="section" aria-labelledby="titolo-azioni">
-    <div class="container">
+    <section id="azioni" class="section" aria-labelledby="titolo-azioni">
+      <div class="container">
+        <p class="eyebrow text-uppercase fw-bold small text-primary mb-2">
+          Trova in pochi secondi
+        </p>
+        <h2 id="titolo-azioni">Cosa vuoi fare oggi?</h2>
+        <p class="lead text-body-secondary">
+          Scegli un'azione: ti mostriamo subito i servizi giusti nel catalogo.
+        </p>
 
-      <p class="eyebrow text-uppercase fw-bold small text-primary mb-2">Trova in pochi secondi</p>
-      <h2 id="titolo-azioni">Cosa vuoi fare oggi?</h2>
-      <p class="lead text-body-secondary">
-        Scegli un'azione: ti mostriamo subito i servizi giusti nel catalogo.
-      </p>
-
-            <div class="row row-cols-2 row-cols-lg-4 g-3 g-lg-4 mt-2">
-        <div class="col">
-          <a class="tile-azione bg-azione-riparazione d-flex flex-column gap-3 h-100 p-3 p-sm-4
-            rounded-4 text-white text-decoration-none" href="#catalogo">
-            <span class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
-              aria-hidden="true">
-              <i class="bi bi-tools"></i>
-            </span>
-            <h3 class="h4 fw-bold m-0">Riparare</h3>
-            <p class="d-none d-sm-block m-0">Officine, ciclofficine e repair café per bici, elettrodomestici e vestiti.</p>
-            <span class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold">
-              <span><span data-conteggio="riparazione">14</span> servizi</span>
-              <i class="bi bi-arrow-right" aria-hidden="true"></i>
-            </span>
-          </a>
-        </div>
-        <div class="col">
-          <a class="tile-azione bg-azione-scambio d-flex flex-column gap-3 h-100 p-3 p-sm-4
-            rounded-4 text-white text-decoration-none" href="#catalogo">
-            <span class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
-              aria-hidden="true">
-              <i class="bi bi-arrow-left-right"></i>
-            </span>
-            <h3 class="h4 fw-bold m-0">Scambiare</h3>
-            <p class="d-none d-sm-block m-0">Swap party, bookcrossing e scaffali di scambio: porti qualcosa, prendi qualcosa.</p>
-            <span class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold">
-              <span><span data-conteggio="scambio">11</span> servizi</span>
-              <i class="bi bi-arrow-right" aria-hidden="true"></i>
-            </span>
-          </a>
-        </div>
-        <div class="col">
-          <a class="tile-azione bg-azione-donazione d-flex flex-column gap-3 h-100 p-3 p-sm-4
-            rounded-4 text-white text-decoration-none" href="#catalogo">
-            <span class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
-              aria-hidden="true">
-              <i class="bi bi-gift"></i>
-            </span>
-            <h3 class="h4 fw-bold m-0">Donare</h3>
-            <p class="d-none d-sm-block m-0">Mercatini solidali e associazioni che danno nuova vita a mobili, giochi e abiti.</p>
-            <span class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold">
-              <span><span data-conteggio="donazione">9</span> servizi</span>
-              <i class="bi bi-arrow-right" aria-hidden="true"></i>
-            </span>
-          </a>
-        </div>
-        <div class="col">
-          <a class="tile-azione bg-azione-riciclo d-flex flex-column gap-3 h-100 p-3 p-sm-4
-            rounded-4 text-white text-decoration-none" href="#catalogo">
-            <span class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
-              aria-hidden="true">
-              <i class="bi bi-recycle"></i>
-            </span>
-            <h3 class="h4 fw-bold m-0">Riciclare</h3>
-            <p class="d-none d-sm-block m-0">Centri di raccolta per RAEE, pile, oli e tutto ciò che non si può più riparare.</p>
-            <span class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold">
-              <span><span data-conteggio="riciclo">14</span> servizi</span>
-              <i class="bi bi-arrow-right" aria-hidden="true"></i>
-            </span>
-          </a>
+        <div class="row row-cols-2 row-cols-lg-4 g-3 g-lg-4 mt-2">
+          <div class="col">
+            <a
+              class="tile-azione bg-azione-riparazione d-flex flex-column gap-3 h-100 p-3 p-sm-4 rounded-4 text-white text-decoration-none"
+              href="#catalogo"
+            >
+              <span
+                class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
+                aria-hidden="true"
+              >
+                <i class="bi bi-tools"></i>
+              </span>
+              <h3 class="h4 fw-bold m-0">Riparare</h3>
+              <p class="d-none d-sm-block m-0">
+                Officine, ciclofficine e repair café per bici, elettrodomestici
+                e vestiti.
+              </p>
+              <span
+                class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold"
+              >
+                <span
+                  ><span data-conteggio="riparazione">14</span> servizi</span
+                >
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+          <div class="col">
+            <a
+              class="tile-azione bg-azione-scambio d-flex flex-column gap-3 h-100 p-3 p-sm-4 rounded-4 text-white text-decoration-none"
+              href="#catalogo"
+            >
+              <span
+                class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
+                aria-hidden="true"
+              >
+                <i class="bi bi-arrow-left-right"></i>
+              </span>
+              <h3 class="h4 fw-bold m-0">Scambiare</h3>
+              <p class="d-none d-sm-block m-0">
+                Swap party, bookcrossing e scaffali di scambio: porti qualcosa,
+                prendi qualcosa.
+              </p>
+              <span
+                class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold"
+              >
+                <span><span data-conteggio="scambio">11</span> servizi</span>
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+          <div class="col">
+            <a
+              class="tile-azione bg-azione-donazione d-flex flex-column gap-3 h-100 p-3 p-sm-4 rounded-4 text-white text-decoration-none"
+              href="#catalogo"
+            >
+              <span
+                class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
+                aria-hidden="true"
+              >
+                <i class="bi bi-gift"></i>
+              </span>
+              <h3 class="h4 fw-bold m-0">Donare</h3>
+              <p class="d-none d-sm-block m-0">
+                Mercatini solidali e associazioni che danno nuova vita a mobili,
+                giochi e abiti.
+              </p>
+              <span
+                class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold"
+              >
+                <span><span data-conteggio="donazione">9</span> servizi</span>
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
+          <div class="col">
+            <a
+              class="tile-azione bg-azione-riciclo d-flex flex-column gap-3 h-100 p-3 p-sm-4 rounded-4 text-white text-decoration-none"
+              href="#catalogo"
+            >
+              <span
+                class="tile-icon d-inline-flex align-items-center justify-content-center align-self-start rounded-4"
+                aria-hidden="true"
+              >
+                <i class="bi bi-recycle"></i>
+              </span>
+              <h3 class="h4 fw-bold m-0">Riciclare</h3>
+              <p class="d-none d-sm-block m-0">
+                Centri di raccolta per RAEE, pile, oli e tutto ciò che non si
+                può più riparare.
+              </p>
+              <span
+                class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold"
+              >
+                <span><span data-conteggio="riciclo">14</span> servizi</span>
+                <i class="bi bi-arrow-right" aria-hidden="true"></i>
+              </span>
+            </a>
+          </div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-<!-- --------------------------------------------------------------------------
+    <!-- --------------------------------------------------------------------------
    SECTION 2: COME FUNZIONA
    -------------------------------------------------------------------------- -->
-   
-<section id="come-funziona" class="section pt-0" aria-labelledby="titolo-come-funziona">
-  <div class="container">
-    <div class="bg-accent-subtle p-4 p-md-5 rounded-5">
 
-      <p class="eyebrow text-uppercase fw-bold small text-primary mb-2">Come funziona</p>
-      <h2 id="titolo-come-funziona" class="mb-5">Quattro passi, zero complicazioni</h2>
+    <section
+      id="come-funziona"
+      class="section pt-0"
+      aria-labelledby="titolo-come-funziona"
+    >
+      <div class="container">
+        <div class="bg-accent-subtle p-4 p-md-5 rounded-5">
+          <p class="eyebrow text-uppercase fw-bold small text-primary mb-2">
+            Come funziona
+          </p>
+          <h2 id="titolo-come-funziona" class="mb-5">
+            Quattro passi, zero complicazioni
+          </h2>
 
-      <ol class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 list-unstyled m-0">
+          <ol
+            class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 list-unstyled m-0"
+          >
+            <li class="col d-flex flex-row flex-lg-column gap-3">
+              <div class="d-flex align-items-center gap-3">
+                <span
+                  class="step-num d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle bg-primary text-white fw-bold fs-4"
+                  aria-hidden="true"
+                  >1</span
+                >
+                <span
+                  class="flex-grow-1 border-top border-2 border-primary opacity-25 d-none d-lg-block"
+                ></span>
+              </div>
+              <div>
+                <h3 class="h5 mb-1">Cerca</h3>
+                <p class="mb-0">
+                  Scrivi l'oggetto o il servizio che ti serve, ad esempio «bici»
+                  o «lavatrice».
+                </p>
+              </div>
+            </li>
 
-        <li class="col d-flex flex-row flex-lg-column gap-3">
-          <div class="d-flex align-items-center gap-3">
-            <span class="step-num d-inline-flex align-items-center justify-content-center flex-shrink-0
-                   rounded-circle bg-primary text-white fw-bold fs-4" aria-hidden="true">1</span>
-            <span class="flex-grow-1 border-top border-2 border-primary opacity-25 d-none d-lg-block"></span>
-          </div>
-          <div>
-            <h3 class="h5 mb-1">Cerca</h3>
-            <p class="mb-0">Scrivi l'oggetto o il servizio che ti serve, ad esempio «bici» o «lavatrice».</p>
-          </div>
-        </li>
+            <li class="col d-flex flex-row flex-lg-column gap-3">
+              <div class="d-flex align-items-center gap-3">
+                <span
+                  class="step-num d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle bg-primary text-white fw-bold fs-4"
+                  aria-hidden="true"
+                  >2</span
+                >
+                <span
+                  class="flex-grow-1 border-top border-2 border-primary opacity-25 d-none d-lg-block"
+                ></span>
+              </div>
+              <div>
+                <h3 class="h5 mb-1">filtra</h3>
+                <p class="mb-0">
+                  Scegli il tipo di azione, la categoria di oggetti e la zona
+                  più comoda per te.
+                </p>
+              </div>
+            </li>
 
-        <li class="col d-flex flex-row flex-lg-column gap-3">
-          <div class="d-flex align-items-center gap-3">
-            <span class="step-num d-inline-flex align-items-center justify-content-center flex-shrink-0
-                   rounded-circle bg-primary text-white fw-bold fs-4" aria-hidden="true">2</span>
-            <span class="flex-grow-1 border-top border-2 border-primary opacity-25 d-none d-lg-block"></span>
-          </div>
-          <div>
-            <h3 class="h5 mb-1">filtra</h3>
-            <p class="mb-0">Scegli il tipo di azione, la categoria di oggetti e la zona più comoda per te.</p>
-          </div>
-        </li>
+            <li class="col d-flex flex-row flex-lg-column gap-3">
+              <div class="d-flex align-items-center gap-3">
+                <span
+                  class="step-num d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle bg-primary text-white fw-bold fs-4"
+                  aria-hidden="true"
+                  >3</span
+                >
+                <span
+                  class="flex-grow-1 border-top border-2 border-primary opacity-25 d-none d-lg-block"
+                ></span>
+              </div>
+              <div>
+                <h3 class="h5 mb-1">Trova il servizio</h3>
+                <p class="mb-0">
+                  Leggi indirizzo e orari. Salva nei preferiti i servizi che ti
+                  interessano.
+                </p>
+              </div>
+            </li>
 
-        <li class="col d-flex flex-row flex-lg-column gap-3">
-          <div class="d-flex align-items-center gap-3">
-            <span class="step-num d-inline-flex align-items-center justify-content-center flex-shrink-0
-                   rounded-circle bg-primary text-white fw-bold fs-4" aria-hidden="true">3</span>
-            <span class="flex-grow-1 border-top border-2 border-primary opacity-25 d-none d-lg-block"></span>
-          </div>
-          <div>
-            <h3 class="h5 mb-1">Trova il servizio</h3>
-            <p class="mb-0">Leggi indirizzo e orari. Salva nei preferiti i servizi che ti interessano.</p>
-          </div>
-        </li>
-
-        <li class="col d-flex flex-row flex-lg-column gap-3">
-          <div class="d-flex align-items-center gap-3">
-            <span class="step-num d-inline-flex align-items-center justify-content-center flex-shrink-0
-                   rounded-circle bg-primary text-white fw-bold fs-4" aria-hidden="true">4</span>
-            
-          </div>
-          <div>
-            <h3 class="h5 mb-1">Dai una seconda vita</h3>
-            <p class="mb-0">Porta l'oggetto: verrà riparato, scambiato, donato o riciclato.</p>
-          </div>
-        </li>
-
-      </ol>
-
-    </div>
-  </div>
-</section>
-
-<!-- Inizio Sezione Catalogo -->
-<section class="py-5 sezione-catalogo" id="catalogo">
-  <div class="container container-catalogo">
-    
-    <!-- Intestazione Catalogo -->
-    <div class="mb-4">
-      <span class="text-uppercase fw-bold text-success" style="font-size: 0.85rem; letter-spacing: 0.05em;">Catalogo</span>
-      <h2 class="fw-bold mt-1">Tutti i servizi di riuso</h2>
-      <p class="text-muted">48 servizi verificati dalla Fondazione in tutta la città.</p>
-    </div>
-
-    <!-- Box dei Filtri -->
-    <div class="card border-0 shadow-sm p-4 mb-4 rounded-4 bg-white">
-      <div class="row g-3">
-        
-    <!-- Cerca per nome/oggetto -->
-    <div class="col-md-6">
-     <label class="form-label small fw-semibold text-secondary">Cerca un servizio o un oggetto</label>
-    <div class="custom-search-bar">
-     <i class="bi bi-search text-muted me-2"></i>
-     <input type="text" class="search-input-clean" placeholder="Es. bici, lavatrice, vestiti...">
-    </div>
-    </div>
-
-        <!-- Categoria di oggetti -->
-        <div class="col-md-3">
-          <label class="form-label small fw-semibold text-secondary">Categoria di oggetti</label>
-          <select class="form-select">
-            <option selected>Tutte le categorie</option>
-            <option value="1">Abbigliamento</option>
-            <option value="2">Elettrodomestici</option>
-            <option value="3">Mobili</option>
-          </select>
+            <li class="col d-flex flex-row flex-lg-column gap-3">
+              <div class="d-flex align-items-center gap-3">
+                <span
+                  class="step-num d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle bg-primary text-white fw-bold fs-4"
+                  aria-hidden="true"
+                  >4</span
+                >
+              </div>
+              <div>
+                <h3 class="h5 mb-1">Dai una seconda vita</h3>
+                <p class="mb-0">
+                  Porta l'oggetto: verrà riparato, scambiato, donato o
+                  riciclato.
+                </p>
+              </div>
+            </li>
+          </ol>
         </div>
-
-        <!-- Zona -->
-        <div class="col-md-3">
-          <label class="form-label small fw-semibold text-secondary">Zona</label>
-          <select class="form-select">
-            <option selected>Tutte le zone</option>
-            <option value="1">Centro storico</option>
-            <option value="2">Navile</option>
-            <option value="3">San Donato</option>
-          </select>
-        </div>
-
-        <!-- Tipo di azione (Bottoni filtro a pillola) -->
-        <div class="col-12 mt-3">
-          <label class="form-label small fw-semibold text-secondary d-block">Tipo di azione</label>
-          <div class="d-flex flex-wrap gap-2">
-            <button class="pill-btn attivo">Tutti</button>
-            <button class="pill-btn">Riparazione</button>
-            <button class="pill-btn">Scambio</button>
-            <button class="pill-btn">Donazione</button>
-            <button class="pill-btn">Riciclo</button>
-          </div>
-        </div>
-
       </div>
-    </div>
+    </section>
 
-    <!-- Risultati e Reset -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <span class="fw-semibold text-dark">6 servizi trovati</span>
-      <a href="#" class="text-success text-decoration-none small fw-semibold">Azzera filtri</a>
-    </div>
+    <!-- Inizio Sezione Catalogo -->
+    <section class="py-5 sezione-catalogo" id="catalogo">
+      <div class="container container-catalogo">
+        <!-- Intestazione Catalogo -->
+        <div class="mb-4">
+          <span
+            class="text-uppercase fw-bold text-success"
+            style="font-size: 0.85rem; letter-spacing: 0.05em"
+            >Catalogo</span
+          >
+          <h2 class="fw-bold mt-1">Tutti i servizi di riuso</h2>
+          <p class="text-muted">
+            48 servizi verificati dalla Fondazione in tutta la città.
+          </p>
+        </div>
 
-    <!-- Griglia delle Card dei Servizi (Bootstrap Nativo) -->
-    <div class="row g-4">
-      
-      <!-- Card 1: Riparazione -->
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-          <div class="card-header bg-azione-riparazione text-white p-3 d-flex justify-content-between align-items-center border-0">
-            <span class="fw-medium d-flex align-items-center gap-2"><i class="bi bi-tools"></i> Riparazione</span>
-            <button class="btn btn-link text-white p-0 text-decoration-none"><i class="bi bi-heart"></i></button>
-          </div>
-          <div class="card-body p-4 bg-white d-flex flex-column justify-content-between">
-            <div>
-              <h3 class="h5 fw-bold mb-2">Ciclofficina Popolare</h3>
-              <span class="badge bg-light text-dark border mb-3">Bici</span>
-              <p class="text-muted small mb-2"><i class="bi bi-geo-alt me-1"></i> Navile, Via del Lavoro 12</p>
-              <p class="text-muted small mb-3"><i class="bi bi-clock me-1"></i> Mar–Sab 15:00–19:00</p>
-              <p class="small text-secondary mb-0">Attrezzi e volontari per sistemare la tua bici da solo: freni, catena, forature. Porta la bici, ti insegniamo come fare.</p>
+        <!-- Box dei Filtri -->
+        <div class="card border-0 shadow-sm p-4 mb-4 rounded-4 bg-white">
+          <div class="row g-3">
+            <!-- Cerca per nome/oggetto -->
+            <div class="col-md-6">
+              <label class="form-label small fw-semibold text-secondary"
+                >Cerca un servizio o un oggetto</label
+              >
+              <div class="custom-search-bar">
+                <i class="bi bi-search text-muted me-2"></i>
+                <input
+                  type="text"
+                  class="search-input-clean"
+                  placeholder="Es. bici, lavatrice, vestiti..."
+                />
+              </div>
+            </div>
+
+            <!-- Categoria di oggetti -->
+            <div class="col-md-3">
+              <label class="form-label small fw-semibold text-secondary"
+                >Categoria di oggetti</label
+              >
+              <select class="form-select">
+                <option selected>Tutte le categorie</option>
+                <option value="1">Abbigliamento</option>
+                <option value="2">Elettrodomestici</option>
+                <option value="3">Mobili</option>
+              </select>
+            </div>
+
+            <!-- Zona -->
+            <div class="col-md-3">
+              <label class="form-label small fw-semibold text-secondary"
+                >Zona</label
+              >
+              <select class="form-select">
+                <option selected>Tutte le zone</option>
+                <option value="1">Centro storico</option>
+                <option value="2">Navile</option>
+                <option value="3">San Donato</option>
+              </select>
+            </div>
+
+            <!-- Tipo di azione (Bottoni filtro a pillola) -->
+            <div class="col-12 mt-3">
+              <label class="form-label small fw-semibold text-secondary d-block"
+                >Tipo di azione</label
+              >
+              <div class="d-flex flex-wrap gap-2">
+                <button class="pill-btn attivo">Tutti</button>
+                <button class="pill-btn">Riparazione</button>
+                <button class="pill-btn">Scambio</button>
+                <button class="pill-btn">Donazione</button>
+                <button class="pill-btn">Riciclo</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Card 2: Scambio -->
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-          <div class="card-header bg-azione-scambio text-white p-3 d-flex justify-content-between align-items-center border-0">
-            <span class="fw-medium d-flex align-items-center gap-2"><i class="bi bi-arrow-left-right"></i> Scambio</span>
-            <button class="btn btn-link text-white p-0 text-decoration-none"><i class="bi bi-heart"></i></button>
-          </div>
-          <div class="card-body p-4 bg-white d-flex flex-column justify-content-between">
-            <div>
-              <h3 class="h5 fw-bold mb-2">Swap Party Vestiti</h3>
-              <span class="badge bg-light text-dark border mb-3">Abbigliamento</span>
-              <p class="text-muted small mb-2"><i class="bi bi-geo-alt me-1"></i> Centro storico, Piazza Maggiore</p>
-              <p class="text-muted small mb-3"><i class="bi bi-clock me-1"></i> 1ª domenica del mese, 10:00–17:00</p>
-              <p class="small text-secondary mb-0">Porta fino a 10 capi puliti e in buono stato e scegli quelli che ti piacciono. Gratuito, senza soldi.</p>
-            </div>
-          </div>
+        <!-- Risultati e Reset -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <span class="fw-semibold text-dark">6 servizi trovati</span>
+          <a
+            href="#"
+            class="text-success text-decoration-none small fw-semibold"
+            >Azzera filtri</a
+          >
         </div>
-      </div>
-      
-      <!-- Card 3: Riciclo -->
-      <div class="col-md-4">
-        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-          <div class="card-header bg-azione-riciclo text-white p-3 d-flex justify-content-between align-items-center border-0">
-            <span class="fw-medium d-flex align-items-center gap-2"><i class="bi bi-recycle"></i> Riciclo</span>
-            <button class="btn btn-link text-white p-0 text-decoration-none"><i class="bi bi-heart"></i></button>
-          </div>
-          <div class="card-body p-4 bg-white d-flex flex-column justify-content-between">
-            <div>
-              <h3 class="h5 fw-bold mb-2">Centro di raccolta comunale</h3>
-              <span class="badge bg-light text-dark border mb-3">RAEE</span>
-              <p class="text-muted small mb-2"><i class="bi bi-geo-alt me-1"></i> Borgo Panigale, Via Lepido 186</p>
-              <p class="text-muted small mb-3"><i class="bi bi-clock me-1"></i> Lun–Sab 8:00–19:00</p>
-              <p class="small text-secondary mb-0">Consegna elettrodomestici, pile, lampadine e piccoli apparecchi elettronici non più riparabili. Gratuito per i residenti.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Fine Sezione Catalogo -->
 
-<!-- Inizio Sezione Preferiti -->
-<section id="preferiti" class="section" aria-labelledby="titolo-preferiti">
-  <div class="container">
-    <div class="d-flex align-items-center gap-3 mb-4">
-      <span class="icon-circle icon-circle-lg bg-primary-subtle d-inline-flex align-items-center justify-content-center rounded-circle"
-        aria-hidden="true">
-        <i class="bi bi-heart-fill text-primary"></i>
-      </span>
-      <div>
-        <h2 id="titolo-preferiti" class="fw-bold mb-1">I tuoi preferiti</h2>
-        <p class="text-body-secondary mb-0">2 servizi salvati su questo dispositivo.</p>
-      </div>
-    </div>
-    <div id="lista-preferiti" class="row row-cols-1 row-cols-lg-3 g-4">
-      <div class="col">
-        <div class="card card-servizio border-0 shadow-sm rounded-4 overflow-hidden h-100" data-azione="riparazione">
-          <div class="card-header border-0 d-flex align-items-center justify-content-between py-3 text-white bg-azione-riparazione">
-            <div class="d-flex align-items-center gap-2">
-                <i class="bi bi-tools"></i>
-              <span class="fw-medium">Riparazione</span>
-            </div>
-            <button type="button" class="btn btn-light btn-fav" aria-pressed="true"
-              aria-label="Salva Ciclofficina Popolare nei preferiti">
-              <i class="bi bi-heart-fill text-primary" aria-hidden="true"></i>
-            </button>
-          </div>
-          <div class="card-body p-4 d-flex flex-column gap-2">
-            <h3 class="card-title h5 mb-0">Ciclofficina Popolare</h3>
-            <span class="badge text-bg-light border align-self-start"> Bici</span>
-            <ul class="list-unstyled text-muted d-flex flex-column gap-1 mb-0">
-              <li class="d-flex gap-2">
-                <i class="bi bi-geo-alt" aria-hidden="true"></i>
-                <span>Navile, Via del Lavoro 12</span>
-              </li>
-              <li class="d-flex gap-2">
-                <i class="bi bi-clock" aria-hidden="true"></i>
-                <span>Mar–Sab 15:00–19:00</span>
-              </li>
-            </ul>
-            <p class="card-text text-body-secondary mb-0">Attrezzi e volontari per sistemare la tua bici da solo: freni, catena, forature. Porta la bici, ti insegniamo come fare.</p>
-          </div>
-        </div>
-      </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Fine Sezione Preferiti -->
-
-<!-- inizio sezione Partecipa / Segnala un servizio -->
-<section id="segnala" class="section report-section" aria-labelledby="titolo-report">
-  <div class="container">
-    <div class="row align-items-center gy-5">
-      <!-- Colonna sinistra: testo -->
-      <div class="col-lg-5">
-        <p class="eyebrow text-uppercase fw-bold small text-primary-light mb-2">Partecipa</p>
-        <h2 id="titolo-report" class="report-title mb-3">Conosci un servizio che manca nella guida?</h2>
-        <p class="report-lead mb-4">
-          Raccontacelo in due minuti. Dopo una verifica lo aggiungiamo alla mappa
-          e aiuti altre persone a riparare, scambiare e donare invece di buttare.
-        </p>
-        <ul class="report-checks list-unstyled small mb-0">
-          <li class="d-flex align-items-center gap-2 mb-2"><i class="bi bi-check-circle text-warning" aria-hidden="true"></i> Verifichiamo ogni segnalazione entro 5 giorni</li>
-          <li class="d-flex align-items-center gap-2 mb-2"><i class="bi bi-check-circle text-warning" aria-hidden="true"></i> Nessuna registrazione richiesta</li>
-          <li class="d-flex align-items-center gap-2"><i class="bi bi-check-circle text-warning" aria-hidden="true"></i> Il tuo contatto resta privato</li>
-        </ul>
-      </div>
-
-      <!-- Colonna destra: form -->
-      <div class="col-lg-6 offset-lg-1">
-        <div class="card report-card border-0 shadow-lg">
-          <div class="card-body">
-            <h3 class="report-card-title mb-3">Segnala un servizio</h3>
-            <p class="small text-secondary mb-4">I campi contrassegnati con * sono obbligatori.</p>
-            <form id="segnalazione-form" class="needs-validation" novalidate>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label for="nome" class="form-label fw-medium small">Nome del servizio *</label>
-                  <input type="text" class="form-control" id="nome" name="nome"
-                          placeholder="Es. Ciclofficina Popolare" required>
-                  <div class="invalid-feedback">Inserisci il nome del servizio.</div>
-                </div>
-                <div class="col-md-6">
-                  <label for="azione" class="form-label fw-medium small">Tipo di azione *</label>
-                  <select class="form-select" id="azione" name="azione" required>
-                    <option value="" selected>Scegli…</option>
-                    <option>Riparare</option>
-                    <option>Scambiare</option>
-                    <option>Donare</option>
-                    <option>Riciclare</option>
-                  </select>
-                  <div class="invalid-feedback">Scegli un tipo di azione.</div>
-                </div>
-                <div class="col-md-6">
-                  <label for="categoria" class="form-label fw-medium small">Categoria di oggetti *</label>
-                  <select class="form-select" id="categoria" name="categoria" required>
-                    <option value="" selected>Scegli…</option>
-                    <option>Abbigliamento</option>
-                    <option>Biciclette</option>
-                    <option>Elettronica</option>
-                    <option>Libri</option>
-                    <option>Mobili</option>
-                    <option>Altro</option>
-                  </select>
-                  <div class="invalid-feedback">Scegli una categoria.</div>
-                </div>
-
-                <div class="col-md-6">
-                  <label for="zona" class="form-label fw-medium small">Zona o indirizzo *</label>
-                  <input type="text" class="form-control" id="zona" name="zona"
-                          placeholder="Es. Navile, Via del Lavoro 12" required>
-                  <div class="invalid-feedback">Indica una zona o un indirizzo.</div>
-                </div>
-                <div class="col-12">
-                  <label for="orari" class="form-label fw-medium small">Orari di apertura</label>
-                  <input type="text" class="form-control" id="orari" name="orari"
-                          placeholder="Es. Mar–Sab 15:00–19:00">
-                </div>
-                <div class="col-12">
-                  <label for="descrizione" class="form-label fw-medium small">Descrizione breve *</label>
-                  <textarea class="form-control" id="descrizione" name="descrizione" rows="3"
-                            maxlength="300" placeholder="Cosa si può fare qui? (max 300 caratteri)"
-                            required></textarea>
-                  <div class="invalid-feedback">Scrivi una breve descrizione.</div>
-                </div>
-                <div class="col-12">
-                  <label for="contatto" class="form-label fw-medium small">Email o telefono (facoltativo)</label>
-                  <input type="text" class="form-control" id="contatto" name="contatto"
-                          placeholder="Es. nome@esempio.it">
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary w-100">
-                    <i class="bi bi-arrow-right me-2" aria-hidden="true"></i>Invia segnalazione
-                  </button>
+        <!-- Griglia delle Card dei Servizi (Bootstrap Nativo) -->
+        <div class="row g-4">
+          <!-- Card 1: Riparazione -->
+          <div class="col-md-4">
+            <div
+              class="card border-0 shadow-sm rounded-4 overflow-hidden h-100"
+            >
+              <div
+                class="card-header bg-azione-riparazione text-white p-3 d-flex justify-content-between align-items-center border-0"
+              >
+                <span class="fw-medium d-flex align-items-center gap-2"
+                  ><i class="bi bi-tools"></i> Riparazione</span
+                >
+                <button
+                  class="btn btn-link text-white p-0 text-decoration-none"
+                >
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+              <div
+                class="card-body p-4 bg-white d-flex flex-column justify-content-between"
+              >
+                <div>
+                  <h3 class="h5 fw-bold mb-2">Ciclofficina Popolare</h3>
+                  <span class="badge bg-light text-dark border mb-3">Bici</span>
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt me-1"></i> Navile, Via del Lavoro 12
+                  </p>
+                  <p class="text-muted small mb-3">
+                    <i class="bi bi-clock me-1"></i> Mar–Sab 15:00–19:00
+                  </p>
+                  <p class="small text-secondary mb-0">
+                    Attrezzi e volontari per sistemare la tua bici da solo:
+                    freni, catena, forature. Porta la bici, ti insegniamo come
+                    fare.
+                  </p>
                 </div>
               </div>
-            </form>
-            <!-- Messaggio di conferma (nascosto finché non serve) -->
-            <div id="successo" class="alert alert-success mt-3 mb-0 d-none" role="status">
-              Grazie! La tua segnalazione è stata inviata.
+            </div>
+          </div>
+
+          <!-- Card 2: Scambio -->
+          <div class="col-md-4">
+            <div
+              class="card border-0 shadow-sm rounded-4 overflow-hidden h-100"
+            >
+              <div
+                class="card-header bg-azione-scambio text-white p-3 d-flex justify-content-between align-items-center border-0"
+              >
+                <span class="fw-medium d-flex align-items-center gap-2"
+                  ><i class="bi bi-arrow-left-right"></i> Scambio</span
+                >
+                <button
+                  class="btn btn-link text-white p-0 text-decoration-none"
+                >
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+              <div
+                class="card-body p-4 bg-white d-flex flex-column justify-content-between"
+              >
+                <div>
+                  <h3 class="h5 fw-bold mb-2">Swap Party Vestiti</h3>
+                  <span class="badge bg-light text-dark border mb-3"
+                    >Abbigliamento</span
+                  >
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt me-1"></i> Centro storico, Piazza
+                    Maggiore
+                  </p>
+                  <p class="text-muted small mb-3">
+                    <i class="bi bi-clock me-1"></i> 1ª domenica del mese,
+                    10:00–17:00
+                  </p>
+                  <p class="small text-secondary mb-0">
+                    Porta fino a 10 capi puliti e in buono stato e scegli quelli
+                    che ti piacciono. Gratuito, senza soldi.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Riciclo -->
+          <div class="col-md-4">
+            <div
+              class="card border-0 shadow-sm rounded-4 overflow-hidden h-100"
+            >
+              <div
+                class="card-header bg-azione-riciclo text-white p-3 d-flex justify-content-between align-items-center border-0"
+              >
+                <span class="fw-medium d-flex align-items-center gap-2"
+                  ><i class="bi bi-recycle"></i> Riciclo</span
+                >
+                <button
+                  class="btn btn-link text-white p-0 text-decoration-none"
+                >
+                  <i class="bi bi-heart"></i>
+                </button>
+              </div>
+              <div
+                class="card-body p-4 bg-white d-flex flex-column justify-content-between"
+              >
+                <div>
+                  <h3 class="h5 fw-bold mb-2">Centro di raccolta comunale</h3>
+                  <span class="badge bg-light text-dark border mb-3">RAEE</span>
+                  <p class="text-muted small mb-2">
+                    <i class="bi bi-geo-alt me-1"></i> Borgo Panigale, Via
+                    Lepido 186
+                  </p>
+                  <p class="text-muted small mb-3">
+                    <i class="bi bi-clock me-1"></i> Lun–Sab 8:00–19:00
+                  </p>
+                  <p class="small text-secondary mb-0">
+                    Consegna elettrodomestici, pile, lampadine e piccoli
+                    apparecchi elettronici non più riparabili. Gratuito per i
+                    residenti.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- fine sezione Partecipa -->
+    </section>
+    <!-- Fine Sezione Catalogo -->
 
+    <!-- Inizio Sezione Preferiti -->
+    <section id="preferiti" class="section" aria-labelledby="titolo-preferiti">
+      <div class="container">
+        <!-- Intestazione sezione -->
+        <div class="d-flex align-items-center gap-3 mb-4">
+          <span
+            class="icon-circle icon-circle-lg bg-primary-subtle d-inline-flex align-items-center justify-content-center rounded-circle"
+            aria-hidden="true"
+          >
+            <i class="bi bi-heart-fill text-primary"></i>
+          </span>
+          <div>
+            <h2 id="titolo-preferiti" class="fw-bold mb-1">I tuoi preferiti</h2>
+            <p class="text-body-secondary mb-0">
+              2 servizi salvati su questo dispositivo.
+            </p>
+          </div>
+        </div>
 
-
-<!-- inizio footer -->
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="row gy-4">
-
-      <div class="col-lg-5">
-        <p class="footer-brand">
-          <i class="bi bi-recycle" aria-hidden="true"></i> Fondazione Rigenera
-        </p>
-        <p class="footer-text">
-          Fondazione no-profit che promuove l'economia circolare: riparare, scambiare,
-          donare e riciclare invece di buttare. La Guida al riuso raccoglie i servizi
-          del territorio verificati dalla Fondazione.
-        </p>
+        <!-- Griglia dei preferiti -->
+        <div id="lista-preferiti" class="row row-cols-1 row-cols-lg-3 g-4">
+          <div class="col">
+            <div
+              class="card card-servizio border-0 shadow-sm rounded-4 overflow-hidden h-100"
+              data-azione="riparazione"
+            >
+              <div
+                class="card-header border-0 d-flex align-items-center justify-content-between py-3 text-white bg-azione-riparazione"
+              >
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-tools"></i>
+                  <span class="fw-medium">Riparazione</span>
+                </div>
+                <button
+                  type="button"
+                  class="btn btn-light btn-fav"
+                  aria-pressed="true"
+                  aria-label="Salva Ciclofficina Popolare nei preferiti"
+                >
+                  <i
+                    class="bi bi-heart-fill text-primary"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+              <div class="card-body p-4 d-flex flex-column gap-2">
+                <h3 class="card-title h5 mb-0">Ciclofficina Popolare</h3>
+                <span class="badge text-bg-light border align-self-start"
+                  >Bici</span
+                >
+                <ul
+                  class="list-unstyled text-muted d-flex flex-column gap-1 mb-0"
+                >
+                  <li class="d-flex gap-2">
+                    <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                    <span>Navile, Via del Lavoro 12</span>
+                  </li>
+                  <li class="d-flex gap-2">
+                    <i class="bi bi-clock" aria-hidden="true"></i>
+                    <span>Mar–Sab 15:00–19:00</span>
+                  </li>
+                </ul>
+                <p class="card-text text-body-secondary mb-0">
+                  Attrezzi e volontari per sistemare la tua bici da solo: freni,
+                  catena, forature. Porta la bici, ti insegniamo come fare.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Chiude col -->
+        </div>
+        <!-- Chiude lista-preferiti -->
       </div>
+      <!-- Chiude container -->
+    </section>
+    <!-- Fine Sezione Preferiti -->
 
-      <div class="col-sm-6 col-lg-3 offset-lg-1">
-        <h3 class="footer-heading">Contatti</h3>
-        <address class="footer-contacts">
-          Via dei Mille 24, 40121 Bologna<br>
-          <a href="mailto:info@fondazionerigenera.it">info@fondazionerigenera.it</a><br>
-          051 123 4567 (lun–ven 9–13)
-        </address>
+    <!-- inizio sezione Partecipa / Segnala un servizio -->
+    <section
+      id="segnala"
+      class="section report-section"
+      aria-labelledby="titolo-report"
+    >
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <!-- Colonna sinistra: testo -->
+          <div class="col-lg-5">
+            <p
+              class="eyebrow text-uppercase fw-bold small text-primary-light mb-2"
+            >
+              Partecipa
+            </p>
+            <h2 id="titolo-report" class="report-title mb-3">
+              Conosci un servizio che manca nella guida?
+            </h2>
+            <p class="report-lead mb-4">
+              Raccontacelo in due minuti. Dopo una verifica lo aggiungiamo alla
+              mappa e aiuti altre persone a riparare, scambiare e donare invece
+              di buttare.
+            </p>
+            <ul class="report-checks list-unstyled small mb-0">
+              <li class="d-flex align-items-center gap-2 mb-2">
+                <i
+                  class="bi bi-check-circle text-warning"
+                  aria-hidden="true"
+                ></i>
+                Verifichiamo ogni segnalazione entro 5 giorni
+              </li>
+              <li class="d-flex align-items-center gap-2 mb-2">
+                <i
+                  class="bi bi-check-circle text-warning"
+                  aria-hidden="true"
+                ></i>
+                Nessuna registrazione richiesta
+              </li>
+              <li class="d-flex align-items-center gap-2">
+                <i
+                  class="bi bi-check-circle text-warning"
+                  aria-hidden="true"
+                ></i>
+                Il tuo contatto resta privato
+              </li>
+            </ul>
+          </div>
+
+          <!-- Colonna destra: form -->
+          <div class="col-lg-6 offset-lg-1">
+            <div class="card report-card border-0 shadow-lg">
+              <div class="card-body">
+                <h3 class="report-card-title mb-3">Segnala un servizio</h3>
+                <p class="small text-secondary mb-4">
+                  I campi contrassegnati con * sono obbligatori.
+                </p>
+                <form
+                  id="segnalazione-form"
+                  class="needs-validation"
+                  novalidate
+                >
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="nome" class="form-label fw-medium small"
+                        >Nome del servizio *</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nome"
+                        name="nome"
+                        placeholder="Es. Ciclofficina Popolare"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Inserisci il nome del servizio.
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="azione" class="form-label fw-medium small"
+                        >Tipo di azione *</label
+                      >
+                      <select
+                        class="form-select"
+                        id="azione"
+                        name="azione"
+                        required
+                      >
+                        <option value="" selected>Scegli…</option>
+                        <option>Riparare</option>
+                        <option>Scambiare</option>
+                        <option>Donare</option>
+                        <option>Riciclare</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Scegli un tipo di azione.
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="categoria" class="form-label fw-medium small"
+                        >Categoria di oggetti *</label
+                      >
+                      <select
+                        class="form-select"
+                        id="categoria"
+                        name="categoria"
+                        required
+                      >
+                        <option value="" selected>Scegli…</option>
+                        <option>Abbigliamento</option>
+                        <option>Biciclette</option>
+                        <option>Elettronica</option>
+                        <option>Libri</option>
+                        <option>Mobili</option>
+                        <option>Altro</option>
+                      </select>
+                      <div class="invalid-feedback">Scegli una categoria.</div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="zona" class="form-label fw-medium small"
+                        >Zona o indirizzo *</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="zona"
+                        name="zona"
+                        placeholder="Es. Navile, Via del Lavoro 12"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Indica una zona o un indirizzo.
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <label for="orari" class="form-label fw-medium small"
+                        >Orari di apertura</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="orari"
+                        name="orari"
+                        placeholder="Es. Mar–Sab 15:00–19:00"
+                      />
+                    </div>
+                    <div class="col-12">
+                      <label
+                        for="descrizione"
+                        class="form-label fw-medium small"
+                        >Descrizione breve *</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="descrizione"
+                        name="descrizione"
+                        rows="3"
+                        maxlength="300"
+                        placeholder="Cosa si può fare qui? (max 300 caratteri)"
+                        required
+                      ></textarea>
+                      <div class="invalid-feedback">
+                        Scrivi una breve descrizione.
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <label for="contatto" class="form-label fw-medium small"
+                        >Email o telefono (facoltativo)</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="contatto"
+                        name="contatto"
+                        placeholder="Es. nome@esempio.it"
+                      />
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-arrow-right me-2" aria-hidden="true"></i
+                        >Invia segnalazione
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <!-- Messaggio di conferma (nascosto finché non serve) -->
+                <div
+                  id="successo"
+                  class="alert alert-success mt-3 mb-0 d-none"
+                  role="status"
+                >
+                  Grazie! La tua segnalazione è stata inviata.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
+    <!-- fine sezione Partecipa -->
 
-      <div class="col-sm-6 col-lg-3">
-        <h3 class="footer-heading">Link utili</h3>
-        <ul class="list-unstyled footer-links">
-          <li><a href="#">Come verifichiamo i servizi</a></li>
-          <li><a href="#">Dichiarazione di accessibilità</a></li>
-          <li><a href="#">Informativa privacy</a></li>
-          <li><a href="#">Sostieni la Fondazione</a></li>
-        </ul>
+    <!-- inizio footer -->
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5">
+            <p class="footer-brand">
+              <i class="bi bi-recycle" aria-hidden="true"></i> Fondazione
+              Rigenera
+            </p>
+            <p class="footer-text">
+              Fondazione no-profit che promuove l'economia circolare: riparare,
+              scambiare, donare e riciclare invece di buttare. La Guida al riuso
+              raccoglie i servizi del territorio verificati dalla Fondazione.
+            </p>
+          </div>
+
+          <div class="col-sm-6 col-lg-3 offset-lg-1">
+            <h3 class="footer-heading">Contatti</h3>
+            <address class="footer-contacts">
+              Via dei Mille 24, 40121 Bologna<br />
+              <a href="mailto:info@fondazionerigenera.it"
+                >info@fondazionerigenera.it</a
+              ><br />
+              051 123 4567 (lun–ven 9–13)
+            </address>
+          </div>
+
+          <div class="col-sm-6 col-lg-3">
+            <h3 class="footer-heading">Link utili</h3>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#">Come verifichiamo i servizi</a></li>
+              <li><a href="#">Dichiarazione di accessibilità</a></li>
+              <li><a href="#">Informativa privacy</a></li>
+              <li><a href="#">Sostieni la Fondazione</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="row footer-legal">
+          <div class="col-md-6">© 2026 Fondazione Rigenera ETS</div>
+          <div class="col-md-6 text-md-end">
+            Contenuti in licenza CC BY-SA 4.0
+          </div>
+        </div>
       </div>
-    </div>
+    </footer>
+    <!-- fine footer -->
 
-    <hr class="footer-divider">
-
-    <div class="row footer-legal">
-      <div class="col-md-6">© 2026 Fondazione Rigenera ETS</div>
-      <div class="col-md-6 text-md-end">Contenuti in licenza CC BY-SA 4.0</div>
-    </div>
-  </div>
-</footer>
-<!-- fine footer -->
-
-<!-- link per il js di bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script type="module" src="js/app.js"></script>
-
-</body>
+    <!-- link per il js di bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="js/app.js"></script>
+  </body>
 </html>

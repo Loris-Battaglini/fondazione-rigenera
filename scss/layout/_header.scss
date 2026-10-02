@@ -1,41 +1,39 @@
-/* Hero Section - Guida al Riuso
-   Il layout (colonne, ordine, spazi) lo fa Bootstrap nell'HTML.
-   Qui restano solo il riquadro verde arrotondato e le "palle" decorative. */
+/* Hero Section - Guida al Riuso */
 
 .hero-section {
-  padding-block: 1.5rem;
+  padding-block: 1rem;
 
   @media (min-width: 992px) {
-    padding-block: 3rem;
+    padding-block: 2.5rem;
   }
 }
 
 .hero-container {
   background-color: var(--rg-primary-subtle);
-  border-radius: 1.25rem;
-  overflow: hidden; // taglia le "palle" seguendo gli angoli arrotondati
+  overflow: hidden;
+  position: relative;
 
-  // Mobile e tablet: due palle
-  background-image: url('../../assets/img/palla.svg'), url('../../assets/img/palla-sinistra.svg');
-  background-repeat: no-repeat, no-repeat;
-  background-position: right -3rem bottom -3rem, left -4rem top 0;
-  background-size: 14rem, 12rem;
+  // Base / Mobile (fino a 767px)
+  background-image: url('../../assets/img/palla-sinistra.svg');
+  background-repeat: no-repeat;
+  background-position: left -6rem top -14rem;
+  background-size: 34rem;
 
+  // Tablet (Da 768px fino a 1023px)
   @media (min-width: 768px) {
-    background-position: right -4rem bottom -4rem, left -4rem top -1rem;
-    background-size: 18rem, 24rem;
+    background-position: left -5rem top -3rem;
+    background-size: 43rem;
   }
 
-  // Desktop: solo la palla di sinistra
-  @media (min-width: 992px) {
-    background-image: url('../../assets/img/palla-sinistra.svg');
-    background-repeat: no-repeat;
-    background-position: left -2rem top -1rem;
-    background-size: 46.6rem;
+  // Schermi medi / Desktop piccolo (Da 1024px in poi - sovrascrive i 768px)
+  @media (min-width: 1024px) {
+    background-position: left -5rem top -3rem;
+    background-size: 44rem;
   }
 
+  // Schermi grandi (Da 1400px in poi)
   @media (min-width: 1400px) {
     background-position: left -10rem top -1rem;
-    background-size: 75rem;
+    background-size: 50rem;
   }
 }

@@ -1,31 +1,27 @@
-/* inizio navbar */
-
 /* Gestione del layout principale della navbar personalizzata */
-//.custom-navbar .container {
-.custom-navbar .container-fluid {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.custom-navbar {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-/* Stile per raggruppare i bottoni a destra */
-.custom-navbar .navbar-collapse {
-  flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
-}
+  .navbar-collapse {
+    flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
+  }
 
-.custom-navbar .navbar-nav {
-  margin-right: 2rem; /* Distanza tra i link centrali e i bottoni */
-  gap: 1rem;
-}
+  .navbar-nav {
+    margin-right: 2rem; /* Distanza tra i link centrali e i bottoni */
+    gap: 1rem;
+  }
 
-.custom-navbar .nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
 }
 
 .sottotitolo-navbar {
   font-size: 0.875rem;
 }
-
-/* fine navbar */
