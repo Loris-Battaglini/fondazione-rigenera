@@ -33,7 +33,7 @@
     <nav class="navbar navbar-expand-lg custom-navbar">
       <div class="container bg-body-tertiary rounded-3 p-3">
         <!-- Brand e icona -->
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#intro">
           <i class="bi bi-recycle fs-2 text-success"></i>
           <div>
             <span class="d-block">Guida al riuso</span>
@@ -60,17 +60,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#"
+              <a class="nav-link active" aria-current="page" href="#catalogo"
                 >Catalogo</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Come funziona</a>
+              <a class="nav-link" href="#come-funziona">Come funziona</a>
             </li>
           </ul>
           <div class="nav-actions">
-            <button class="btn btn-outline-primary">Preferiti</button>
-            <button class="btn btn-primary">Segnala un luogo</button>
+            <a class="btn btn-outline-primary" href="#preferiti">Preferiti</a>
+            <a class="btn btn-primary" href="#segnala">Segnala un luogo</a>
           </div>
         </div>
       </div>
@@ -410,6 +410,7 @@
                 <i class="bi bi-search text-muted me-2"></i>
                 <input
                   type="text"
+                  id="filtro-testo"
                   class="search-input-clean"
                   placeholder="Es. bici, lavatrice, vestiti..."
                 />
@@ -421,11 +422,13 @@
               <label class="form-label small fw-semibold text-secondary"
                 >Categoria di oggetti</label
               >
-              <select class="form-select">
-                <option selected>Tutte le categorie</option>
-                <option value="1">Abbigliamento</option>
-                <option value="2">Elettrodomestici</option>
-                <option value="3">Mobili</option>
+              <select id="filtro-tag" class="form-select">
+                <option value="tutti" selected>Tutte le categorie</option>
+                <option value="Bici">Bici</option>
+                <option value="Abbigliamento">Abbigliamento</option>
+                <option value="Elettrodomestici">Elettrodomestici</option>
+                <option value="Mobili">Mobili</option>
+                <option value="RAEE">RAEE</option>
               </select>
             </div>
 
@@ -434,25 +437,32 @@
               <label class="form-label small fw-semibold text-secondary"
                 >Zona</label
               >
-              <select class="form-select">
-                <option selected>Tutte le zone</option>
-                <option value="1">Centro storico</option>
-                <option value="2">Navile</option>
-                <option value="3">San Donato</option>
+              <select id="filtro-zona" class="form-select">
+                <option value="tutti" selected>Tutte le zone</option>
+                <option value="Centro storico">Centro storico</option>
+                <option value="Navile">Navile</option>
+                <option value="San Donato">San Donato</option>
+                <option value="Borgo Panigale">Borgo Panigale</option>
               </select>
             </div>
 
-            <!-- Tipo di azione (Bottoni filtro a pillola) -->
+            <!-- Tipo di azione (Unico gruppo di pillole) -->
             <div class="col-12 mt-3">
               <label class="form-label small fw-semibold text-secondary d-block"
                 >Tipo di azione</label
               >
               <div class="d-flex flex-wrap gap-2">
-                <button class="pill-btn attivo">Tutti</button>
-                <button class="pill-btn">Riparazione</button>
-                <button class="pill-btn">Scambio</button>
-                <button class="pill-btn">Donazione</button>
-                <button class="pill-btn">Riciclo</button>
+                <button class="pill-btn attivo" data-azione="tutti">
+                  Tutti
+                </button>
+                <button class="pill-btn" data-azione="riparazione">
+                  Riparazione
+                </button>
+                <button class="pill-btn" data-azione="scambio">Scambio</button>
+                <button class="pill-btn" data-azione="donazione">
+                  Donazione
+                </button>
+                <button class="pill-btn" data-azione="riciclo">Riciclo</button>
               </div>
             </div>
           </div>
@@ -462,6 +472,7 @@
         <div class="d-flex justify-content-between align-items-center mb-4">
           <span class="fw-semibold text-dark">6 servizi trovati</span>
           <a
+            id="reset-filtri"
             href="#"
             class="text-success text-decoration-none small fw-semibold"
             >Azzera filtri</a
@@ -469,7 +480,7 @@
         </div>
 
         <!-- Griglia delle Card dei Servizi (Bootstrap Nativo) -->
-        <div class="row g-4">
+        <div id="container-servizi" class="row g-4">
           <!-- Card 1: Riparazione -->
           <div class="col-md-4">
             <div
@@ -591,6 +602,18 @@
             </div>
           </div>
         </div>
+        <div class="text-center mt-4">
+          <button
+            id="mostra-tutti"
+            class="btn btn-outline-primary"
+            type="button"
+            aria-controls="container-servizi"
+            aria-expanded="false"
+            hidden
+          >
+            Mostra tutti
+          </button>
+        </div>
       </div>
     </section>
     <!-- Fine Sezione Catalogo -->
@@ -608,7 +631,7 @@
           </span>
           <div>
             <h2 id="titolo-preferiti" class="fw-bold mb-1">I tuoi preferiti</h2>
-            <p class="text-body-secondary mb-0">
+            <p id="contatore-preferiti" class="text-body-secondary mb-0">
               2 servizi salvati su questo dispositivo.
             </p>
           </div>
@@ -932,7 +955,7 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="js/components/filters.js"></script>
+    <script type="module" src="js/components/filters.js"></script>
     <script type="module" src="js/app.js"></script>
   </body>
 </html>
