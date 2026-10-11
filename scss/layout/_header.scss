@@ -1,10 +1,10 @@
 /* Hero Section - Guida al Riuso */
 
 .hero-section {
-  padding-block: 1rem;
+  padding-block: 1.5rem;
 
   @media (min-width: 992px) {
-    padding-block: 2.5rem;
+    padding-block: 3rem;
   }
 }
 
@@ -17,23 +17,23 @@
   background-image: url('../../assets/img/palla-sinistra.svg');
   background-repeat: no-repeat;
   background-position: left -6rem top -14rem;
-  background-size: 34rem;
+  background-size: min(100%, 34rem);
 
   // Tablet (Da 768px fino a 1023px)
   @media (min-width: 768px) {
     background-position: left -5rem top -3rem;
-    background-size: 43rem;
+    background-size: min(100%, 43rem);
   }
 
   // Schermi medi / Desktop piccolo (Da 1024px in poi - sovrascrive i 768px)
   @media (min-width: 1024px) {
     background-position: left -5rem top -3rem;
-    background-size: 44rem;
+    background-size: min(100%, 44rem);
   }
 
   // Schermi grandi (Da 1400px in poi)
   @media (min-width: 1400px) {
     background-position: left -10rem top -1rem;
-    background-size: 50rem;
+    background-size: min(100%, 50rem);
   }
 }

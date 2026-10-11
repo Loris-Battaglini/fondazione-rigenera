@@ -1,8 +1,6 @@
 import { isPreferito, togglePreferito } from "../data/storage.js";
 
-const LIMITE_SERVIZI_INIZIALE = 6;
 let listaServizi = [];
-let mostraTutti = false;
 
 function normalizza(valore) {
   return String(valore ?? "")
@@ -23,14 +21,15 @@ async function avviaFiltri() {
 }
 
 // 2. TEMPLATE CARD
-function creaCardHTML(servizio) {
+function creaCardHTML(servizio, nelCatalogo = false) {
   const preferito = isPreferito(servizio.id);
+  const classeColonna = nelCatalogo ? "catalogo-slide" : "col-md-4";
   const etichettaPreferito = preferito
     ? `Rimuovi ${servizio.nome} dai preferiti`
     : `Aggiungi ${servizio.nome} ai preferiti`;
 
   return `
-    <div class="col-md-4">
+    <div class="${classeColonna}" ${nelCatalogo ? 'role="listitem"' : ""}>
       <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
         <div class="card-header bg-azione-${servizio.categoria} text-white p-3 d-flex justify-content-between align-items-center border-0">
           <span class="fw-medium text-capitalize">${servizio.categoria}</span>
@@ -120,26 +119,15 @@ function aggiornaPagina() {
 
   // Inietta card
   const contenitore = document.getElementById("container-servizi");
-  const pulsanteMostraTutti = document.getElementById("mostra-tutti");
   if (contenitore) {
     if (serviziFiltrati.length === 0) {
-      contenitore.innerHTML = `<div class="col-12 text-center py-4 text-muted">Nessun servizio trovato con i filtri selezionati.</div>`;
-      if (pulsanteMostraTutti) pulsanteMostraTutti.hidden = true;
+      contenitore.innerHTML = `<div class="catalogo-vuoto text-center py-4 text-muted" role="listitem">Nessun servizio trovato con i filtri selezionati.</div>`;
     } else {
-      const serviziVisibili = mostraTutti
-        ? serviziFiltrati
-        : serviziFiltrati.slice(0, LIMITE_SERVIZI_INIZIALE);
-      contenitore.innerHTML = serviziVisibili.map(creaCardHTML).join("");
-
-      if (pulsanteMostraTutti) {
-        pulsanteMostraTutti.hidden =
-          serviziFiltrati.length <= LIMITE_SERVIZI_INIZIALE;
-        pulsanteMostraTutti.textContent = mostraTutti
-          ? "Mostra meno"
-          : "Mostra tutti";
-        pulsanteMostraTutti.setAttribute("aria-expanded", String(mostraTutti));
-      }
+      contenitore.innerHTML = serviziFiltrati
+        .map((servizio) => creaCardHTML(servizio, true))
+        .join("");
     }
+    aggiornaFreccieCatalogo();
   }
 
   aggiornaPreferiti();
@@ -165,12 +153,54 @@ function aggiornaPreferiti() {
 }
 
 function aggiornaFiltri() {
-  mostraTutti = false;
   aggiornaPagina();
+}
+
+function aggiornaFreccieCatalogo() {
+  const viewport = document.getElementById("catalogo-viewport");
+  const precedente = document.getElementById("catalogo-precedente");
+  const successivo = document.getElementById("catalogo-successivo");
+  if (!viewport || !precedente || !successivo) return;
+
+  const massimoScorrimento = viewport.scrollWidth - viewport.clientWidth;
+  const haScorrimento = massimoScorrimento > 1;
+  precedente.hidden = !haScorrimento;
+  successivo.hidden = !haScorrimento;
+  precedente.disabled = !haScorrimento || viewport.scrollLeft <= 1;
+  successivo.disabled =
+    !haScorrimento || viewport.scrollLeft >= massimoScorrimento - 1;
+}
+
+function inizializzaCarosello() {
+  const viewport = document.getElementById("catalogo-viewport");
+  if (!viewport) return;
+
+  const scorri = (direzione) => {
+    const traccia = document.getElementById("container-servizi");
+    const spazio = Number.parseFloat(getComputedStyle(traccia).columnGap) || 0;
+    viewport.scrollTo({
+      left: viewport.scrollLeft + direzione * (viewport.clientWidth + spazio),
+      behavior: "instant",
+    });
+    aggiornaFreccieCatalogo();
+  };
+
+  document
+    .getElementById("catalogo-precedente")
+    ?.addEventListener("click", () => scorri(-1));
+  document
+    .getElementById("catalogo-successivo")
+    ?.addEventListener("click", () => scorri(1));
+  viewport.addEventListener("scroll", aggiornaFreccieCatalogo, {
+    passive: true,
+  });
+  window.addEventListener("resize", aggiornaFreccieCatalogo);
+  aggiornaFreccieCatalogo();
 }
 
 // 4. EVENT LISTENERS
 function inizializzaFiltri() {
+  inizializzaCarosello();
   document
     .getElementById("filtro-testo")
     ?.addEventListener("input", aggiornaFiltri);
@@ -210,11 +240,6 @@ function inizializzaFiltri() {
       ?.classList.add("attivo");
 
     aggiornaFiltri();
-  });
-
-  document.getElementById("mostra-tutti")?.addEventListener("click", () => {
-    mostraTutti = !mostraTutti;
-    aggiornaPagina();
   });
 
   document.addEventListener("click", (evento) => {

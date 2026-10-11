@@ -1,7 +1,7 @@
 // Salva nel browser (localStorage) i dati dell'utente, come i servizi preferiti.
 // I dati restano anche chiudendo la pagina, ma solo sul browser e dispositivo dell'utente.
 
-const CHIAVE_PREFERITI = 'rigenera-preferiti';
+const CHIAVE_PREFERITI = "rigenera-preferiti";
 
 // Restituisce la lista degli id dei servizi preferiti, es. ["ciclofficina-popolare"]
 export function leggiPreferiti() {
@@ -24,6 +24,10 @@ function salvaPreferiti(lista) {
   }
 }
 
+function notificaPreferitiAggiornati() {
+  window.dispatchEvent(new Event("rigenera:preferiti-aggiornati"));
+}
+
 // true se il servizio è tra i preferiti
 export function isPreferito(id) {
   return leggiPreferiti().includes(id);
@@ -36,10 +40,12 @@ export function togglePreferito(id) {
 
   if (lista.includes(id)) {
     salvaPreferiti(lista.filter((idSalvato) => idSalvato !== id));
+    notificaPreferitiAggiornati();
     return false;
   }
 
   lista.push(id);
   salvaPreferiti(lista);
+  notificaPreferitiAggiornati();
   return true;
 }
