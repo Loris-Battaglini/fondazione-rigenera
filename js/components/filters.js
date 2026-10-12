@@ -1,4 +1,4 @@
-import { creaCardHTML } from "./cards.js";
+import { renderizzaCard } from "./cards.js";
 
 let listaServizi = [];
 
@@ -69,9 +69,7 @@ function aggiornaPagina() {
     if (serviziFiltrati.length === 0) {
       contenitore.innerHTML = `<div class="catalogo-vuoto text-center py-4 text-muted" role="listitem">Nessun servizio trovato con i filtri selezionati.</div>`;
     } else {
-      contenitore.innerHTML = serviziFiltrati
-        .map((servizio) => creaCardHTML(servizio, true))
-        .join("");
+      renderizzaCard(contenitore, serviziFiltrati, true);
     }
     aggiornaFreccieCatalogo();
   }

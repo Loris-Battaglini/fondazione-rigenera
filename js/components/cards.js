@@ -30,3 +30,12 @@ export function creaCardHTML(servizio, nelCatalogo = false) {
     </div>
   `;
 }
+
+// Creo le card richieste e le inserisco nel contenitore giusto.
+export function renderizzaCard(contenitore, servizi, nelCatalogo = false) {
+  if (!contenitore) return;
+
+  contenitore.innerHTML = servizi
+    .map((servizio) => creaCardHTML(servizio, nelCatalogo))
+    .join("");
+}

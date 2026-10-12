@@ -402,6 +402,10 @@
       </div>
     </section>
 
+    <!-- --------------------------------------------------------------------------
+   SECTION 3: CATALOGO
+   -------------------------------------------------------------------------- -->
+
     <!-- Inizio Sezione Catalogo -->
     <section class="py-5 sezione-catalogo" id="catalogo">
       <div class="container container-catalogo">
@@ -490,7 +494,9 @@
 
         <!-- Risultati e Reset -->
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <span class="fw-semibold text-dark">6 servizi trovati</span>
+          <span id="contatore-servizi" class="fw-semibold text-dark"
+            >0 servizi trovati</span
+          >
           <a
             id="reset-filtri"
             href="#"
@@ -515,135 +521,11 @@
             tabindex="0"
             aria-label="Servizi del catalogo"
           >
-            <div id="container-servizi" class="catalogo-track" role="list">
-              <!-- Card 1: Riparazione -->
-              <div class="catalogo-slide" role="listitem">
-                <div
-                  class="card border-0 shadow-sm rounded-4 overflow-hidden h-100"
-                >
-                  <div
-                    class="card-header bg-azione-riparazione text-white p-3 d-flex justify-content-between align-items-center border-0"
-                  >
-                    <span class="fw-medium d-flex align-items-center gap-2"
-                      ><i class="bi bi-tools"></i> Riparazione</span
-                    >
-                    <button
-                      class="btn btn-link text-white p-0 text-decoration-none"
-                    >
-                      <i class="bi bi-heart"></i>
-                    </button>
-                  </div>
-                  <div
-                    class="card-body p-4 bg-white d-flex flex-column justify-content-between"
-                  >
-                    <div>
-                      <h3 class="h5 fw-bold mb-2">Ciclofficina Popolare</h3>
-                      <span class="badge bg-light text-dark border mb-3"
-                        >Bici</span
-                      >
-                      <p class="text-muted small mb-2">
-                        <i class="bi bi-geo-alt me-1"></i> Navile, Via del
-                        Lavoro 12
-                      </p>
-                      <p class="text-muted small mb-3">
-                        <i class="bi bi-clock me-1"></i> Mar–Sab 15:00–19:00
-                      </p>
-                      <p class="small text-secondary mb-0">
-                        Attrezzi e volontari per sistemare la tua bici da solo:
-                        freni, catena, forature. Porta la bici, ti insegniamo
-                        come fare.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 2: Scambio -->
-              <div class="catalogo-slide" role="listitem">
-                <div
-                  class="card border-0 shadow-sm rounded-4 overflow-hidden h-100"
-                >
-                  <div
-                    class="card-header bg-azione-scambio text-white p-3 d-flex justify-content-between align-items-center border-0"
-                  >
-                    <span class="fw-medium d-flex align-items-center gap-2"
-                      ><i class="bi bi-arrow-left-right"></i> Scambio</span
-                    >
-                    <button
-                      class="btn btn-link text-white p-0 text-decoration-none"
-                    >
-                      <i class="bi bi-heart"></i>
-                    </button>
-                  </div>
-                  <div
-                    class="card-body p-4 bg-white d-flex flex-column justify-content-between"
-                  >
-                    <div>
-                      <h3 class="h5 fw-bold mb-2">Swap Party Vestiti</h3>
-                      <span class="badge bg-light text-dark border mb-3"
-                        >Abbigliamento</span
-                      >
-                      <p class="text-muted small mb-2">
-                        <i class="bi bi-geo-alt me-1"></i> Centro storico,
-                        Piazza Maggiore
-                      </p>
-                      <p class="text-muted small mb-3">
-                        <i class="bi bi-clock me-1"></i> 1ª domenica del mese,
-                        10:00-17:00
-                      </p>
-                      <p class="small text-secondary mb-0">
-                        Porta fino a 10 capi puliti e in buono stato e scegli
-                        quelli che ti piacciono. Gratuito, senza soldi.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 3: Riciclo -->
-              <div class="catalogo-slide" role="listitem">
-                <div
-                  class="card border-0 shadow-sm rounded-4 overflow-hidden h-100"
-                >
-                  <div
-                    class="card-header bg-azione-riciclo text-white p-3 d-flex justify-content-between align-items-center border-0"
-                  >
-                    <span class="fw-medium d-flex align-items-center gap-2"
-                      ><i class="bi bi-recycle"></i> Riciclo</span
-                    >
-                    <button
-                      class="btn btn-link text-white p-0 text-decoration-none"
-                    >
-                      <i class="bi bi-heart"></i>
-                    </button>
-                  </div>
-                  <div
-                    class="card-body p-4 bg-white d-flex flex-column justify-content-between"
-                  >
-                    <div>
-                      <h3 class="h5 fw-bold mb-2">
-                        Centro di raccolta comunale
-                      </h3>
-                      <span class="badge bg-light text-dark border mb-3"
-                        >RAEE</span
-                      >
-                      <p class="text-muted small mb-2">
-                        <i class="bi bi-geo-alt me-1"></i> Borgo Panigale, Via
-                        Lepido 186
-                      </p>
-                      <p class="text-muted small mb-3">
-                        <i class="bi bi-clock me-1"></i> Lun–Sab 8:00–19:00
-                      </p>
-                      <p class="small text-secondary mb-0">
-                        Consegna elettrodomestici, pile, lampadine e piccoli
-                        apparecchi elettronici non più riparabili. Gratuito per
-                        i residenti.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div
+              id="container-servizi"
+              class="catalogo-track"
+              role="list"
+            ></div>
           </div>
           <button
             id="catalogo-successivo"
@@ -659,10 +541,12 @@
     </section>
     <!-- Fine Sezione Catalogo -->
 
-    <!-- Inizio Sezione Preferiti -->
-    <section id="preferiti" class="section" aria-labelledby="titolo-preferiti">
+    <section
+      id="preferiti"
+      class="section sezione-preferiti"
+      aria-labelledby="titolo-preferiti"
+    >
       <div class="container">
-        <!-- Intestazione sezione -->
         <div class="d-flex align-items-center gap-3 mb-4">
           <span
             class="icon-circle icon-circle-lg bg-primary-subtle d-inline-flex align-items-center justify-content-center rounded-circle"
@@ -672,69 +556,15 @@
           </span>
           <div>
             <h2 id="titolo-preferiti" class="fw-bold mb-1">I tuoi preferiti</h2>
-            <p id="contatore-preferiti" class="text-body-secondary mb-0">
-              2 servizi salvati su questo dispositivo.
-            </p>
+            <p id="contatore-preferiti" class="text-body-secondary mb-0"></p>
           </div>
         </div>
-
-        <!-- Griglia dei preferiti -->
-        <div id="lista-preferiti" class="row row-cols-1 row-cols-lg-3 g-4">
-          <div class="col">
-            <div
-              class="card card-servizio border-0 shadow-sm rounded-4 overflow-hidden h-100"
-              data-azione="riparazione"
-            >
-              <div
-                class="card-header border-0 d-flex align-items-center justify-content-between py-3 text-white bg-azione-riparazione"
-              >
-                <div class="d-flex align-items-center gap-2">
-                  <i class="bi bi-tools"></i>
-                  <span class="fw-medium">Riparazione</span>
-                </div>
-                <button
-                  type="button"
-                  class="btn btn-light btn-fav"
-                  aria-pressed="true"
-                  aria-label="Salva Ciclofficina Popolare nei preferiti"
-                >
-                  <i
-                    class="bi bi-heart-fill text-primary"
-                    aria-hidden="true"
-                  ></i>
-                </button>
-              </div>
-              <div class="card-body p-4 d-flex flex-column gap-2">
-                <h3 class="card-title h5 mb-0">Ciclofficina Popolare</h3>
-                <span class="badge text-bg-light border align-self-start"
-                  >Bici</span
-                >
-                <ul
-                  class="list-unstyled text-muted d-flex flex-column gap-1 mb-0"
-                >
-                  <li class="d-flex gap-2">
-                    <i class="bi bi-geo-alt" aria-hidden="true"></i>
-                    <span>Navile, Via del Lavoro 12</span>
-                  </li>
-                  <li class="d-flex gap-2">
-                    <i class="bi bi-clock" aria-hidden="true"></i>
-                    <span>Mar–Sab 15:00–19:00</span>
-                  </li>
-                </ul>
-                <p class="card-text text-body-secondary mb-0">
-                  Attrezzi e volontari per sistemare la tua bici da solo: freni,
-                  catena, forature. Porta la bici, ti insegniamo come fare.
-                </p>
-              </div>
-            </div>
-          </div>
-          <!-- Chiude col -->
-        </div>
-        <!-- Chiude lista-preferiti -->
+        <div
+          id="lista-preferiti"
+          class="row row-cols-1 row-cols-lg-3 g-4"
+        ></div>
       </div>
-      <!-- Chiude container -->
     </section>
-    <!-- Fine Sezione Preferiti -->
 
     <!-- inizio sezione Partecipa / Segnala un servizio -->
     <section

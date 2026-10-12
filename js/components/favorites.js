@@ -1,4 +1,4 @@
-import { creaCardHTML } from "./cards.js";
+import { renderizzaCard } from "./cards.js";
 import { isPreferito, togglePreferito } from "../data/storage.js";
 
 // Al primo avvio salvo i preferiti suggeriti nel catalogo.
@@ -27,9 +27,12 @@ export function aggiornaListaPreferiti(servizi) {
     contatore.textContent = `${quanti} ${quanti === 1 ? "servizio salvato" : "servizi salvati"} su questo dispositivo.`;
   }
 
-  contenitore.innerHTML = preferiti.length
-    ? preferiti.map((servizio) => creaCardHTML(servizio)).join("")
-    : '<div class="col-12 text-body-secondary">Non hai ancora salvato servizi.</div>';
+  if (preferiti.length) {
+    renderizzaCard(contenitore, preferiti);
+  } else {
+    contenitore.innerHTML =
+      '<div class="col-12 text-body-secondary">Non hai ancora salvato servizi.</div>';
+  }
 }
 
 // Intercetto i cuori in catalogo e nella lista, poi avviso chi deve ridisegnare la pagina.
