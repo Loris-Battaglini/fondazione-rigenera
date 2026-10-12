@@ -69,6 +69,16 @@
           box-sizing: border-box;
 }
 
+svg,
+img[src$=".svg"] {
+  max-width: 100%;
+  height: auto;
+}
+
+img[src$=".svg"] {
+  display: block;
+}
+
 body {
   margin: 0;
   color: #212529;
@@ -409,7 +419,7 @@ h6,
 }
 
 /* Gestione del layout principale della navbar personalizzata */
-.custom-navbar .container {
+.custom-navbar .navbar-inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -419,6 +429,10 @@ h6,
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-block: 0.75rem;
 }
 .custom-navbar .navbar-collapse {
   -webkit-box-flex: 0;
@@ -445,11 +459,11 @@ h6,
 
 /* Hero Section - Guida al Riuso */
 .hero-section {
-  padding-block: 1rem;
+  padding-block: 1.5rem;
 }
 @media (min-width: 992px) {
   .hero-section {
-    padding-block: 2.5rem;
+    padding-block: 3rem;
   }
 }
 
@@ -460,24 +474,24 @@ h6,
   background-image: url("../../assets/img/palla-sinistra.svg");
   background-repeat: no-repeat;
   background-position: left -6rem top -14rem;
-  background-size: 34rem;
+  background-size: min(100%, 34rem);
 }
 @media (min-width: 768px) {
   .hero-container {
     background-position: left -5rem top -3rem;
-    background-size: 43rem;
+    background-size: min(100%, 43rem);
   }
 }
 @media (min-width: 1024px) {
   .hero-container {
     background-position: left -5rem top -3rem;
-    background-size: 44rem;
+    background-size: min(100%, 44rem);
   }
 }
 @media (min-width: 1400px) {
   .hero-container {
     background-position: left -10rem top -1rem;
-    background-size: 50rem;
+    background-size: min(100%, 50rem);
   }
 }
 
@@ -587,4 +601,85 @@ h6,
   background-color: var(--rg-primary-subtle);
   border-radius: 1.25rem;
   padding: 4.5rem 3rem;
+}
+
+.catalogo-carousel {
+  min-width: 0;
+}
+
+.catalogo-viewport {
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rg-primary) transparent;
+}
+
+.catalogo-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  grid-template-rows: repeat(2, minmax(15rem, auto));
+  gap: 1rem;
+  width: auto;
+  min-width: 100%;
+  padding: 0.25rem 0 0.75rem;
+}
+
+.catalogo-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.catalogo-slide .card {
+  width: 100%;
+}
+
+.catalogo-vuoto {
+  grid-row: 1/-1;
+  width: 100%;
+}
+
+.catalogo-freccia {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 2.75rem;
+          flex: 0 0 2.75rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  -ms-flex-item-align: center;
+      align-self: center;
+  padding: 0;
+}
+
+@media (min-width: 576px) {
+  .catalogo-track {
+    grid-auto-columns: calc((100% - 1rem) / 2);
+  }
+}
+@media (min-width: 992px) {
+  .catalogo-track {
+    grid-auto-columns: calc((100% - 2rem) / 3);
+  }
+}
+@media (max-width: 575.98px) {
+  .container-catalogo {
+    padding: 2.5rem 1rem;
+  }
+  .catalogo-freccia {
+    -ms-flex-preferred-size: 2.25rem;
+        flex-basis: 2.25rem;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .catalogo-viewport {
+    scroll-behavior: auto;
+  }
 }
