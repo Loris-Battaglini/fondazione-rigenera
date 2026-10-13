@@ -1,35 +1,23 @@
 @use "../abstracts/variables" as *;
 
-// .section,
-// #catalogo,
-// .hero-section,
-// .report-section {
-//   width: min(calc(100% - 2rem), $section-width);
-//   margin-inline: auto;
-// }
-
-.container-xxl { 
+// Wrapper esterno delle sezioni (navbar, section, footer): larghezza massima 1440px.
+// All'interno si usa il .container di Bootstrap senza override, che arriva a 1320px da 1400px in su.
+.section-wrapper {
   width: 100%;
-  max-width: 1440px;
+  max-width: $section-width;
   margin-inline: auto;
 }
 
-.section > .container,
-#catalogo > .container,
-.report-section > .container,
-.hero-container,
-.custom-navbar > .container,
-.site-footer > .container {
-  width: 100%;
-  max-width: $container-width;
-  margin-inline: auto;
-}
+// Padding interno comune a hero, catalogo e preferiti.
+// Bootstrap arriva al massimo a 48px (px-5), per questo è definito qui.
+.container-padded {
+  padding: 2rem 1.5rem;
 
-// .section > .container,
-// #catalogo > .container,
-// .report-section > .container,
-// .hero-container {
-//   width: 100%;
-//   max-width: $container-width;
-//   margin-inline: auto;
-// }
+  @media (min-width: 768px) {
+    padding: 3rem 2.5rem;
+  }
+
+  @media (min-width: 992px) {
+    padding: 4rem;
+  }
+}

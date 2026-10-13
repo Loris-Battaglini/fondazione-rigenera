@@ -32,16 +32,11 @@
 
 
 
-/* Sezione Servizi e Catalogo Ricerca con sfondo verde coordinato all hero */
-.sezione-catalogo{
-  // background-color: var(--rg-primary-subtle);
-  padding: 4rem 1.5rem;
-}
-
+/* Box del catalogo con sfondo verde coordinato all'hero.
+   Il padding interno è lo stesso dell'hero ed è dato dalle classi Bootstrap nell'HTML */
 .container-catalogo{
   background-color: var(--rg-primary-subtle);
-  border-radius: 1.25rem; 
-  padding: 4.5rem 3rem; 
+  border-radius: 1.25rem;
 }
 
 .catalogo-carousel {
@@ -105,10 +100,6 @@
 }
 
 @media (max-width: 575.98px) {
-  .container-catalogo {
-    padding: 2.5rem 1rem;
-  }
-
   .catalogo-freccia {
     flex-basis: 2.25rem;
     width: 2.25rem;

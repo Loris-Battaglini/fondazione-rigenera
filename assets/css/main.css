@@ -65,8 +65,7 @@
 }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 svg,
@@ -110,21 +109,24 @@ h6,
   line-height: 1.05;
 }
 
-.container-xxl {
+.section-wrapper {
   width: 100%;
   max-width: 1440px;
   margin-inline: auto;
 }
 
-.section > .container,
-#catalogo > .container,
-.report-section > .container,
-.hero-container,
-.custom-navbar > .container,
-.site-footer > .container {
-  width: 100%;
-  max-width: 70rem;
-  margin-inline: auto;
+.container-padded {
+  padding: 2rem 1.5rem;
+}
+@media (min-width: 768px) {
+  .container-padded {
+    padding: 3rem 2.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .container-padded {
+    padding: 4rem;
+  }
 }
 
 .btn {
@@ -160,13 +162,10 @@ h6,
 
 /* inizio Bottoni della Hero nell' header */
 .hero-actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .btn-custom-primary,
@@ -176,19 +175,12 @@ h6,
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   border: 2px solid var(--rg-primary-dark);
   text-decoration: none;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-custom-primary {
@@ -223,7 +215,6 @@ h6,
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
@@ -250,8 +241,7 @@ h6,
 .visually-hidden-focusable:focus {
   border-color: #0f3d24;
   outline: 0;
-  -webkit-box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
-          box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
 }
 
 @media (max-width: 991.98px) {
@@ -272,8 +262,7 @@ h6,
   width: 3rem;
   height: 3rem;
   font-size: 1.5rem;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
 }
 @media (min-width: 992px) {
   .icon-circle-lg {
@@ -375,12 +364,8 @@ h6,
   color: #0f3d24;
 }
 .site-footer .footer-brand {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
   font-size: 1.05rem;
@@ -420,36 +405,18 @@ h6,
 
 /* Gestione del layout principale della navbar personalizzata */
 .custom-navbar .navbar-inner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  max-width: 1320px;
-  margin-inline: auto;
   padding-block: 0.75rem;
 }
 .custom-navbar .navbar-collapse {
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
+  flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
 }
 .custom-navbar .navbar-nav {
   margin-right: 2rem; /* Distanza tra i link centrali e i bottoni */
   gap: 1rem;
 }
 .custom-navbar .nav-actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 0.75rem;
 }
 
@@ -515,17 +482,12 @@ h6,
 
 /* Card azione: ombra come da Figma (0 4px 12px verde scuro al 12%) */
 .tile-azione {
-  -webkit-box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
-          box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
-  -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
-  transition: -webkit-box-shadow 0.15s ease-in-out;
+  box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
   transition: box-shadow 0.15s ease-in-out;
-  transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 .tile-azione:hover {
   color: #fff;
-  -webkit-box-shadow: var(--bs-box-shadow-lg);
-          box-shadow: var(--bs-box-shadow-lg);
+  box-shadow: var(--bs-box-shadow-lg);
 }
 .tile-azione:hover .tile-count, .tile-azione:focus-visible .tile-count {
   text-decoration: underline;
@@ -559,28 +521,20 @@ h6,
   La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
     */
 .custom-search-bar {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
   background: var(--bs-white);
   border: 1px solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
   padding: 0 0.75rem;
   height: 42px;
-  -webkit-transition: border-color 0.2s, -webkit-box-shadow 0.2s;
-  transition: border-color 0.2s, -webkit-box-shadow 0.2s;
   transition: border-color 0.2s, box-shadow 0.2s;
-  transition: border-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
 }
 
 .custom-search-bar:focus-within {
   border-color: var(--rg-primary-dark);
-  -webkit-box-shadow: var(--rg-focus-shadow);
-          box-shadow: var(--rg-focus-shadow);
+  box-shadow: var(--rg-focus-shadow);
 }
 
 .search-input-clean {
@@ -592,15 +546,11 @@ h6,
   color: var(--bs-body-color);
 }
 
-/* Sezione Servizi e Catalogo Ricerca con sfondo verde coordinato all hero */
-.sezione-catalogo {
-  padding: 4rem 1.5rem;
-}
-
+/* Box del catalogo con sfondo verde coordinato all'hero.
+   Il padding interno è lo stesso dell'hero ed è dato dalle classi Bootstrap nell'HTML */
 .container-catalogo {
   background-color: var(--rg-primary-subtle);
   border-radius: 1.25rem;
-  padding: 4.5rem 3rem;
 }
 
 .catalogo-carousel {
@@ -611,8 +561,7 @@ h6,
   min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  -ms-scroll-snap-type: x mandatory;
-      scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: var(--rg-primary) transparent;
@@ -630,8 +579,6 @@ h6,
 }
 
 .catalogo-slide {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   min-width: 0;
   scroll-snap-align: start;
@@ -647,13 +594,10 @@ h6,
 }
 
 .catalogo-freccia {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 2.75rem;
-          flex: 0 0 2.75rem;
+  flex: 0 0 2.75rem;
   width: 2.75rem;
   height: 2.75rem;
-  -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
   padding: 0;
 }
 
@@ -668,12 +612,8 @@ h6,
   }
 }
 @media (max-width: 575.98px) {
-  .container-catalogo {
-    padding: 2.5rem 1rem;
-  }
   .catalogo-freccia {
-    -ms-flex-preferred-size: 2.25rem;
-        flex-basis: 2.25rem;
+    flex-basis: 2.25rem;
     width: 2.25rem;
     height: 2.25rem;
   }
