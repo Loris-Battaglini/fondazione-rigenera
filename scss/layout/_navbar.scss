@@ -1,12 +1,6 @@
 /* Gestione del layout principale della navbar personalizzata */
 .custom-navbar {
   .navbar-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1320px;
-    margin-inline: auto;
     padding-block: 0.75rem;
   }
 
