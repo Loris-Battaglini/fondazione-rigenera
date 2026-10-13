@@ -4,7 +4,12 @@ import {
   inizializzaGestionePreferiti,
   inizializzaPreferitiPredefiniti,
 } from "./components/favorites.js";
-import { inizializzaHero } from "./components/counter.js";
+import {
+  inizializzaHero,
+  aggiornaConteggiAzioni,
+  aggiornaTotaleServizi,
+  collegaCardAzioniAiFiltri,
+} from "./components/counter.js";
 import { inizializzaFiltri } from "./components/filters.js";
 
 // Carico i dati una volta sola e li passo ai moduli che ne hanno bisogno.
@@ -22,6 +27,9 @@ async function avviaApp() {
     aggiornaListaPreferiti(servizi);
     inizializzaGestionePreferiti(aggiornaPreferiti);
     inizializzaHero(servizi);
+    aggiornaConteggiAzioni(servizi);
+    aggiornaTotaleServizi(servizi);
+    collegaCardAzioniAiFiltri();
   } catch (errore) {
     console.error("Non sono riuscito a caricare i servizi:", errore);
   }
