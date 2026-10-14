@@ -113,5 +113,45 @@
   }
 }
 
+/* Accordion dei preferiti dentro al Catalogo.
+   Apertura e chiusura sono gestite dal collapse di Bootstrap (data-bs-toggle="collapse"). */
+.accordion-preferiti-btn {
+  background-color: var(--bs-white);
+  color: var(--bs-body-color);
+  transition: background-color 0.2s;
+}
+
+.accordion-preferiti-btn:hover {
+  background-color: var(--bs-light);
+}
+
+.accordion-preferiti-btn:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 0.1875rem var(--rg-primary-dark);
+}
+
+/* Badge con il numero dei preferiti: 14px.
+   Uso rem e non em, così la grandezza non dipende dall'elemento che lo contiene */
+.badge-preferiti {
+  font-size: 0.875rem;
+}
+
+/* Freccia che ruota verso l'alto quando l'accordion è aperto */
+.accordion-preferiti-freccia {
+  font-size: 1.25rem;
+  transition: transform 0.2s;
+}
+
+.accordion-preferiti-btn[aria-expanded="true"] .accordion-preferiti-freccia {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion-preferiti-btn,
+  .accordion-preferiti-freccia {
+    transition: none;
+  }
+}
+
 
 

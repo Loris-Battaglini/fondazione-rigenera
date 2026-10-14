@@ -8,6 +8,7 @@ import {
   inizializzaHero,
   aggiornaConteggiAzioni,
   aggiornaTotaleServizi,
+  aggiornaConteggiPreferiti,
   collegaCardAzioniAiFiltri,
 } from "./components/counter.js";
 import { inizializzaFiltri } from "./components/filters.js";
@@ -22,9 +23,11 @@ async function avviaApp() {
     const aggiornaPreferiti = () => {
       aggiornaCatalogo();
       aggiornaListaPreferiti(servizi);
+      aggiornaConteggiPreferiti(servizi);
     };
 
     aggiornaListaPreferiti(servizi);
+    aggiornaConteggiPreferiti(servizi);
     inizializzaGestionePreferiti(aggiornaPreferiti);
     inizializzaHero(servizi);
     aggiornaConteggiAzioni(servizi);
