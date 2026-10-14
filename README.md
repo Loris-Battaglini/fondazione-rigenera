@@ -41,13 +41,14 @@ _Figura 2: Catalogo dinamico con filtri di ricerca e gestione dei preferiti._
 
 ## 📁 Struttura del Progetto
 
-````text
+```text
 fondazione-rigenera/
 ├── assets/
 │   ├── css/
+│   │   ├── main.css
+│   │   ├── main.css.map
+│   │   └── main.min.css
 │   └── img/
-├── css/
-│   └── main.css.map
 ├── js/
 │   ├── components/
 │   │   ├── cards.js
@@ -92,26 +93,31 @@ fondazione-rigenera/
 ├── package-lock.json
 ├── package.json
 └── README.md
+```
 
 ## 🚀 Installazione e Avvio Locale
 
 1. **Clona la repository:**
-   ```bash
-   git clone [https://github.com/Loris-Battaglini/fondazione-rigenera.git](https://github.com/Loris-Battaglini/fondazione-rigenera.git)
-   cd fondazione-rigenera
 
-2. **Avvia il progetto in locale:**
-   Puoi aprire direttamente `index.html` tramite una qualsiasi estensione per server locale (es. **Live Server** su VS Code) oppure lanciare un local server con Node.js:
    ```bash
+   git clone https://github.com/Loris-Battaglini/fondazione-rigenera.git
+   cd fondazione-rigenera
+   ```
+
+2. **Installa le dipendenze e avvia il progetto:**
+
+   ```bash
+   npm install
    npx live-server
+   ```
 
 3. **Compilazione SCSS:**
    ```bash
-   npm run build:scss
+   npm run build:css:all
+   ```
 
 ## 👥 Contributori & Team Work
 
-* Andrea Meini
-* Anna Bonadimani
-* Loris Battaglini
-````
+- Andrea Meini
+- Anna Bonadimani
+- Loris Battaglini
