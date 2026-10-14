@@ -33,7 +33,7 @@ _Figura 2: Catalogo dinamico con filtri di ricerca e gestione dei preferiti._
 ## 🛠️ Tech Stack
 
 - **Frontend:** HTML5, SCSS / CSS3, Bootstrap 5
-- **Logic & Scripts:** Vanilla JavaScript (ES6+ Modules), TypeScript (`tsc`)
+- **Logic & Scripts:** Vanilla JavaScript (ES6+ Modules)
 - **Data Format:** JSON
 - **Version Control:** Git & GitHub (Workflow a branch)
 
