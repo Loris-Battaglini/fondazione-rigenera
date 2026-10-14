@@ -11,9 +11,11 @@ import {
   collegaCardAzioniAiFiltri,
 } from "./components/counter.js";
 import { inizializzaFiltri } from "./components/filters.js";
+import { inizializzaFormSegnalazione } from "./components/report.js";
 
 // Carico i dati una volta sola e li passo ai moduli che ne hanno bisogno.
 async function avviaApp() {
+  inizializzaFormSegnalazione();
   try {
     const servizi = await caricaServizi();
     inizializzaPreferitiPredefiniti(servizi);

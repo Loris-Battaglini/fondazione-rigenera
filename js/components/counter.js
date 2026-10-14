@@ -14,12 +14,12 @@ export function scriviNumero(elemento, numero) {
   }
 }
 
-// Conta quanti servizi appartengono a una certa categoria (es. "riparazione", "scambio", "donazione", "riciclo").
+// Conta quanti servizi appartengono a una certa azione (es. "riparazione", "scambio", "donazione", "riciclo").
 export function contaServiziPerCategoria(servizi, categoria) {
   let conteggio = 0;
 
   for (let i = 0; i < servizi.length; i++) {
-    if (servizi[i].categoria === categoria) {
+    if (servizi[i].azione === categoria) {
       conteggio = conteggio + 1;
     }
   }
@@ -34,7 +34,7 @@ export function aggiornaStatisticheHero(servizi) {
     idServizi.has(id),
   ).length;
   const categorie = new Set(
-    servizi.map((servizio) => servizio.categoria).filter(Boolean),
+    servizi.map((servizio) => servizio.azione).filter(Boolean),
   );
 
   scriviNumero(statisticheHero.servizi, servizi.length);

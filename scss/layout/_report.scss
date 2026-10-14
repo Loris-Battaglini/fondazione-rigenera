@@ -3,6 +3,7 @@
 .report-section {
   background-color: $primary-dark;
   color: $white;
+  min-height: clamp(28rem, 46vh, 42rem);
 }
 
 /* Colonna di testo a sinistra */
@@ -30,19 +31,113 @@
   border-radius: $border-radius-xl;
 
   .card-body {
-    padding: 1.5rem;
+    padding: 1.1rem 1.2rem;
 
     @media (min-width: 576px) {
-      padding: 2.5rem;
+      padding: 1.35rem 1.5rem;
     }
   }
 
+  .row.g-3 {
+    --bs-gutter-x: 0.7rem;
+    --bs-gutter-y: 0.7rem;
+  }
+
+  .form-control,
+  .form-select {
+    min-height: 2.6rem;
+  }
+
   textarea.form-control {
-    min-height: 4.5rem;
+    min-height: 3.2rem;
     resize: vertical;
   }
 }
 
 .report-card-title {
   font-size: 1.5rem;
+}
+
+.day-selector {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.45rem;
+
+  &.invalid {
+    border: 1px solid rgba(220, 53, 69, 0.7);
+    border-radius: 0.8rem;
+    background: rgba(220, 53, 69, 0.02);
+    padding: 0.2rem 0.25rem;
+  }
+}
+
+.day-toggle {
+  width: 100%;
+  min-width: 0;
+  height: $rg-touch-min;
+  padding: 0.25rem;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(15, 61, 36, 0.14);
+  background: #f5f7f6;
+  color: #1f2a1f;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  line-height: 1;
+  box-shadow: none;
+
+  &:hover,
+  &[aria-pressed="true"],
+  &.active {
+    background: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+  }
+}
+
+.phone-input-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: stretch;
+}
+
+.phone-prefix {
+  flex: 0 0 5.25rem;
+}
+
+.phone-number {
+  flex: 1 1 auto;
+}
+
+.report-card {
+  .form-label {
+    margin-bottom: 0.32rem;
+    font-size: 0.875rem;
+  }
+
+  .form-control,
+  .form-select {
+    min-height: 2.6rem;
+    font-size: 1rem;
+  }
+
+  .form-control {
+    padding: 0.5rem 0.7rem;
+  }
+
+  .form-select {
+    padding-block: 0.5rem;
+    padding-left: 0.7rem;
+  }
+
+  .invalid-feedback {
+    display: none;
+    margin-top: 0.28rem;
+    font-size: 0.8125rem;
+  }
+
+  .is-invalid ~ .invalid-feedback,
+  .invalid-feedback.visible {
+    display: block;
+  }
 }

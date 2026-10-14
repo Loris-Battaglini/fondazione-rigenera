@@ -44,3 +44,37 @@ export function togglePreferito(id) {
   notificaPreferitiAggiornati();
   return true;
 }
+
+const CHIAVE_SEGNALAZIONI = "rigenera-segnalazioni";
+const CHIAVE_BOZZA_SEGNALAZIONE = "rigenera-segnalazione-bozza";
+
+export function salvaSegnalazione(segnalazione) {
+  try {
+    const testo = localStorage.getItem(CHIAVE_SEGNALAZIONI);
+    const segnalazioni = testo ? JSON.parse(testo) : [];
+    const lista = Array.isArray(segnalazioni) ? segnalazioni : [];
+    lista.push(segnalazione);
+    localStorage.setItem(CHIAVE_SEGNALAZIONI, JSON.stringify(lista));
+  } catch (errore) {
+    console.error("Impossibile salvare la segnalazione:", errore);
+  }
+}
+
+export function salvaBozzaSegnalazione(bozza) {
+  try {
+    localStorage.setItem(CHIAVE_BOZZA_SEGNALAZIONE, JSON.stringify(bozza));
+  } catch (errore) {
+    console.error("Impossibile salvare la bozza della segnalazione:", errore);
+  }
+}
+
+export function leggiBozzaSegnalazione() {
+  try {
+    const testo = localStorage.getItem(CHIAVE_BOZZA_SEGNALAZIONE);
+    const bozza = testo ? JSON.parse(testo) : {};
+    return bozza && typeof bozza === "object" && !Array.isArray(bozza) ? bozza : {};
+  } catch (errore) {
+    console.error("Impossibile leggere la bozza della segnalazione:", errore);
+    return {};
+  }
+}

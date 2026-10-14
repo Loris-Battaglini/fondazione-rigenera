@@ -464,10 +464,9 @@
               >
               <select id="filtro-zona" class="form-select">
                 <option value="tutti" selected>Tutte le zone</option>
-                <option value="Centro storico">Centro storico</option>
+                <option value="Centro">Centro</option>
                 <option value="Navile">Navile</option>
                 <option value="San Donato">San Donato</option>
-                <option value="Borgo Panigale">Borgo Panigale</option>
               </select>
             </div>
 
@@ -623,132 +622,117 @@
                 <p class="small text-secondary mb-4">
                   I campi contrassegnati con * sono obbligatori.
                 </p>
-                <form
-                  id="segnalazione-form"
-                  class="needs-validation"
-                  novalidate
-                >
+                <form id="segnalazione-form" class="needs-validation" novalidate>
                   <div class="row g-3">
                     <div class="col-md-6">
-                      <label for="nome" class="form-label fw-medium small"
-                        >Nome del servizio *</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="nome"
-                        name="nome"
-                        placeholder="Es. Ciclofficina Popolare"
-                        required
-                      />
-                      <div class="invalid-feedback">
-                        Inserisci il nome del servizio.
-                      </div>
+                      <label for="nome" class="form-label fw-medium">Nome del servizio *</label>
+                      <input type="text" class="form-control" id="nome" name="nome" placeholder="Es. Ciclofficina Popolare" required />
+                      <div class="invalid-feedback">Campo vuoto</div>
                     </div>
                     <div class="col-md-6">
-                      <label for="azione" class="form-label fw-medium small"
-                        >Tipo di azione *</label
-                      >
-                      <select
-                        class="form-select"
-                        id="azione"
-                        name="azione"
-                        required
-                      >
+                      <label for="azione" class="form-label fw-medium">Tipo di azione *</label>
+                      <select class="form-select" id="azione" name="azione" required>
                         <option value="" selected>Scegli…</option>
-                        <option>Riparare</option>
-                        <option>Scambiare</option>
-                        <option>Donare</option>
-                        <option>Riciclare</option>
+                        <option value="riparazione">Riparare</option>
+                        <option value="scambio">Scambiare</option>
+                        <option value="donazione">Donare</option>
+                        <option value="riciclo">Riciclare</option>
                       </select>
-                      <div class="invalid-feedback">
-                        Scegli un tipo di azione.
-                      </div>
+                      <div class="invalid-feedback">Campo vuoto</div>
                     </div>
                     <div class="col-md-6">
-                      <label for="categoria" class="form-label fw-medium small"
-                        >Categoria di oggetti *</label
-                      >
-                      <select
-                        class="form-select"
-                        id="categoria"
-                        name="categoria"
-                        required
-                      >
+                      <label for="categoria" class="form-label fw-medium">Categoria di oggetti *</label>
+                      <select class="form-select" id="categoria" name="categoria" required>
                         <option value="" selected>Scegli…</option>
                         <option>Abbigliamento</option>
-                        <option>Biciclette</option>
+                        <option>Bici</option>
                         <option>Elettronica</option>
                         <option>Libri</option>
                         <option>Mobili</option>
                         <option>Altro</option>
                       </select>
-                      <div class="invalid-feedback">Scegli una categoria.</div>
+                      <div class="invalid-feedback">Campo vuoto</div>
                     </div>
-
                     <div class="col-md-6">
-                      <label for="zona" class="form-label fw-medium small"
-                        >Zona o indirizzo *</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="zona"
-                        name="zona"
-                        placeholder="Es. Navile, Via del Lavoro 12"
-                        required
-                      />
-                      <div class="invalid-feedback">
-                        Indica una zona o un indirizzo.
+                      <label for="citta" class="form-label fw-medium">Città *</label>
+                      <input type="text" class="form-control" id="citta" name="citta" placeholder="Es. Bologna" required />
+                      <div class="invalid-feedback">Campo vuoto</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="indirizzo" class="form-label fw-medium">Via/Piazza *</label>
+                      <input type="text" class="form-control" id="indirizzo" name="indirizzo" placeholder="Es. Via del Lavoro" required />
+                      <div class="invalid-feedback">Campo vuoto</div>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="numero_civico" class="form-label fw-medium">N° civico</label>
+                      <input type="text" class="form-control" id="numero_civico" name="numero_civico" placeholder="12" />
+                    </div>
+                    <div class="col-md-3">
+                      <label for="zona" class="form-label fw-medium">Zona *</label>
+                      <select class="form-select" id="zona" name="zona" required>
+                        <option value="" selected>Scegli…</option>
+                        <option>Centro</option>
+                        <option>Navile</option>
+                        <option>San Donato</option>
+                      </select>
+                      <div class="invalid-feedback">Campo vuoto</div>
+                    </div>
+                    <div class="col-12">
+                      <div class="row g-2">
+                        <div class="col-md-6">
+                          <label for="ora_apertura" class="form-label fw-medium">Orario di apertura</label>
+                          <input type="time" class="form-control" id="ora_apertura" name="ora_apertura" />
+                        </div>
+                        <div class="col-md-6">
+                          <label for="ora_chiusura" class="form-label fw-medium">Orario di chiusura</label>
+                          <input type="time" class="form-control" id="ora_chiusura" name="ora_chiusura" />
+                        </div>
+                      </div>
+                      <div class="form-check form-switch mt-2">
+                        <input class="form-check-input" type="checkbox" id="servizio_notturno" name="servizio_notturno" />
+                        <label class="form-check-label" for="servizio_notturno">Servizio notturno</label>
                       </div>
                     </div>
                     <div class="col-12">
-                      <label for="orari" class="form-label fw-medium small"
-                        >Orari di apertura</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="orari"
-                        name="orari"
-                        placeholder="Es. Mar–Sab 15:00–19:00"
-                      />
-                    </div>
-                    <div class="col-12">
-                      <label
-                        for="descrizione"
-                        class="form-label fw-medium small"
-                        >Descrizione breve *</label
-                      >
-                      <textarea
-                        class="form-control"
-                        id="descrizione"
-                        name="descrizione"
-                        rows="3"
-                        maxlength="300"
-                        placeholder="Cosa si può fare qui? (max 300 caratteri)"
-                        required
-                      ></textarea>
-                      <div class="invalid-feedback">
-                        Scrivi una breve descrizione.
+                      <label class="form-label fw-medium d-block">Giorni di apertura *</label>
+                      <div class="day-selector" role="group" aria-label="Seleziona i giorni di apertura">
+                        <button type="button" class="btn btn-sm day-toggle" data-giorno="Lun" aria-pressed="false">Lun</button>
+                        <button type="button" class="btn btn-sm day-toggle" data-giorno="Mar" aria-pressed="false">Mar</button>
+                        <button type="button" class="btn btn-sm day-toggle" data-giorno="Mer" aria-pressed="false">Mer</button>
+                        <button type="button" class="btn btn-sm day-toggle" data-giorno="Gio" aria-pressed="false">Gio</button>
+                        <button type="button" class="btn btn-sm day-toggle" data-giorno="Ven" aria-pressed="false">Ven</button>
+                        <button type="button" class="btn btn-sm day-toggle" data-giorno="Sab" aria-pressed="false">Sab</button>
+                        <button type="button" class="btn btn-sm day-toggle" data-giorno="Dom" aria-pressed="false">Dom</button>
                       </div>
+                      <div class="invalid-feedback">Campo vuoto</div>
                     </div>
                     <div class="col-12">
-                      <label for="contatto" class="form-label fw-medium small"
-                        >Email o telefono (facoltativo)</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="contatto"
-                        name="contatto"
-                        placeholder="Es. nome@esempio.it"
-                      />
+                      <label for="descrizione" class="form-label fw-medium">Descrizione breve *</label>
+                      <textarea class="form-control" id="descrizione" name="descrizione" rows="3" maxlength="300" placeholder="Cosa si può fare qui? (max 300 caratteri)" required></textarea>
+                      <div class="invalid-feedback">Campo vuoto</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="email" class="form-label fw-medium">Email</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Es. nome@esempio.it" />
+                      <div class="invalid-feedback">Email non valida</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="telefono" class="form-label fw-medium">Telefono</label>
+                      <div class="phone-input-group">
+                        <select class="form-select phone-prefix" aria-label="Prefisso telefonico" name="prefisso_telefono">
+                          <option selected>+39</option>
+                          <option>+41</option>
+                          <option>+49</option>
+                          <option>+33</option>
+                          <option>+1</option>
+                        </select>
+                        <input type="tel" class="form-control phone-number" id="telefono" name="telefono" placeholder="345 123 4567" />
+                      </div>
+                      <div class="invalid-feedback">Telefono non valido</div>
                     </div>
                     <div class="col-12">
                       <button type="submit" class="btn btn-primary w-100">
-                        <i class="bi bi-arrow-right me-2" aria-hidden="true"></i
-                        >Invia segnalazione
+                        <i class="bi bi-arrow-right me-2" aria-hidden="true"></i>Invia segnalazione
                       </button>
                     </div>
                   </div>
