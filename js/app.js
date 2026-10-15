@@ -14,27 +14,31 @@ import { inizializzaFiltri } from "./components/filters.js";
 import { inizializzaFormSegnalazione } from "./components/report.js";
 
 // Carico i dati una volta sola e li passo ai moduli che ne hanno bisogno.
-async function avviaApp() {
+function avviaApp() {
   inizializzaFormSegnalazione();
+  let servizi;
+
   try {
-    const servizi = await caricaServizi();
-    inizializzaPreferitiPredefiniti(servizi);
-
-    const aggiornaCatalogo = inizializzaFiltri(servizi);
-    const aggiornaPreferiti = () => {
-      aggiornaCatalogo();
-      aggiornaListaPreferiti(servizi);
-    };
-
-    aggiornaListaPreferiti(servizi);
-    inizializzaGestionePreferiti(aggiornaPreferiti);
-    inizializzaHero(servizi);
-    aggiornaConteggiAzioni(servizi);
-    aggiornaTotaleServizi(servizi);
-    collegaCardAzioniAiFiltri();
+    servizi = caricaServizi();
   } catch (errore) {
-    console.error("Non sono riuscito a caricare i servizi:", errore);
+    console.error("Servizi non caricati", errore);
+    return;
   }
+
+  inizializzaPreferitiPredefiniti(servizi);
+
+  const aggiornaCatalogo = inizializzaFiltri(servizi);
+  const aggiornaPreferiti = () => {
+    aggiornaCatalogo();
+    aggiornaListaPreferiti(servizi);
+  };
+
+  aggiornaListaPreferiti(servizi);
+  inizializzaGestionePreferiti(aggiornaPreferiti);
+  inizializzaHero(servizi);
+  aggiornaConteggiAzioni(servizi);
+  aggiornaTotaleServizi(servizi);
+  collegaCardAzioniAiFiltri();
 }
 
 avviaApp();
