@@ -1,6 +1,8 @@
+@use "../abstracts/variables" as *;
+
 .icon-circle,
 .tile-icon {
-  background-color: rgba(255, 255, 255, .2);
+  background-color: $rg-icon-bg;
 }
 
 // I colori delle intestazioni card nella sezione Catalogo usano le classi .bg-azione-* di _utilities.scss

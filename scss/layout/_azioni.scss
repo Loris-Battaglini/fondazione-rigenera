@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as *;
+
 /* --------------------------------------------------------------------------
    SECTION AZIONI E COME FUNZIONA
    -------------------------------------------------------------------------- */
@@ -15,11 +17,11 @@
 
 /* Card azione: ombra come da Figma (0 4px 12px verde scuro al 12%) */
 .tile-azione {
-  box-shadow: 0 4px 12px rgba(15, 61, 36, .12);
+  box-shadow: $rg-shadow-tile;
   transition: box-shadow .15s ease-in-out;
 
   &:hover {
-    color: #fff;
+    color: $white;
     box-shadow: var(--bs-box-shadow-lg);
   }
 

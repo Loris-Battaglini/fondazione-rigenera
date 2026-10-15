@@ -30,7 +30,9 @@
   </head>
   <body>
     <!-- inizio navbar -->
-    <nav class="navbar navbar-expand-lg custom-navbar bg-body-tertiary">
+    <nav
+      class="navbar navbar-expand-lg custom-navbar bg-body-tertiary fixed-top"
+    >
       <div class="container navbar-inner">
         <!-- Brand e icona -->
         <a class="navbar-brand d-flex align-items-center gap-2" href="#intro">
@@ -70,113 +72,60 @@
           </ul>
           <div class="nav-actions">
             <a class="btn btn-outline-primary" href="#preferiti">Preferiti</a>
-            <a class="btn btn-primary" href="#segnala">Segnala un luogo</a>
+            <a class="btn btn-primary" href="#segnala">Segnala un servizio</a>
           </div>
         </div>
       </div>
     </nav>
     <!-- fine navbar -->
     <!-- inizio header -->
-    <section id="intro" class="hero-section section-wrapper" aria-labelledby="titolo-hero">
-      <!-- Padding adattativi: più compatti su mobile (px-3 py-4), più ampi da desktop -->
+    <section
+      id="intro"
+      class="hero-section section-wrapper"
+      aria-labelledby="titolo-hero"
+    >
       <div class="container hero-container container-padded">
-        <div class="row align-items-center g-4 g-lg-5">
-          <!-- Testo, bottoni e numeri (su mobile occupa tutto lo spazio) -->
-          <div class="col-lg-7">
-            <p class="eyebrow text-uppercase fw-bold small text-primary mb-2">
-              Guida gratuita · Fondazione Rigenera
-            </p>
-            <h1
-              id="titolo-hero"
-              class="display-6 display-md-5 fw-bold text-body-emphasis lh-1 mb-3"
-            >
-              Dai una <span class="text-primary">seconda vita</span> ai tuoi
-              oggetti
+        <div class="row hero-layout align-items-center g-4 g-lg-5">
+          <div class="col-md-7 hero-copy">
+            <p class="eyebrow text-uppercase fw-bold small text-primary mb-3">Guida al riuso · Fondazione Rigenera</p>
+            <h1 id="titolo-hero" class="hero-title">
+              Dai nuova vita ai tuoi <span>oggetti.</span>
             </h1>
-            <p class="lead text-body-secondary mb-4 fs-6 fs-md-5">
-              <span class="d-none d-md-inline"
-                >Officine di riparazione, mercatini dell'usato, centri di
-                raccolta e scambi di vestiti:</span
-              >
-              <br class="d-none d-md-block d-lg-none" />
-              Tutti i servizi di riuso della città, verificati e in un unico
-              posto.
+            <p class="hero-description">
+              Trova luoghi verificati dove riparare, scambiare, donare e
+              riciclare, tutto vicino a te.
             </p>
 
-            <!-- Bottoni -->
-            <div
-              class="d-grid gap-2 d-sm-flex justify-content-sm-start mb-4 mb-lg-0"
-            >
-              <a
-                href="#catalogo"
-                class="btn btn-primary btn-lg px-4 text-nowrap"
-                >Cerca un punto di riuso</a
+            <div class="hero-actions">
+              <a href="#catalogo" class="btn btn-primary btn-lg px-4"
+                >Esplora i servizi</a
               >
-              <a
-                href="#segnala"
-                class="btn btn-outline-primary btn-lg px-4 text-nowrap"
-                >Segnala un luogo</a
+              <a href="#segnala" class="btn btn-outline-primary btn-lg px-4"
+                >Segnala un servizio</a
               >
             </div>
 
-            <!-- Statistiche -->
-            <dl class="row g-2 pt-3 pt-sm-4 mt-3 mt-sm-4 mb-0 border-top">
-              <!-- Primo dato (1/3 di spazio) -->
-              <div
-                class="col-4 d-flex flex-column-reverse justify-content-end text-center text-sm-start align-items-center align-items-sm-start"
-              >
-                <dt class="small fw-normal text-body-secondary">
-                  servizi verificati
-                </dt>
-                <dd
-                  class="fs-2 fw-bold mb-0"
-                  data-hero-stat="servizi"
-                  aria-live="polite"
-                >
-                  48
-                </dd>
+            <dl class="hero-stats">
+              <div class="hero-stat">
+                <dt>servizi verificati</dt>
+                <dd data-hero-stat="servizi" aria-live="polite">48</dd>
               </div>
-
-              <!-- Secondo dato (1/3 di spazio) -->
-              <div
-                class="col-4 d-flex flex-column-reverse justify-content-end text-center text-sm-start align-items-center align-items-sm-start"
-              >
-                <dt class="small fw-normal text-body-secondary">
-                  preferiti salvati
-                </dt>
-                <dd
-                  class="fs-2 fw-bold mb-0"
-                  data-hero-stat="preferiti"
-                  aria-live="polite"
-                >
-                  0
-                </dd>
+              <div class="hero-stat">
+                <dt>preferiti salvati</dt>
+                <dd data-hero-stat="preferiti" aria-live="polite">0</dd>
               </div>
-
-              <!-- Terzo dato (1/3 di spazio) -->
-              <div
-                class="col-4 d-flex flex-column-reverse justify-content-end text-center text-sm-start align-items-center align-items-sm-start"
-              >
-                <dt class="small fw-normal text-body-secondary">
-                  modi per il riuso
-                </dt>
-                <dd
-                  class="fs-2 fw-bold mb-0"
-                  data-hero-stat="categorie"
-                  aria-live="polite"
-                >
-                  4
-                </dd>
+              <div class="hero-stat">
+                <dt>modi per il riuso</dt>
+                <dd data-hero-stat="categorie" aria-live="polite">4</dd>
               </div>
             </dl>
           </div>
 
-          <!-- Immagine: 'd-none d-lg-block' la nasconde su mobile/tablet e la mostra solo da desktop -->
-          <div class="col-lg-5 d-none d-lg-block">
+          <div class="col-md-5 hero-visual" aria-hidden="true">
             <img
               src="assets/img/bicicletta-anna.svg"
               alt=""
-              class="d-block mx-auto img-fluid"
+              class="hero-illustration"
             />
           </div>
         </div>
@@ -187,7 +136,11 @@
    SECTION 1: AZIONI
    -------------------------------------------------------------------------- -->
 
-    <section id="azioni" class="section section-wrapper" aria-labelledby="titolo-azioni">
+    <section
+      id="azioni"
+      class="section section-wrapper"
+      aria-labelledby="titolo-azioni"
+    >
       <div class="container">
         <p class="eyebrow text-uppercase fw-bold small text-primary mb-2">
           Trova in pochi secondi
@@ -310,7 +263,7 @@
       aria-labelledby="titolo-come-funziona"
     >
       <div class="container">
-        <div class="bg-accent-subtle p-4 p-md-5 rounded-5">
+        <div class="bg-accent-subtle p-4 p-md-5 rounded-4">
           <p class="eyebrow text-uppercase fw-bold small text-primary mb-2">
             Come funziona
           </p>
@@ -464,10 +417,9 @@
               >
               <select id="filtro-zona" class="form-select">
                 <option value="tutti" selected>Tutte le zone</option>
-                <option value="Centro storico">Centro storico</option>
+                <option value="Centro">Centro</option>
                 <option value="Navile">Navile</option>
                 <option value="San Donato">San Donato</option>
-                <option value="Borgo Panigale">Borgo Panigale</option>
               </select>
             </div>
 
@@ -661,7 +613,7 @@
                 >
                   <div class="row g-3">
                     <div class="col-md-6">
-                      <label for="nome" class="form-label fw-medium small"
+                      <label for="nome" class="form-label fw-medium"
                         >Nome del servizio *</label
                       >
                       <input
@@ -672,12 +624,10 @@
                         placeholder="Es. Ciclofficina Popolare"
                         required
                       />
-                      <div class="invalid-feedback">
-                        Inserisci il nome del servizio.
-                      </div>
+                      <div class="invalid-feedback">Campo vuoto</div>
                     </div>
                     <div class="col-md-6">
-                      <label for="azione" class="form-label fw-medium small"
+                      <label for="azione" class="form-label fw-medium"
                         >Tipo di azione *</label
                       >
                       <select
@@ -687,17 +637,15 @@
                         required
                       >
                         <option value="" selected>Scegli…</option>
-                        <option>Riparare</option>
-                        <option>Scambiare</option>
-                        <option>Donare</option>
-                        <option>Riciclare</option>
+                        <option value="riparazione">Riparare</option>
+                        <option value="scambio">Scambiare</option>
+                        <option value="donazione">Donare</option>
+                        <option value="riciclo">Riciclare</option>
                       </select>
-                      <div class="invalid-feedback">
-                        Scegli un tipo di azione.
-                      </div>
+                      <div class="invalid-feedback">Campo vuoto</div>
                     </div>
                     <div class="col-md-6">
-                      <label for="categoria" class="form-label fw-medium small"
+                      <label for="categoria" class="form-label fw-medium"
                         >Categoria di oggetti *</label
                       >
                       <select
@@ -708,47 +656,178 @@
                       >
                         <option value="" selected>Scegli…</option>
                         <option>Abbigliamento</option>
-                        <option>Biciclette</option>
+                        <option>Bici</option>
                         <option>Elettronica</option>
                         <option>Libri</option>
                         <option>Mobili</option>
                         <option>Altro</option>
                       </select>
-                      <div class="invalid-feedback">Scegli una categoria.</div>
+                      <div class="invalid-feedback">Campo vuoto</div>
                     </div>
-
                     <div class="col-md-6">
-                      <label for="zona" class="form-label fw-medium small"
-                        >Zona o indirizzo *</label
+                      <label for="citta" class="form-label fw-medium"
+                        >Città *</label
                       >
                       <input
                         type="text"
                         class="form-control"
-                        id="zona"
-                        name="zona"
-                        placeholder="Es. Navile, Via del Lavoro 12"
+                        id="citta"
+                        name="citta"
+                        placeholder="Es. Bologna"
                         required
                       />
-                      <div class="invalid-feedback">
-                        Indica una zona o un indirizzo.
+                      <div class="invalid-feedback">Campo vuoto</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="indirizzo" class="form-label fw-medium"
+                        >Via/Piazza *</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="indirizzo"
+                        name="indirizzo"
+                        placeholder="Es. Via del Lavoro"
+                        required
+                      />
+                      <div class="invalid-feedback">Campo vuoto</div>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="numero_civico" class="form-label fw-medium"
+                        >N° civico</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="numero_civico"
+                        name="numero_civico"
+                        placeholder="12"
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <label for="zona" class="form-label fw-medium"
+                        >Zona *</label
+                      >
+                      <select
+                        class="form-select"
+                        id="zona"
+                        name="zona"
+                        required
+                      >
+                        <option value="" selected>Scegli…</option>
+                        <option>Centro</option>
+                        <option>Navile</option>
+                        <option>San Donato</option>
+                      </select>
+                      <div class="invalid-feedback">Campo vuoto</div>
+                    </div>
+                    <div class="col-12">
+                      <div class="row g-2">
+                        <div class="col-md-6">
+                          <label for="ora_apertura" class="form-label fw-medium"
+                            >Orario di apertura</label
+                          >
+                          <input
+                            type="time"
+                            class="form-control"
+                            id="ora_apertura"
+                            name="ora_apertura"
+                          />
+                        </div>
+                        <div class="col-md-6">
+                          <label for="ora_chiusura" class="form-label fw-medium"
+                            >Orario di chiusura</label
+                          >
+                          <input
+                            type="time"
+                            class="form-control"
+                            id="ora_chiusura"
+                            name="ora_chiusura"
+                          />
+                        </div>
+                      </div>
+                      <div class="form-check form-switch mt-2">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="servizio_notturno"
+                          name="servizio_notturno"
+                        />
+                        <label class="form-check-label" for="servizio_notturno"
+                          >Servizio notturno</label
+                        >
                       </div>
                     </div>
                     <div class="col-12">
-                      <label for="orari" class="form-label fw-medium small"
-                        >Orari di apertura</label
+                      <label class="form-label fw-medium d-block"
+                        >Giorni di apertura *</label
                       >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="orari"
-                        name="orari"
-                        placeholder="Es. Mar–Sab 15:00–19:00"
-                      />
+                      <div
+                        class="day-selector"
+                        role="group"
+                        aria-label="Seleziona i giorni di apertura"
+                      >
+                        <button
+                          type="button"
+                          class="btn btn-sm day-toggle"
+                          data-giorno="Lun"
+                          aria-pressed="false"
+                        >
+                          Lun
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-sm day-toggle"
+                          data-giorno="Mar"
+                          aria-pressed="false"
+                        >
+                          Mar
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-sm day-toggle"
+                          data-giorno="Mer"
+                          aria-pressed="false"
+                        >
+                          Mer
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-sm day-toggle"
+                          data-giorno="Gio"
+                          aria-pressed="false"
+                        >
+                          Gio
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-sm day-toggle"
+                          data-giorno="Ven"
+                          aria-pressed="false"
+                        >
+                          Ven
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-sm day-toggle"
+                          data-giorno="Sab"
+                          aria-pressed="false"
+                        >
+                          Sab
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-sm day-toggle"
+                          data-giorno="Dom"
+                          aria-pressed="false"
+                        >
+                          Dom
+                        </button>
+                      </div>
+                      <div class="invalid-feedback">Campo vuoto</div>
                     </div>
                     <div class="col-12">
-                      <label
-                        for="descrizione"
-                        class="form-label fw-medium small"
+                      <label for="descrizione" class="form-label fw-medium"
                         >Descrizione breve *</label
                       >
                       <textarea
@@ -760,21 +839,46 @@
                         placeholder="Cosa si può fare qui? (max 300 caratteri)"
                         required
                       ></textarea>
-                      <div class="invalid-feedback">
-                        Scrivi una breve descrizione.
-                      </div>
+                      <div class="invalid-feedback">Campo vuoto</div>
                     </div>
-                    <div class="col-12">
-                      <label for="contatto" class="form-label fw-medium small"
-                        >Email o telefono (facoltativo)</label
+                    <div class="col-md-6">
+                      <label for="email" class="form-label fw-medium"
+                        >Email</label
                       >
                       <input
-                        type="text"
+                        type="email"
                         class="form-control"
-                        id="contatto"
-                        name="contatto"
+                        id="email"
+                        name="email"
                         placeholder="Es. nome@esempio.it"
                       />
+                      <div class="invalid-feedback">Email non valida</div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="telefono" class="form-label fw-medium"
+                        >Telefono</label
+                      >
+                      <div class="phone-input-group">
+                        <select
+                          class="form-select phone-prefix"
+                          aria-label="Prefisso telefonico"
+                          name="prefisso_telefono"
+                        >
+                          <option selected>+39</option>
+                          <option>+41</option>
+                          <option>+49</option>
+                          <option>+33</option>
+                          <option>+1</option>
+                        </select>
+                        <input
+                          type="tel"
+                          class="form-control phone-number"
+                          id="telefono"
+                          name="telefono"
+                          placeholder="345 123 4567"
+                        />
+                      </div>
+                      <div class="invalid-feedback">Telefono non valido</div>
                     </div>
                     <div class="col-12">
                       <button type="submit" class="btn btn-primary w-100">

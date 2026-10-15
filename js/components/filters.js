@@ -28,18 +28,17 @@ function aggiornaPagina() {
     const matchTesto = [
       servizio.nome,
       servizio.descrizione,
-      servizio.tag,
+      servizio.categoria,
+      servizio.citta,
       servizio.zona,
       servizio.indirizzo,
-      servizio.via,
-      servizio.civico,
     ].some((valore) => normalizza(valore).includes(testoCercato));
 
     const matchTag =
-      tagSelezionato === "tutti" || normalizza(servizio.tag) === tagSelezionato;
+      tagSelezionato === "tutti" || normalizza(servizio.categoria) === tagSelezionato;
 
     const indirizzo = normalizza(
-      [servizio.zona, servizio.indirizzo, servizio.via, servizio.civico]
+      [servizio.citta, servizio.zona, servizio.indirizzo]
         .filter(Boolean)
         .join(" "),
     );
@@ -48,7 +47,7 @@ function aggiornaPagina() {
 
     const matchAzione =
       azioneSelezionata === "tutti" ||
-      normalizza(servizio.categoria) === azioneSelezionata;
+      normalizza(servizio.azione) === azioneSelezionata;
 
     return matchTesto && matchTag && matchZona && matchAzione;
   });

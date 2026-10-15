@@ -1,5 +1,9 @@
+@use "../abstracts/variables" as *;
+
 /* Gestione del layout principale della navbar personalizzata */
 .custom-navbar {
+  box-shadow: $rg-shadow-navbar;
+
   .navbar-inner {
     padding-block: 0.75rem;
   }
@@ -11,6 +15,16 @@
   .navbar-nav {
     margin-right: 2rem; /* Distanza tra i link centrali e i bottoni */
     gap: 1rem;
+
+    .nav-link {
+      color: var(--rg-primary-dark);
+      transition: color 180ms ease;
+
+      &:hover,
+      &:focus-visible {
+        color: var(--rg-primary);
+      }
+    }
   }
 
   .nav-actions {
@@ -18,6 +32,14 @@
     align-items: center;
     gap: 0.75rem;
   }
+}
+
+:root {
+  scroll-padding-top: 7rem;
+}
+
+body {
+  padding-top: 6.875rem;
 }
 
 .sottotitolo-navbar {

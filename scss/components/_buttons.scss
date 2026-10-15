@@ -35,13 +35,6 @@
 
 
 /* inizio Bottoni della Hero nell' header */
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-
 .btn-custom-primary,
 .btn-custom-outline {
   padding: 0.75rem 1.5rem;
@@ -90,7 +83,7 @@
   border: 1px solid var(--bs-border-color);
   color: var(--bs-secondary);
   padding: 0.35rem 1rem;
-  border-radius: 50rem;
+  border-radius: $border-radius-pill;
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
@@ -100,7 +93,7 @@
 .pill-btn:hover {
   background-color: var(--bs-light);
   color: var(--bs-dark);
-  border-color: #adb5bd;
+  border-color: $gray-500;
 }
 
 .pill-btn.attivo {
