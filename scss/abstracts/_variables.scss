@@ -8,6 +8,7 @@ $accent: #f4b942;
 $accent-subtle: #fdf1d6;
 
 $secondary: #5c636a;
+$gray-500: #adb5bd;
 $success: $primary;
 $warning: $accent;
 $danger: #b02a37;
@@ -18,6 +19,10 @@ $body-bg: $white;
 $border-color: #dee2e6;
 $secondary-color: $secondary;
 $danger-bg-subtle: #f8d7da;
+
+// Pulsanti dei giorni nel form Segnala
+$day-toggle-bg: #f5f7f6;
+$day-toggle-color: #1f2a1f;
 
 $link-color: $primary;
 $link-hover-color: $primary-dark;
@@ -40,7 +45,14 @@ $rg-control-height-lg: 48px;
 $rg-touch-min: 44px;
 $rg-fs-lead: 1.25rem;
 $rg-fs-small: .875em;
-$rg-focus-shadow: 0 0 0 .125rem #fff, 0 0 0 .3125rem $primary-dark;
+$rg-focus-shadow: 0 0 0 .125rem $white, 0 0 0 .3125rem $primary-dark;
+
+// Ombre e bordi tinti di verde
+$rg-shadow-navbar: 0 2px 12px rgba($primary-dark, .08);
+$rg-shadow-tile: 0 4px 12px rgba($primary-dark, .12);
+$rg-border-primary-subtle: rgba($primary, .22);
+$rg-border-day-toggle: rgba($primary-dark, .14);
+$rg-icon-bg: rgba($white, .2);
 
 $primary-rgb: 27, 107, 58;
 $primary-dark-rgb: 15, 61, 36;
@@ -86,7 +98,7 @@ $section-width: 1440px;
 //      - .card, .card-header, .card-body: Strutture a blocchi con bordi e sfondi ideali per racchiudere informazioni.
 //      - .border-0: Rimuove i bordi nativi del componente.
 //      - .shadow-sm: Applica un'ombra leggera per dare profondità e tridimensionalità.
-//      - .rounded-4: Arrotonda i angoli del box in modo marcato (16px).
+//      - .rounded-4: Arrotonda gli angoli del box in modo marcato (16px).
 //      - .overflow-hidden: Taglia tutto ciò che esce dai bordi arrotondati (fondamentale per le card con header colorati).
 //      - .h-100: Forza l'altezza del blocco al 100%, utile per avere card perfettamente allineate nella stessa riga.
 //      - .badge: Crea etichette piccole stile pillola per mostrare categorie brevi.

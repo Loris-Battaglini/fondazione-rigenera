@@ -27,12 +27,37 @@ export function contaServiziPerCategoria(servizi, categoria) {
   return conteggio;
 }
 
+// Conta quanti preferiti salvati corrispondono a servizi presenti nel catalogo.
+// La usiamo sia per la Hero sia per l'accordion dei preferiti nel Catalogo.
+export function contaPreferiti(servizi) {
+  const idPreferiti = leggiPreferiti();
+  let conteggio = 0;
+
+  for (let i = 0; i < servizi.length; i++) {
+    if (idPreferiti.includes(servizi[i].id)) {
+      conteggio = conteggio + 1;
+    }
+  }
+
+  return conteggio;
+}
+
+// Scrive il numero dei preferiti in tutti gli elementi
+// che hanno l'attributo data-conteggio-preferiti (es. il badge dell'accordion nel Catalogo).
+export function aggiornaConteggiPreferiti(servizi) {
+  const elementiConteggio = document.querySelectorAll(
+    "[data-conteggio-preferiti]",
+  );
+  const numeroPreferiti = contaPreferiti(servizi);
+
+  for (let i = 0; i < elementiConteggio.length; i++) {
+    scriviNumero(elementiConteggio[i], numeroPreferiti);
+  }
+}
+
 // Ricalcola i numeri della Hero usando i dati già caricati dall'app.
 export function aggiornaStatisticheHero(servizi) {
-  const idServizi = new Set(servizi.map((servizio) => servizio.id));
-  const numeroPreferiti = leggiPreferiti().filter((id) =>
-    idServizi.has(id),
-  ).length;
+  const numeroPreferiti = contaPreferiti(servizi);
   const categorie = new Set(
     servizi.map((servizio) => servizio.azione).filter(Boolean),
   );

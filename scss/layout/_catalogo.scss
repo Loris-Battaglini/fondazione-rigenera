@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as *;
+
 /* 
   inizio modifiche per la  larghezza della barra di ricerca in catalogo, è stata aggiunta la classe .custom-search-bar per gestire la larghezza della barra di ricerca in modo più flessibile e responsive.
   La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
@@ -36,7 +38,7 @@
    Il padding interno è lo stesso dell'hero ed è dato dalle classi Bootstrap nell'HTML */
 .container-catalogo{
   background-color: var(--rg-primary-subtle);
-  border-radius: 1.25rem;
+  border-radius: $border-radius-xl;
 }
 
 .catalogo-carousel {
@@ -110,6 +112,46 @@
 @media (prefers-reduced-motion: reduce) {
   .catalogo-viewport {
     scroll-behavior: auto;
+  }
+}
+
+/* Accordion dei preferiti dentro al Catalogo.
+   Apertura e chiusura sono gestite dal collapse di Bootstrap (data-bs-toggle="collapse"). */
+.accordion-preferiti-btn {
+  background-color: var(--bs-white);
+  color: var(--bs-body-color);
+  transition: background-color 0.2s;
+}
+
+.accordion-preferiti-btn:hover {
+  background-color: var(--bs-light);
+}
+
+.accordion-preferiti-btn:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 0.1875rem var(--rg-primary-dark);
+}
+
+/* Badge con il numero dei preferiti: 14px.
+   Uso rem e non em, così la grandezza non dipende dall'elemento che lo contiene */
+.badge-preferiti {
+  font-size: 0.875rem;
+}
+
+/* Freccia che ruota verso l'alto quando l'accordion è aperto */
+.accordion-preferiti-freccia {
+  font-size: 1.25rem;
+  transition: transform 0.2s;
+}
+
+.accordion-preferiti-btn[aria-expanded="true"] .accordion-preferiti-freccia {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion-preferiti-btn,
+  .accordion-preferiti-freccia {
+    transition: none;
   }
 }
 

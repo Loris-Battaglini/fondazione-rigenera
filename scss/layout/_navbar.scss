@@ -1,6 +1,8 @@
+@use "../abstracts/variables" as *;
+
 /* Gestione del layout principale della navbar personalizzata */
 .custom-navbar {
-  box-shadow: 0 2px 12px rgba(15, 61, 36, 0.08);
+  box-shadow: $rg-shadow-navbar;
 
   .navbar-inner {
     padding-block: 0.75rem;
