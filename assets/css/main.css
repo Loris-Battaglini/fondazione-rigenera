@@ -65,7 +65,8 @@
 }
 
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 svg,
@@ -162,10 +163,13 @@ h6,
 
 /* inizio Bottoni della Hero nell' header */
 .hero-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .btn-custom-primary,
@@ -175,12 +179,19 @@ h6,
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   border: 2px solid var(--rg-primary-dark);
   text-decoration: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .btn-custom-primary {
@@ -215,6 +226,7 @@ h6,
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
+  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
@@ -241,7 +253,8 @@ h6,
 .visually-hidden-focusable:focus {
   border-color: #0f3d24;
   outline: 0;
-  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+  -webkit-box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+          box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
 }
 
 @media (max-width: 991.98px) {
@@ -262,7 +275,8 @@ h6,
   width: 3rem;
   height: 3rem;
   font-size: 1.5rem;
-  flex-shrink: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 @media (min-width: 992px) {
   .icon-circle-lg {
@@ -309,6 +323,7 @@ h6,
 .report-section {
   background-color: #0f3d24;
   color: #fff;
+  min-height: clamp(28rem, 46vh, 42rem);
 }
 
 /* Colonna di testo a sinistra */
@@ -334,20 +349,110 @@ h6,
   border-radius: 1rem;
 }
 .report-card .card-body {
-  padding: 1.5rem;
+  padding: 1.1rem 1.2rem;
 }
 @media (min-width: 576px) {
   .report-card .card-body {
-    padding: 2.5rem;
+    padding: 1.35rem 1.5rem;
   }
 }
+.report-card .row.g-3 {
+  --bs-gutter-x: 0.7rem;
+  --bs-gutter-y: 0.7rem;
+}
+.report-card .form-control,
+.report-card .form-select {
+  min-height: 2.6rem;
+}
 .report-card textarea.form-control {
-  min-height: 4.5rem;
+  min-height: 3.2rem;
   resize: vertical;
 }
 
 .report-card-title {
   font-size: 1.5rem;
+}
+
+.day-selector {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+.day-selector.invalid {
+  border: 1px solid rgba(220, 53, 69, 0.7);
+  border-radius: 0.8rem;
+  background: rgba(220, 53, 69, 0.02);
+  padding: 0.2rem 0.25rem;
+}
+
+.day-toggle {
+  width: 100%;
+  min-width: 0;
+  height: 44px;
+  padding: 0.25rem;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(15, 61, 36, 0.14);
+  background: #f5f7f6;
+  color: #1f2a1f;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  line-height: 1;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.day-toggle:hover, .day-toggle[aria-pressed=true], .day-toggle.active {
+  background: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: #fff;
+}
+
+.phone-input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.5rem;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.phone-prefix {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 5.25rem;
+          flex: 0 0 5.25rem;
+}
+
+.phone-number {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.report-card .form-label {
+  margin-bottom: 0.32rem;
+  font-size: 0.875rem;
+}
+.report-card .form-control,
+.report-card .form-select {
+  min-height: 2.6rem;
+  font-size: 1rem;
+}
+.report-card .form-control {
+  padding: 0.5rem 0.7rem;
+}
+.report-card .form-select {
+  padding-block: 0.5rem;
+  padding-left: 0.7rem;
+}
+.report-card .invalid-feedback {
+  display: none;
+  margin-top: 0.28rem;
+  font-size: 0.8125rem;
+}
+.report-card .is-invalid ~ .invalid-feedback,
+.report-card .invalid-feedback.visible {
+  display: block;
 }
 
 .site-footer {
@@ -364,8 +469,12 @@ h6,
   color: #0f3d24;
 }
 .site-footer .footer-brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
   font-size: 1.05rem;
@@ -408,15 +517,21 @@ h6,
   padding-block: 0.75rem;
 }
 .custom-navbar .navbar-collapse {
-  flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
 }
 .custom-navbar .navbar-nav {
   margin-right: 2rem; /* Distanza tra i link centrali e i bottoni */
   gap: 1rem;
 }
 .custom-navbar .nav-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 0.75rem;
 }
 
@@ -426,42 +541,188 @@ h6,
 
 /* Hero Section - Guida al Riuso */
 .hero-section {
-  padding-block: 1.5rem;
+  padding-block: 1rem 2rem;
 }
 @media (min-width: 992px) {
   .hero-section {
-    padding-block: 3rem;
+    padding-block: 2rem 3rem;
   }
 }
 
 .hero-container {
+  padding: 2rem 1.25rem;
   background-color: var(--rg-primary-subtle);
   overflow: hidden;
   position: relative;
-  background-image: url("../../assets/img/palla-sinistra.svg");
-  background-repeat: no-repeat;
-  background-position: left -6rem top -14rem;
-  background-size: min(100%, 34rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.5rem;
+}
+
+.hero-layout {
+  --bs-gutter-y: 0;
+  width: calc(100% + var(--bs-gutter-x, 1.5rem));
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  margin: 0 0 1rem;
+  color: var(--rg-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  max-width: 13ch;
+  margin: 0 0 1.25rem;
+  color: var(--bs-body-color);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.04;
+}
+.hero-title span {
+  color: var(--rg-primary);
+}
+
+.hero-description {
+  max-width: 34rem;
+  margin: 0 0 1.75rem;
+  color: var(--bs-secondary-color);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-actions .btn {
+  min-height: 3rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  white-space: nowrap;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 42rem;
+  margin: 2rem 0 0;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid rgba(27, 107, 58, 0.22);
+}
+
+.hero-stat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 0.4rem;
+}
+.hero-stat dt {
+  color: var(--bs-secondary-color);
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+.hero-stat dd {
+  margin: 0;
+  color: var(--rg-primary-dark);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.hero-visual {
+  position: relative;
+  display: none;
+  place-items: center;
+}
+
+.hero-illustration {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(100%, 17rem);
+  height: auto;
+}
+
+@media (min-width: 576px) {
+  .hero-container {
+    padding: 2.5rem 2rem;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .hero-actions {
+    max-width: 24rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
 }
 @media (min-width: 768px) {
   .hero-container {
-    background-position: left -5rem top -3rem;
-    background-size: min(100%, 43rem);
+    padding: 3.5rem 2.5rem;
+  }
+  .hero-visual {
+    display: grid;
+    min-height: 23rem;
+  }
+  .hero-illustration {
+    width: min(100%, 23rem);
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .hero-container {
-    background-position: left -5rem top -3rem;
-    background-size: min(100%, 44rem);
+    min-height: 38rem;
+    padding: 4rem;
+  }
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  .hero-visual {
+    min-height: 26rem;
+  }
+  .hero-illustration {
+    width: min(100%, 27rem);
   }
 }
-@media (min-width: 1400px) {
-  .hero-container {
-    background-position: left -10rem top -1rem;
-    background-size: min(100%, 50rem);
-  }
-}
-
 /* --------------------------------------------------------------------------
    SECTION AZIONI E COME FUNZIONA
    -------------------------------------------------------------------------- */
@@ -482,12 +743,17 @@ h6,
 
 /* Card azione: ombra come da Figma (0 4px 12px verde scuro al 12%) */
 .tile-azione {
-  box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
+  -webkit-box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
+          box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
+  -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-box-shadow 0.15s ease-in-out;
   transition: box-shadow 0.15s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 .tile-azione:hover {
   color: #fff;
-  box-shadow: var(--bs-box-shadow-lg);
+  -webkit-box-shadow: var(--bs-box-shadow-lg);
+          box-shadow: var(--bs-box-shadow-lg);
 }
 .tile-azione:hover .tile-count, .tile-azione:focus-visible .tile-count {
   text-decoration: underline;
@@ -521,20 +787,28 @@ h6,
   La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
     */
 .custom-search-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
   background: var(--bs-white);
   border: 1px solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
   padding: 0 0.75rem;
   height: 42px;
+  -webkit-transition: border-color 0.2s, -webkit-box-shadow 0.2s;
+  transition: border-color 0.2s, -webkit-box-shadow 0.2s;
   transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
 }
 
 .custom-search-bar:focus-within {
   border-color: var(--rg-primary-dark);
-  box-shadow: var(--rg-focus-shadow);
+  -webkit-box-shadow: var(--rg-focus-shadow);
+          box-shadow: var(--rg-focus-shadow);
 }
 
 .search-input-clean {
@@ -561,7 +835,8 @@ h6,
   min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: var(--rg-primary) transparent;
@@ -579,6 +854,8 @@ h6,
 }
 
 .catalogo-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   min-width: 0;
   scroll-snap-align: start;
@@ -594,10 +871,13 @@ h6,
 }
 
 .catalogo-freccia {
-  flex: 0 0 2.75rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 2.75rem;
+          flex: 0 0 2.75rem;
   width: 2.75rem;
   height: 2.75rem;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   padding: 0;
 }
 
@@ -613,7 +893,8 @@ h6,
 }
 @media (max-width: 575.98px) {
   .catalogo-freccia {
-    flex-basis: 2.25rem;
+    -ms-flex-preferred-size: 2.25rem;
+        flex-basis: 2.25rem;
     width: 2.25rem;
     height: 2.25rem;
   }
