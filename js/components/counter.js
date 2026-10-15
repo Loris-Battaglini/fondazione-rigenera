@@ -7,7 +7,7 @@ const statisticheHero = {
 };
 
 // Scrive un numero dentro un elemento della pagina, solo se l'elemento esiste.
-// La usiamo sia per la Hero sia per le card della sezione Azioni.
+// La usiamo sia per la Hero sia per le card della sezione categoria.
 export function scriviNumero(elemento, numero) {
   if (elemento) {
     elemento.textContent = String(numero);
@@ -67,7 +67,7 @@ export function aggiornaStatisticheHero(servizi) {
   scriviNumero(statisticheHero.categorie, categorie.size);
 }
 
-// Aggiorna i numeri dentro le card della sezione Azioni.
+// Aggiorna i numeri dentro le card della sezione categoria.
 // Ogni card ha uno span con l'attributo data-conteggio="nome-categoria":
 // legge il nome della categoria dall'attributo e ci scrive il numero di servizi.
 export function aggiornaConteggiAzioni(servizi) {
@@ -82,7 +82,7 @@ export function aggiornaConteggiAzioni(servizi) {
   }
 }
 
-// Al click di una card della sezione Azioni attiva il filtro corrispondente nel Catalogo.
+// Al click di una card della sezione categoria attiva il filtro corrispondente nel Catalogo.
 // Legge la categoria dallo span data-conteggio della card (lo stesso usato per i numeri)
 // e clicca il bottone del Catalogo con lo stesso data-azione, così il filtro
 // viene applicato dal codice già esistente in filters.js.

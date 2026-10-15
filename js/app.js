@@ -20,23 +20,7 @@ function avviaApp() {
   let servizi;
 
   try {
-    const servizi = caricaServizi();
-    inizializzaPreferitiPredefiniti(servizi);
-
-    const aggiornaCatalogo = inizializzaFiltri(servizi);
-    const aggiornaPreferiti = () => {
-      aggiornaCatalogo();
-      aggiornaListaPreferiti(servizi);
-      aggiornaConteggiPreferiti(servizi);
-    };
-
-    aggiornaListaPreferiti(servizi);
-    aggiornaConteggiPreferiti(servizi);
-    inizializzaGestionePreferiti(aggiornaPreferiti);
-    inizializzaHero(servizi);
-    aggiornaConteggiAzioni(servizi);
-    aggiornaTotaleServizi(servizi);
-    collegaCardAzioniAiFiltri();
+    servizi = caricaServizi();
   } catch (errore) {
     console.error("Servizi non caricati", errore);
     return;
@@ -48,9 +32,11 @@ function avviaApp() {
   const aggiornaPreferiti = () => {
     aggiornaCatalogo();
     aggiornaListaPreferiti(servizi);
+    aggiornaConteggiPreferiti(servizi);
   };
 
   aggiornaListaPreferiti(servizi);
+  aggiornaConteggiPreferiti(servizi);
   inizializzaGestionePreferiti(aggiornaPreferiti);
   inizializzaHero(servizi);
   aggiornaConteggiAzioni(servizi);

@@ -57,7 +57,7 @@
 
 .catalogo-track {
   display: grid;
-  grid-auto-flow: column;
+  grid-auto-flow: column;  //prova
   grid-auto-columns: 100%;
   grid-template-rows: repeat(2, minmax(15rem, auto));
   gap: 1rem;
