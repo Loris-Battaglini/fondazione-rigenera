@@ -6,8 +6,9 @@
     "build:css": "sass --no-source-map scss/main.scss assets/css/main.css",
     "build:css:min": "sass --style=compressed --no-source-map scss/main.scss assets/css/main.min.css",
     "build:css:hero": "sass --no-source-map scss/layout/_header.scss assets/css/hero.css",
-    "build:css:all": "npm run build:css && npm run build:css:min && npm run build:css:hero",
-    "watch:css": "sass --watch --no-source-map scss/main.scss:assets/css/main.css scss/layout/_header.scss:assets/css/hero.css",
+    "build:css:navbar": "sass --no-source-map scss/layout/_navbar.scss assets/css/navbar.css",
+    "build:css:all": "npm run build:css && npm run build:css:min && npm run build:css:hero && npm run build:css:navbar",
+    "watch:css": "sass --watch --no-source-map scss/main.scss:assets/css/main.css scss/layout/_header.scss:assets/css/hero.css scss/layout/_navbar.scss:assets/css/navbar.css",
     "watch:css:min": "sass --watch --style=compressed --no-source-map scss/main.scss:assets/css/main.min.css"
   },
   "devDependencies": {

@@ -1,0 +1,38 @@
+/* Gestione del layout principale della navbar personalizzata */
+.custom-navbar {
+  box-shadow: 0 2px 12px rgba(15, 61, 36, 0.08);
+}
+.custom-navbar .navbar-inner {
+  padding-block: 0.75rem;
+}
+.custom-navbar .navbar-collapse {
+  flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
+}
+.custom-navbar .navbar-nav {
+  margin-right: 2rem; /* Distanza tra i link centrali e i bottoni */
+  gap: 1rem;
+}
+.custom-navbar .navbar-nav .nav-link {
+  color: var(--rg-primary-dark);
+  transition: color 180ms ease;
+}
+.custom-navbar .navbar-nav .nav-link:hover, .custom-navbar .navbar-nav .nav-link:focus-visible {
+  color: var(--rg-primary);
+}
+.custom-navbar .nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+:root {
+  scroll-padding-top: 7rem;
+}
+
+body {
+  padding-top: 6.875rem;
+}
+
+.sottotitolo-navbar {
+  font-size: 0.875rem;
+}
