@@ -59,7 +59,10 @@
   display: grid;
   grid-auto-flow: column;  //prova
   grid-auto-columns: 100%;
-  grid-template-rows: repeat(2, minmax(15rem, auto));
+  /* Una sola riga fissa: la seconda viene creata solo se c'è almeno una card da metterci,
+     così con poche card il catalogo (e il riquadro verde) si accorcia */
+  grid-template-rows: minmax(15rem, auto);
+  grid-auto-rows: minmax(15rem, auto);
   gap: 1rem;
   width: auto;
   min-width: 100%;
@@ -98,6 +101,52 @@
 @media (min-width: 992px) {
   .catalogo-track {
     grid-auto-columns: calc((100% - 2rem) / 3);
+  }
+}
+
+/* Ordine delle card in orizzontale: ogni pagina del carosello si riempie riga per riga.
+   Assegno solo la riga (1 o 2) a ogni card: con "dense" la griglia mette ogni card
+   nella prima colonna libera di quella riga. */
+.catalogo-track {
+  grid-auto-flow: column dense;
+}
+
+/* Telefono: pagine da 2 card, una sopra e una sotto */
+@media (max-width: 575.98px) {
+  .catalogo-slide:nth-child(2n + 1) {
+    grid-row: 1;
+  }
+
+  .catalogo-slide:nth-child(2n + 2) {
+    grid-row: 2;
+  }
+}
+
+/* Tablet: pagine da 4 card, 2 per riga */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .catalogo-slide:nth-child(4n + 1),
+  .catalogo-slide:nth-child(4n + 2) {
+    grid-row: 1;
+  }
+
+  .catalogo-slide:nth-child(4n + 3),
+  .catalogo-slide:nth-child(4n + 4) {
+    grid-row: 2;
+  }
+}
+
+/* Desktop: pagine da 6 card, 3 per riga */
+@media (min-width: 992px) {
+  .catalogo-slide:nth-child(6n + 1),
+  .catalogo-slide:nth-child(6n + 2),
+  .catalogo-slide:nth-child(6n + 3) {
+    grid-row: 1;
+  }
+
+  .catalogo-slide:nth-child(6n + 4),
+  .catalogo-slide:nth-child(6n + 5),
+  .catalogo-slide:nth-child(6n + 6) {
+    grid-row: 2;
   }
 }
 

@@ -804,6 +804,65 @@ body {
     width: min(100%, 27rem);
   }
 }
+/* --------------------------------------------------------------------------
+   SECTION categoria E COME FUNZIONA
+   -------------------------------------------------------------------------- */
+/* Sezioni: 96px sopra e sotto (Bootstrap arriva al massimo a 48px con py-5) */
+.section {
+  padding-block: 3rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 6rem;
+  }
+}
+/* Etichetta sopra i titoli: solo la spaziatura delle lettere, il resto è Bootstrap */
+.eyebrow {
+  letter-spacing: 0.08em;
+}
+
+/* Card azione: ombra come da Figma (0 4px 12px verde scuro al 12%) */
+.tile-azione {
+  -webkit-box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
+          box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
+  -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
+  transition: -webkit-box-shadow 0.15s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.tile-azione:hover {
+  color: #fff;
+  -webkit-box-shadow: var(--bs-box-shadow-lg);
+          box-shadow: var(--bs-box-shadow-lg);
+}
+.tile-azione:hover .tile-count, .tile-azione:focus-visible .tile-count {
+  text-decoration: underline;
+}
+
+.tile-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: 1.75rem;
+}
+
+/* Freccia accanto al conteggio: 20px */
+.tile-count .bi {
+  font-size: 1.25rem;
+}
+
+/* Numero dei passi: cerchio da 56px (48px su telefono e tablet) */
+.step-num {
+  width: 3rem;
+  height: 3rem;
+}
+
+@media (min-width: 992px) {
+  .step-num {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
 /* 
   inizio modifiche per la  larghezza della barra di ricerca in catalogo, è stata aggiunta la classe .custom-search-bar per gestire la larghezza della barra di ricerca in modo più flessibile e responsive.
   La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
@@ -868,7 +927,10 @@ body {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
-  grid-template-rows: repeat(2, minmax(15rem, auto));
+  /* Una sola riga fissa: la seconda viene creata solo se c'è almeno una card da metterci,
+     così con poche card il catalogo (e il riquadro verde) si accorcia */
+  grid-template-rows: minmax(15rem, auto);
+  grid-auto-rows: minmax(15rem, auto);
   gap: 1rem;
   width: auto;
   min-width: 100%;
@@ -911,6 +973,46 @@ body {
 @media (min-width: 992px) {
   .catalogo-track {
     grid-auto-columns: calc((100% - 2rem) / 3);
+  }
+}
+/* Ordine delle card in orizzontale: ogni pagina del carosello si riempie riga per riga.
+   Assegno solo la riga (1 o 2) a ogni card: con "dense" la griglia mette ogni card
+   nella prima colonna libera di quella riga. */
+.catalogo-track {
+  grid-auto-flow: column dense;
+}
+
+/* Telefono: pagine da 2 card, una sopra e una sotto */
+@media (max-width: 575.98px) {
+  .catalogo-slide:nth-child(2n+1) {
+    grid-row: 1;
+  }
+  .catalogo-slide:nth-child(2n+2) {
+    grid-row: 2;
+  }
+}
+/* Tablet: pagine da 4 card, 2 per riga */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .catalogo-slide:nth-child(4n+1),
+  .catalogo-slide:nth-child(4n+2) {
+    grid-row: 1;
+  }
+  .catalogo-slide:nth-child(4n+3),
+  .catalogo-slide:nth-child(4n+4) {
+    grid-row: 2;
+  }
+}
+/* Desktop: pagine da 6 card, 3 per riga */
+@media (min-width: 992px) {
+  .catalogo-slide:nth-child(6n+1),
+  .catalogo-slide:nth-child(6n+2),
+  .catalogo-slide:nth-child(6n+3) {
+    grid-row: 1;
+  }
+  .catalogo-slide:nth-child(6n+4),
+  .catalogo-slide:nth-child(6n+5),
+  .catalogo-slide:nth-child(6n+6) {
+    grid-row: 2;
   }
 }
 @media (max-width: 575.98px) {

@@ -88,8 +88,10 @@ function aggiornaFreccieCatalogo() {
 
   const massimoScorrimento = viewport.scrollWidth - viewport.clientWidth;
   const haScorrimento = massimoScorrimento > 1;
-  precedente.hidden = !haScorrimento;
-  successivo.hidden = !haScorrimento;
+  // "invisible" di Bootstrap nasconde le frecce ma lascia il loro spazio,
+  // così il contenitore delle card non si allarga quando le frecce non servono.
+  precedente.classList.toggle("invisible", !haScorrimento);
+  successivo.classList.toggle("invisible", !haScorrimento);
   precedente.disabled = !haScorrimento || viewport.scrollLeft <= 1;
   successivo.disabled =
     !haScorrimento || viewport.scrollLeft >= massimoScorrimento - 1;
