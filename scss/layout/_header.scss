@@ -125,8 +125,22 @@
 @media (max-width: 575.98px) {
   .hero-actions {
     max-width: 24rem;
+    margin-inline: auto;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+  }
+
+  .hero-actions .btn {
+    width: min(100%, 18rem);
+  }
+
+  .hero-stats {
+    margin-inline: auto;
+  }
+
+  .hero-stat {
+    align-items: center;
+    text-align: center;
   }
 }
 

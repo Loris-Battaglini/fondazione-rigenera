@@ -549,6 +549,72 @@ body {
   font-size: 0.875rem;
 }
 
+@media (max-width: 991.98px) {
+  .custom-navbar .navbar-collapse {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 1.5rem 0;
+    /* Gestione della lista dei link */
+  }
+  .custom-navbar .navbar-collapse .navbar-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    padding-left: 0;
+    margin: 0 0 1rem 0;
+    list-style: none;
+  }
+  .custom-navbar .navbar-collapse .navbar-nav .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+  .custom-navbar .navbar-collapse .navbar-nav .nav-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+  .custom-navbar .navbar-collapse .nav-actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .custom-navbar .navbar-collapse .nav-actions .btn {
+    width: 85%;
+    max-width: 280px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .custom-navbar .navbar-collapse.show {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
 /* Hero Section - Guida al Riuso */
 .hero-section {
   padding-block: 1rem 2rem;
@@ -689,13 +755,26 @@ body {
 @media (max-width: 575.98px) {
   .hero-actions {
     max-width: 24rem;
+    margin-inline: auto;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .hero-actions .btn {
+    width: min(100%, 18rem);
+  }
+  .hero-stats {
+    margin-inline: auto;
+  }
+  .hero-stat {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
   }
 }
 @media (min-width: 768px) {
@@ -723,65 +802,6 @@ body {
   }
   .hero-illustration {
     width: min(100%, 27rem);
-  }
-}
-/* --------------------------------------------------------------------------
-   SECTION categoria E COME FUNZIONA
-   -------------------------------------------------------------------------- */
-/* Sezioni: 96px sopra e sotto (Bootstrap arriva al massimo a 48px con py-5) */
-.section {
-  padding-block: 3rem;
-}
-
-@media (min-width: 768px) {
-  .section {
-    padding-block: 6rem;
-  }
-}
-/* Etichetta sopra i titoli: solo la spaziatura delle lettere, il resto è Bootstrap */
-.eyebrow {
-  letter-spacing: 0.08em;
-}
-
-/* Card azione: ombra come da Figma (0 4px 12px verde scuro al 12%) */
-.tile-azione {
-  -webkit-box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
-          box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
-  -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
-  transition: -webkit-box-shadow 0.15s ease-in-out;
-  transition: box-shadow 0.15s ease-in-out;
-  transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-}
-.tile-azione:hover {
-  color: #fff;
-  -webkit-box-shadow: var(--bs-box-shadow-lg);
-          box-shadow: var(--bs-box-shadow-lg);
-}
-.tile-azione:hover .tile-count, .tile-azione:focus-visible .tile-count {
-  text-decoration: underline;
-}
-
-.tile-icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  font-size: 1.75rem;
-}
-
-/* Freccia accanto al conteggio: 20px */
-.tile-count .bi {
-  font-size: 1.25rem;
-}
-
-/* Numero dei passi: cerchio da 56px (48px su telefono e tablet) */
-.step-num {
-  width: 3rem;
-  height: 3rem;
-}
-
-@media (min-width: 992px) {
-  .step-num {
-    width: 3.5rem;
-    height: 3.5rem;
   }
 }
 /* 
@@ -848,7 +868,7 @@ body {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
-  grid-template-rows: minmax(15rem, auto);
+  grid-template-rows: repeat(2, minmax(15rem, auto));
   gap: 1rem;
   width: auto;
   min-width: 100%;
