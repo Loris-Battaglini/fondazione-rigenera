@@ -2,6 +2,10 @@ import { renderizzaCard } from "./cards.js";
 
 let listaServizi = [];
 
+// Su telefono le card si mostrano a blocchi di 3.
+const CARD_PER_BLOCCO = 3;
+let cardVisibiliMobile = CARD_PER_BLOCCO;
+
 // Rendo confrontabili testo e filtri anche quando cambia maiuscole o spazi.
 function normalizza(valore) {
   return String(valore ?? "")
@@ -71,12 +75,54 @@ function aggiornaPagina() {
       renderizzaCard(contenitore, serviziFiltrati, true);
     }
     aggiornaFreccieCatalogo();
+    aggiornaVediDiPiu();
   }
 }
 
-// Aggiorno i risultati quando l'utente cambia uno dei filtri.
+// Aggiorno i risultati quando l'utente cambia uno dei filtri:
+// su telefono la lista riparte dalle prime 3 card.
 function aggiornaFiltri() {
+  cardVisibiliMobile = CARD_PER_BLOCCO;
   aggiornaPagina();
+}
+
+// Su telefono nascondo le card oltre quelle da mostrare e decido quali pulsanti servono.
+// La classe "catalogo-slide-nascosta" ha effetto solo su telefono (vedi _catalogo.scss).
+function aggiornaVediDiPiu() {
+  const card = document.querySelectorAll("#container-servizi .catalogo-slide");
+  const vediDiPiu = document.getElementById("catalogo-vedi-di-piu");
+  const chiudi = document.getElementById("catalogo-chiudi");
+
+  card.forEach((elemento, indice) => {
+    elemento.classList.toggle(
+      "catalogo-slide-nascosta",
+      indice >= cardVisibiliMobile,
+    );
+  });
+
+  if (vediDiPiu) vediDiPiu.hidden = cardVisibiliMobile >= card.length;
+  if (chiudi) chiudi.hidden = cardVisibiliMobile <= CARD_PER_BLOCCO;
+}
+
+// Collego "Vedi di più" (altre 3 card) e "Chiudi" (si torna alle prime 3).
+function inizializzaVediDiPiu() {
+  document
+    .getElementById("catalogo-vedi-di-piu")
+    ?.addEventListener("click", () => {
+      cardVisibiliMobile += CARD_PER_BLOCCO;
+      aggiornaVediDiPiu();
+    });
+
+  document.getElementById("catalogo-chiudi")?.addEventListener("click", () => {
+    cardVisibiliMobile = CARD_PER_BLOCCO;
+    aggiornaVediDiPiu();
+
+    // Il pulsante "Chiudi" sparisce: riporto in alto la lista e il focus,
+    // così chi usa la tastiera non perde il punto in cui si trova.
+    const viewport = document.getElementById("catalogo-viewport");
+    viewport?.focus({ preventScroll: true });
+    viewport?.scrollIntoView({ block: "start" });
+  });
 }
 
 // Mostro o disattivo le frecce in base allo spazio ancora da scorrere.
@@ -129,6 +175,7 @@ function inizializzaCarosello() {
 export function inizializzaFiltri(servizi) {
   listaServizi = servizi;
   inizializzaCarosello();
+  inizializzaVediDiPiu();
   document
     .getElementById("filtro-testo")
     ?.addEventListener("input", aggiornaFiltri);

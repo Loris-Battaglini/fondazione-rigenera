@@ -982,15 +982,6 @@ body {
   grid-auto-flow: column dense;
 }
 
-/* Telefono: pagine da 2 card, una sopra e una sotto */
-@media (max-width: 575.98px) {
-  .catalogo-slide:nth-child(2n+1) {
-    grid-row: 1;
-  }
-  .catalogo-slide:nth-child(2n+2) {
-    grid-row: 2;
-  }
-}
 /* Tablet: pagine da 4 card, 2 per riga */
 @media (min-width: 576px) and (max-width: 991.98px) {
   .catalogo-slide:nth-child(4n+1),
@@ -1015,12 +1006,24 @@ body {
     grid-row: 2;
   }
 }
+/* Telefono: niente carosello. Le card sono in colonna, una sotto l'altra,
+   e si mostrano 6 alla volta con i pulsanti "Vedi di più" e "Chiudi" (filters.js) */
 @media (max-width: 575.98px) {
   .catalogo-freccia {
-    -ms-flex-preferred-size: 2.25rem;
-        flex-basis: 2.25rem;
-    width: 2.25rem;
-    height: 2.25rem;
+    display: none;
+  }
+  .catalogo-viewport {
+    overflow: visible;
+    -ms-scroll-snap-type: none;
+        scroll-snap-type: none;
+  }
+  .catalogo-track {
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+  }
+  .catalogo-slide-nascosta {
+    display: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {
