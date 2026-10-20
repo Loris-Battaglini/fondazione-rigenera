@@ -4,6 +4,8 @@ Una piattaforma web moderna, responsive e accessibile sviluppata per **Fondazion
 
 Il progetto è stato completamente refactorizzato secondo l'architettura **ES6 Modular JavaScript**, garantendo un'elevata manutenibilità, separazione delle responsabilità e caricamento dinamico dei dati.
 
+link al deploy https://loris-battaglini.github.io/fondazione-rigenera/
+
 ---
 
 ## 📸 Preview del Progetto
@@ -16,7 +18,6 @@ _Figura 1: Header con navbar full-width e Hero section aggiornata._
 ![Catalogo Servizi Dinamico](./assets/img/preview-catalogo.png)
 _Figura 2: Catalogo dinamico con filtri di ricerca e gestione dei preferiti._
 
-> 📌 **Nota:** Gli screenshot attuali mostrano lo stato di avanzamento del layout. Verranno aggiornati con le immagini definitive al completamento del design.
 
 ---
 
@@ -24,7 +25,7 @@ _Figura 2: Catalogo dinamico con filtri di ricerca e gestione dei preferiti._
 
 - **🎨 UI/UX Responsive & Modern:** Navbar estesa a tutta larghezza (`container-fluid`) con `max-width` controllato e layout ottimizzato per mobile e desktop.
 - **🧩 Architettura Modulare ES6:** Organizzazione pulita del codice JavaScript diviso in moduli dedicati (`components/`, `ui/`, `utils/`, `data/`).
-- **📦 Rendering Dinamico da JSON:** Le schede del catalogo vengono generate a runtime in JavaScript a partire dal dataset `data.json`, mantenendo l'HTML snello e privo di componenti statici.
+- **📦 Carica i dati una sola volta con caricaServizi() dentro un try/catch e li passa a tutti i moduli. Nessuna variabile globale. CaricaServizi() restituisce l'array importato da mock/services.js: niente fetch.
 - **🎠 Carosello Catalogo e Filtri:** Scorrimento fluido e filtri in tempo reale per categoria, tag e zona.
 - **❤️ Gestione Preferiti:** Salvataggio dei servizi preferiti tramite `localStorage` con aggiornamento dinamico dello stato e contatori.
 
@@ -46,7 +47,6 @@ fondazione-rigenera/
 ├── assets/
 │   ├── css/
 │   │   ├── main.css
-│   │   ├── main.css.map
 │   │   └── main.min.css
 │   └── img/
 ├── js/
@@ -63,12 +63,9 @@ fondazione-rigenera/
 │   │   ├── error.js
 │   │   ├── loading.js
 │   │   └── navigation.js
-│   ├── utils/
-│   │   ├── dom.js
-│   │   └── helpers.js
 │   └── app.js
 ├── mock/
-│   └── data.json
+│   └── service.js
 ├── scss/
 │   ├── abstracts/
 │   │   ├── _mixins.scss

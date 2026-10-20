@@ -12,6 +12,7 @@ desktop.ini
 
 # File temporanei degli editor
 .vscode/
+.vscode/settings.json
 .idea/
 *.tmp
 *.swp
