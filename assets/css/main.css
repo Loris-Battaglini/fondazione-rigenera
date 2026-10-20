@@ -965,7 +965,7 @@ body {
   padding: 0;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .catalogo-track {
     grid-auto-columns: calc((100% - 1rem) / 2);
   }
@@ -1007,7 +1007,7 @@ body {
   }
 }
 /* Telefono: niente carosello. Le card sono in colonna, una sotto l'altra,
-   e si mostrano 6 alla volta con i pulsanti "Vedi di più" e "Chiudi" (filters.js) */
+   e si mostrano 3 alla volta con i pulsanti "Vedi di più" e "Chiudi" (filters.js) */
 @media (max-width: 575.98px) {
   .catalogo-freccia {
     display: none;

@@ -12,7 +12,7 @@ export function leggiPreferiti() {
   }
 }
 
-// Scrive la lista nel localStorage (uso interno: non è esportata)
+// Scrive la lista nel localStorage
 export function salvaPreferiti(lista) {
   try {
     localStorage.setItem("rigenera-preferiti", JSON.stringify(lista));
