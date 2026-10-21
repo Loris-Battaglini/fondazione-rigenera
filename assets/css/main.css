@@ -65,8 +65,7 @@
 }
 
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 svg,
@@ -169,19 +168,12 @@ h6,
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
-  -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   border: 2px solid var(--rg-primary-dark);
   text-decoration: none;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-custom-primary {
@@ -216,7 +208,6 @@ h6,
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
@@ -243,8 +234,7 @@ h6,
 .visually-hidden-focusable:focus {
   border-color: #0f3d24;
   outline: 0;
-  -webkit-box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
-          box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
+  box-shadow: 0 0 0 0.125rem #fff, 0 0 0 0.3125rem #0f3d24;
 }
 
 @media (max-width: 991.98px) {
@@ -265,8 +255,7 @@ h6,
   width: 3rem;
   height: 3rem;
   font-size: 1.5rem;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
 }
 @media (min-width: 992px) {
   .icon-circle-lg {
@@ -350,10 +339,6 @@ h6,
   --bs-gutter-x: 0.7rem;
   --bs-gutter-y: 0.7rem;
 }
-.report-card .form-control,
-.report-card .form-select {
-  min-height: 2.6rem;
-}
 .report-card textarea.form-control {
   min-height: 3.2rem;
   resize: vertical;
@@ -388,35 +373,33 @@ h6,
   font-weight: 700;
   font-size: 0.8125rem;
   line-height: 1;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
-.day-toggle:hover, .day-toggle[aria-pressed=true], .day-toggle.active {
+.day-toggle[aria-pressed=true], .day-toggle.active {
   background: var(--bs-primary);
   border-color: var(--bs-primary);
   color: #fff;
 }
+@media (hover: hover) {
+  .day-toggle:hover {
+    background: var(--bs-primary);
+    border-color: var(--bs-primary);
+    color: #fff;
+  }
+}
 
 .phone-input-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 0.5rem;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  align-items: stretch;
 }
 
 .phone-prefix {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 5.25rem;
-          flex: 0 0 5.25rem;
+  flex: 0 0 5.25rem;
 }
 
 .phone-number {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .report-card .form-label {
@@ -459,12 +442,8 @@ h6,
   color: #0f3d24;
 }
 .site-footer .footer-brand {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.5rem;
   font-size: 1.05rem;
@@ -504,16 +483,13 @@ h6,
 
 /* Gestione del layout principale della navbar personalizzata */
 .custom-navbar {
-  -webkit-box-shadow: 0 2px 12px rgba(15, 61, 36, 0.08);
-          box-shadow: 0 2px 12px rgba(15, 61, 36, 0.08);
+  box-shadow: 0 2px 12px rgba(15, 61, 36, 0.08);
 }
 .custom-navbar .navbar-inner {
   padding-block: 0.75rem;
 }
 .custom-navbar .navbar-collapse {
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
+  flex-grow: 0; /* Impedisce al blocco di espandersi troppo */
 }
 .custom-navbar .navbar-nav {
   margin-right: 2rem; /* Distanza tra i link centrali e i bottoni */
@@ -521,19 +497,14 @@ h6,
 }
 .custom-navbar .navbar-nav .nav-link {
   color: var(--rg-primary-dark);
-  -webkit-transition: color 180ms ease;
   transition: color 180ms ease;
 }
 .custom-navbar .navbar-nav .nav-link:hover, .custom-navbar .navbar-nav .nav-link:focus-visible {
   color: var(--rg-primary);
 }
 .custom-navbar .nav-actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 0.75rem;
 }
 
@@ -551,29 +522,17 @@ body {
 
 @media (max-width: 991.98px) {
   .custom-navbar .navbar-collapse {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     width: 100%;
     padding: 1.5rem 0;
     /* Gestione della lista dei link */
   }
   .custom-navbar .navbar-collapse .navbar-nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     padding-left: 0;
     margin: 0 0 1rem 0;
@@ -590,16 +549,9 @@ body {
     padding: 0.5rem 0;
   }
   .custom-navbar .navbar-collapse .nav-actions {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     gap: 0.75rem;
   }
@@ -610,8 +562,6 @@ body {
     text-align: center;
   }
   .custom-navbar .navbar-collapse.show {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
 }
@@ -630,12 +580,8 @@ body {
   background-color: var(--rg-primary-subtle);
   overflow: hidden;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   border-radius: 1rem;
 }
 
@@ -670,25 +616,16 @@ body {
 }
 
 .hero-actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 0.75rem;
 }
 
 .hero-actions .btn {
   min-height: 3rem;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   white-space: nowrap;
 }
 
@@ -703,17 +640,10 @@ body {
 }
 
 .hero-stat {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   min-width: 0;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  flex-direction: column-reverse;
+  align-items: flex-start;
   gap: 0.4rem;
 }
 .hero-stat dt {
@@ -756,13 +686,8 @@ body {
   .hero-actions {
     max-width: 24rem;
     margin-inline: auto;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
   .hero-actions .btn {
     width: min(100%, 18rem);
@@ -771,9 +696,7 @@ body {
     margin-inline: auto;
   }
   .hero-stat {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
     text-align: center;
   }
 }
@@ -824,17 +747,12 @@ body {
 
 /* Card azione: ombra come da Figma (0 4px 12px verde scuro al 12%) */
 .tile-azione {
-  -webkit-box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
-          box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
-  -webkit-transition: -webkit-box-shadow 0.15s ease-in-out;
-  transition: -webkit-box-shadow 0.15s ease-in-out;
+  box-shadow: 0 4px 12px rgba(15, 61, 36, 0.12);
   transition: box-shadow 0.15s ease-in-out;
-  transition: box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
 .tile-azione:hover {
   color: #fff;
-  -webkit-box-shadow: var(--bs-box-shadow-lg);
-          box-shadow: var(--bs-box-shadow-lg);
+  box-shadow: var(--bs-box-shadow-lg);
 }
 .tile-azione:hover .tile-count, .tile-azione:focus-visible .tile-count {
   text-decoration: underline;
@@ -868,28 +786,20 @@ body {
   La classe .search-input-clean è stata aggiunta per rimuovere i bordi e lo sfondo dell'input di ricerca, rendendolo più pulito e integrato con il design della barra di ricerca.
     */
 .custom-search-bar {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
+  align-items: center;
+  width: 100%;
   background: var(--bs-white);
   border: 1px solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
   padding: 0 0.75rem;
   height: 42px;
-  -webkit-transition: border-color 0.2s, -webkit-box-shadow 0.2s;
-  transition: border-color 0.2s, -webkit-box-shadow 0.2s;
   transition: border-color 0.2s, box-shadow 0.2s;
-  transition: border-color 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
 }
 
 .custom-search-bar:focus-within {
   border-color: var(--rg-primary-dark);
-  -webkit-box-shadow: var(--rg-focus-shadow);
-          box-shadow: var(--rg-focus-shadow);
+  box-shadow: var(--rg-focus-shadow);
 }
 
 .search-input-clean {
@@ -916,8 +826,7 @@ body {
   min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  -ms-scroll-snap-type: x mandatory;
-      scroll-snap-type: x mandatory;
+  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: var(--rg-primary) transparent;
@@ -925,7 +834,6 @@ body {
 
 .catalogo-track {
   display: grid;
-  grid-auto-flow: column;
   grid-auto-columns: 100%;
   /* Una sola riga fissa: la seconda viene creata solo se c'è almeno una card da metterci,
      così con poche card il catalogo (e il riquadro verde) si accorcia */
@@ -938,8 +846,6 @@ body {
 }
 
 .catalogo-slide {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   min-width: 0;
   scroll-snap-align: start;
@@ -955,13 +861,10 @@ body {
 }
 
 .catalogo-freccia {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 2.75rem;
-          flex: 0 0 2.75rem;
+  flex: 0 0 2.75rem;
   width: 2.75rem;
   height: 2.75rem;
-  -ms-flex-item-align: center;
-      align-self: center;
+  align-self: center;
   padding: 0;
 }
 
@@ -1014,8 +917,7 @@ body {
   }
   .catalogo-viewport {
     overflow: visible;
-    -ms-scroll-snap-type: none;
-        scroll-snap-type: none;
+    scroll-snap-type: none;
   }
   .catalogo-track {
     grid-auto-flow: row;
@@ -1036,7 +938,6 @@ body {
 .accordion-preferiti-btn {
   background-color: var(--bs-white);
   color: var(--bs-body-color);
-  -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
 }
 
@@ -1046,8 +947,7 @@ body {
 
 .accordion-preferiti-btn:focus-visible {
   outline: none;
-  -webkit-box-shadow: inset 0 0 0 0.1875rem var(--rg-primary-dark);
-          box-shadow: inset 0 0 0 0.1875rem var(--rg-primary-dark);
+  box-shadow: inset 0 0 0 0.1875rem var(--rg-primary-dark);
 }
 
 /* Badge con il numero dei preferiti: 14px.
@@ -1059,21 +959,16 @@ body {
 /* Freccia che ruota verso l'alto quando l'accordion è aperto */
 .accordion-preferiti-freccia {
   font-size: 1.25rem;
-  -webkit-transition: -webkit-transform 0.2s;
-  transition: -webkit-transform 0.2s;
   transition: transform 0.2s;
-  transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
 .accordion-preferiti-btn[aria-expanded=true] .accordion-preferiti-freccia {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .accordion-preferiti-btn,
   .accordion-preferiti-freccia {
-    -webkit-transition: none;
     transition: none;
   }
 }

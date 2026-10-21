@@ -6,6 +6,8 @@ Il progetto è stato completamente refactorizzato secondo l'architettura **ES6 M
 
 link al deploy https://loris-battaglini.github.io/fondazione-rigenera/
 
+> ℹ️ **Dati di esempio:** i punti del catalogo (`mock/services.js`), con indirizzi, email e telefoni, sono fittizi e servono solo a dimostrare il funzionamento del sito.
+
 ---
 
 ## 📸 Preview del Progetto
@@ -24,7 +26,7 @@ _Figura 2: Catalogo dinamico con filtri di ricerca e gestione dei preferiti._
 ## ✨ Funzionalità Principali
 
 - **🎨 UI/UX Responsive & Modern:** Navbar estesa a tutta larghezza (`container-fluid`) con `max-width` controllato e layout ottimizzato per mobile e desktop.
-- **🧩 Architettura Modulare ES6:** Organizzazione pulita del codice JavaScript diviso in moduli dedicati (`components/`, `ui/`, `utils/`, `data/`).
+- **🧩 Architettura Modulare ES6:** Organizzazione pulita del codice JavaScript diviso in moduli dedicati (`components/`, `data/`, `ui/`).
 - **📦 Carica i dati una sola volta con caricaServizi() dentro un try/catch e li passa a tutti i moduli. Nessuna variabile globale. CaricaServizi() restituisce l'array importato da mock/services.js: niente fetch.
 - **🎠 Carosello Catalogo e Filtri:** Scorrimento fluido e filtri in tempo reale per categoria, tag e zona.
 - **❤️ Gestione Preferiti:** Salvataggio dei servizi preferiti tramite `localStorage` con aggiornamento dinamico dello stato e contatori.
@@ -35,7 +37,7 @@ _Figura 2: Catalogo dinamico con filtri di ricerca e gestione dei preferiti._
 
 - **Frontend:** HTML5, SCSS / CSS3, Bootstrap 5
 - **Logic & Scripts:** Vanilla JavaScript (ES6+ Modules)
-- **Data Format:** JSON
+- **Data Format:** modulo ES6 (`mock/services.js`)
 - **Version Control:** Git & GitHub (Workflow a branch)
 
 ---
@@ -60,15 +62,12 @@ fondazione-rigenera/
 │   │   ├── data.js
 │   │   └── storage.js
 │   ├── ui/
-│   │   ├── error.js
-│   │   ├── loading.js
-│   │   └── navigation.js
+│   │   └── select.js
 │   └── app.js
 ├── mock/
-│   └── service.js
+│   └── services.js
 ├── scss/
 │   ├── abstracts/
-│   │   ├── _mixins.scss
 │   │   └── _variables.scss
 │   ├── components/
 │   │   ├── _buttons.scss
@@ -112,6 +111,11 @@ fondazione-rigenera/
    ```bash
    npm run build:css:all
    ```
+
+## 🔭 Sviluppi futuri
+
+- Preferiti suggeriti al primo avvio (servizi segnalati dalla Fondazione).
+- Invio delle segnalazioni a un back end, al posto del salvataggio in `localStorage`.
 
 ## 👥 Contributori & Team Work
 

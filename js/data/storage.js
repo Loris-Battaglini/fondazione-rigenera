@@ -48,6 +48,7 @@ export function togglePreferito(id) {
 const CHIAVE_SEGNALAZIONI = "rigenera-segnalazioni";
 const CHIAVE_BOZZA_SEGNALAZIONE = "rigenera-segnalazione-bozza";
 
+// Restituisce true se il salvataggio riesce.
 export function salvaSegnalazione(segnalazione) {
   try {
     const testo = localStorage.getItem(CHIAVE_SEGNALAZIONI);
@@ -55,8 +56,10 @@ export function salvaSegnalazione(segnalazione) {
     const lista = Array.isArray(segnalazioni) ? segnalazioni : [];
     lista.push(segnalazione);
     localStorage.setItem(CHIAVE_SEGNALAZIONI, JSON.stringify(lista));
+    return true;
   } catch (errore) {
     console.error("Impossibile salvare la segnalazione:", errore);
+    return false;
   }
 }
 

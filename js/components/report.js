@@ -3,13 +3,23 @@ import {
   salvaBozzaSegnalazione,
   leggiBozzaSegnalazione,
 } from "../data/storage.js";
+import { aggiungiOpzioni } from "../ui/select.js";
 
 const CAMPI_NON_IN_BOZZA = ["email", "telefono"];
 const SELETTORE_COLONNA = ".col-12, .col-md-3, .col-md-6";
+// Proposta se l'utente non sa cosa scegliere: la rivede chi approva la segnalazione.
+const CATEGORIA_PREDEFINITA = "Altro";
 
-export function inizializzaFormSegnalazione() {
+export function inizializzaFormSegnalazione(categorie) {
   const form = document.querySelector("#segnalazione-form");
   if (!form) return;
+
+  // Opzioni della categoria dall'elenco condiviso (prima di ripristinare la bozza).
+  aggiungiOpzioni(
+    form.elements.namedItem("categoria"),
+    categorie,
+    CATEGORIA_PREDEFINITA,
+  );
 
   const successo = document.querySelector("#successo");
   const campi = form.querySelectorAll("input, select, textarea");
@@ -65,8 +75,9 @@ export function inizializzaFormSegnalazione() {
     }
     if (tipo === "telefono") {
       if (!valore) return rimuoviErrore(campo), true;
+      // Senza "+": il prefisso arriva dal select.
       const valido =
-        /^\+?[0-9\s()\-]{7,}$/.test(valore) &&
+        /^[0-9\s()\-]{7,}$/.test(valore) &&
         valore.replace(/\D/g, "").length >= 7;
       if (!valido) mostraErrore(campo, "Telefono non valido");
       else rimuoviErrore(campo);
@@ -89,6 +100,29 @@ export function inizializzaFormSegnalazione() {
     }
     return valido;
   };
+  // Chiusura dopo l'apertura, salvo servizio notturno.
+  const validaOrari = () => {
+    const apertura = form.elements.namedItem("ora_apertura");
+    const chiusura = form.elements.namedItem("ora_chiusura");
+    const notturno = form.elements.namedItem("servizio_notturno");
+    if (!apertura || !chiusura) return true;
+    const valido =
+      !apertura.value ||
+      !chiusura.value ||
+      chiusura.value > apertura.value ||
+      Boolean(notturno?.checked);
+    if (!valido) mostraErrore(chiusura, "La chiusura è prima dell'apertura");
+    else rimuoviErrore(chiusura);
+    return valido;
+  };
+  // Messaggio di esito (successo o errore).
+  const mostraEsito = (messaggio, ok) => {
+    if (!successo) return;
+    successo.textContent = messaggio;
+    successo.classList.toggle("alert-success", ok);
+    successo.classList.toggle("alert-danger", !ok);
+    successo.classList.remove("d-none");
+  };
 
   const campiObbligatori = [
     "nome", "azione", "categoria", "citta", "indirizzo", "zona", "descrizione",
@@ -101,6 +135,10 @@ export function inizializzaFormSegnalazione() {
   const phoneField = form.querySelector("#telefono");
   emailField?.addEventListener("input", () => validaCampo(emailField, "email"));
   phoneField?.addEventListener("input", () => validaCampo(phoneField, "telefono"));
+  // Ricontrollo gli orari quando cambiano.
+  ["ora_apertura", "ora_chiusura", "servizio_notturno"].forEach((nome) =>
+    form.elements.namedItem(nome)?.addEventListener("change", validaOrari),
+  );
 
   const bozza = leggiBozzaSegnalazione();
   Object.entries(bozza).forEach(([chiave, valore]) => {
@@ -129,22 +167,27 @@ export function inizializzaFormSegnalazione() {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const validi = campiObbligatori.every((campo) => validaCampo(campo)) &&
-      validaGiorni() &&
-      (!emailField || validaCampo(emailField, "email")) &&
-      (!phoneField || validaCampo(phoneField, "telefono"));
-    if (!validi) {
+    successo?.classList.add("d-none");
+    // Valido tutti i campi, senza fermarmi al primo errore.
+    const risultati = [
+      ...campiObbligatori.map((campo) => validaCampo(campo)),
+      validaGiorni(),
+      validaOrari(),
+      !emailField || validaCampo(emailField, "email"),
+      !phoneField || validaCampo(phoneField, "telefono"),
+    ];
+    if (!risultati.every(Boolean)) {
       form.classList.add("was-validated");
       return;
     }
 
     const campo = (nome) => form.elements.namedItem(nome);
-    const numeroTelefono = phoneField?.value.trim() ?? "";
     const apertura = campo("ora_apertura").value;
     const chiusura = campo("ora_chiusura").value;
     const via = campo("indirizzo").value.trim();
     const civico = campo("numero_civico")?.value.trim() ?? "";
-    salvaSegnalazione({
+    // Email e telefono non salvati in locale: da inviare al server quando ci sarà.
+    const salvata = salvaSegnalazione({
       id: crypto.randomUUID ? crypto.randomUUID() : `segnalazione-${Date.now()}`,
       nome: campo("nome").value.trim(),
       azione: campo("azione").value,
@@ -158,10 +201,13 @@ export function inizializzaFormSegnalazione() {
       orari: apertura && chiusura ? `${apertura}–${chiusura}` : "",
       servizio_notturno: Boolean(campo("servizio_notturno")?.checked),
       descrizione: campo("descrizione").value.trim(),
-      email: emailField?.value.trim() ?? "",
-      telefono: numeroTelefono ? `${campo("prefisso_telefono").value} ${numeroTelefono}`.trim() : "",
       createdAt: new Date().toISOString(),
     });
+    // Se il salvataggio fallisce non svuoto il form.
+    if (!salvata) {
+      mostraEsito("Non è stato possibile salvare la segnalazione. Riprova.", false);
+      return;
+    }
     salvaBozzaSegnalazione({});
     form.reset();
     form.classList.remove("was-validated");
@@ -170,9 +216,6 @@ export function inizializzaFormSegnalazione() {
       button.setAttribute("aria-pressed", "false");
     });
     form.querySelector(".day-selector")?.classList.remove("invalid");
-    if (successo) {
-      successo.classList.remove("d-none");
-      successo.textContent = "Grazie! La tua segnalazione è stata salvata localmente.";
-    }
+    mostraEsito("Grazie! La tua segnalazione è stata salvata localmente.", true);
   });
 }

@@ -1,8 +1,7 @@
-import { caricaServizi } from "./data/data.js";
+import { caricaServizi, caricaCategorie } from "./data/data.js";
 import {
   aggiornaListaPreferiti,
   inizializzaGestionePreferiti,
-  inizializzaPreferitiPredefiniti,
 } from "./components/favorites.js";
 import {
   inizializzaHero,
@@ -16,19 +15,24 @@ import { inizializzaFormSegnalazione } from "./components/report.js";
 
 // Carico i dati una volta sola e li passo ai moduli che ne hanno bisogno.
 function avviaApp() {
-  inizializzaFormSegnalazione();
+  // Categorie condivise tra form e filtro.
+  const categorie = caricaCategorie();
+  inizializzaFormSegnalazione(categorie);
   let servizi;
 
   try {
     servizi = caricaServizi();
   } catch (errore) {
     console.error("Servizi non caricati", errore);
+    // Messaggio visibile anche all'utente, non solo in console.
+    const contenitore = document.getElementById("container-servizi");
+    if (contenitore) {
+      contenitore.innerHTML = `<div class="catalogo-vuoto text-center py-4 text-muted" role="listitem">Non è stato possibile caricare i servizi. Ricarica la pagina.</div>`;
+    }
     return;
   }
 
-  inizializzaPreferitiPredefiniti(servizi);
-
-  const aggiornaCatalogo = inizializzaFiltri(servizi);
+  const aggiornaCatalogo = inizializzaFiltri(servizi, categorie);
   const aggiornaPreferiti = () => {
     aggiornaCatalogo();
     aggiornaListaPreferiti(servizi);
@@ -38,6 +42,10 @@ function avviaApp() {
   aggiornaListaPreferiti(servizi);
   aggiornaConteggiPreferiti(servizi);
   inizializzaGestionePreferiti(aggiornaPreferiti);
+  // Sincronizzo i preferiti modificati in altre schede.
+  window.addEventListener("storage", (evento) => {
+    if (evento.key === "rigenera-preferiti") aggiornaPreferiti();
+  });
   inizializzaHero(servizi);
   aggiornaConteggiAzioni(servizi);
   aggiornaTotaleServizi(servizi);

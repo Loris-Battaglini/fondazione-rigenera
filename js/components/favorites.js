@@ -1,19 +1,6 @@
 import { renderizzaCard } from "./cards.js";
 import { isPreferito, togglePreferito } from "../data/storage.js";
 
-// Al primo avvio salvo i preferiti suggeriti nel catalogo.
-export function inizializzaPreferitiPredefiniti(servizi) {
-  try {
-    if (localStorage.getItem("rigenera-preferiti") !== null) return;
-
-    servizi
-      .filter((servizio) => servizio.preferito)
-      .forEach((servizio) => togglePreferito(servizio.id));
-  } catch {
-    // Se il browser blocca localStorage, il resto del sito continua a funzionare.
-  }
-}
-
 // Aggiorno la lista e il contatore dei preferiti salvati.
 export function aggiornaListaPreferiti(servizi) {
   const contenitore = document.getElementById("lista-preferiti");
@@ -43,7 +30,18 @@ export function inizializzaGestionePreferiti(dopoModifica) {
     );
     if (!pulsante) return;
 
-    togglePreferito(pulsante.dataset.preferito);
+    const id = pulsante.dataset.preferito;
+    togglePreferito(id);
     dopoModifica();
+
+    // Ripristino il focus sul cuore ridisegnato.
+    const selettore = `[data-preferito="${CSS.escape(id)}"]`;
+    const elenco = pulsante.closest("#lista-preferiti")
+      ? "#lista-preferiti"
+      : "#container-servizi";
+    (
+      document.querySelector(`${elenco} ${selettore}`) ??
+      document.querySelector(`#container-servizi ${selettore}`)
+    )?.focus();
   });
 }

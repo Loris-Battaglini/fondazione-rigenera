@@ -3,7 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Fondazione Rigenera</title>
+    <!-- descrizione per motori di ricerca e anteprime -->
+    <meta
+      name="description"
+      content="Guida al riuso di Fondazione Rigenera: servizi verificati per riparare, scambiare, donare e riciclare a Bologna."
+    />
+    <!-- OpenGraph per le anteprime social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:title" content="Guida al riuso · Fondazione Rigenera" />
+    <meta
+      property="og:description"
+      content="Trova dove riparare, scambiare, donare e riciclare i tuoi oggetti a Bologna."
+    />
+    <meta
+      property="og:url"
+      content="https://loris-battaglini.github.io/fondazione-rigenera/"
+    />
+    <meta
+      property="og:image"
+      content="https://loris-battaglini.github.io/fondazione-rigenera/assets/img/preview-hero.png"
+    />
+    <meta property="og:image:alt" content="Home della Guida al riuso" />
 
     <!-- link per il font Inter (Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,22 +35,27 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     />
 
-    <!-- link per le icone di boootstrap -->
+    <!-- link per le icone di boootstrap / aggiunto integrity e crossorigin -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+      integrity="sha384-CK2SzKma4jA5H/MXDUU7i1TqZlCFaD4T01vtyDFvPlD97JQyS+IsSh1nI2EFbpyk"
+      crossorigin="anonymous"
     />
 
-    <!-- link per il css di bootstrap -->
+    <!-- link per il css di bootstrap / aggiunto integrity e crossorigin -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
     />
 
     <!-- link per percorso css -->
     <link rel="stylesheet" href="assets/css/main.min.css" />
 
-    <!-- <link rel="icon" type="image/svg" href="assets\img\recycle.svg"> -->
+    <!-- favicon (?v=1 forza il browser a ricaricarlo dopo la modifica) -->
+    <link rel="icon" type="image/svg+xml" href="assets/img/recycle.svg?v=1" />
   </head>
   <body>
     <!-- inizio navbar -->
@@ -112,7 +139,7 @@
             <dl class="hero-stats">
               <div class="hero-stat">
                 <dt>servizi verificati</dt>
-                <dd data-hero-stat="servizi" aria-live="polite">48</dd>
+                <dd data-hero-stat="servizi" aria-live="polite"></dd>
               </div>
               <div class="hero-stat">
                 <dt>preferiti salvati</dt>
@@ -120,7 +147,8 @@
               </div>
               <div class="hero-stat">
                 <dt>modi per il riuso</dt>
-                <dd data-hero-stat="categorie" aria-live="polite">4</dd>
+                <!-- valore scritto da counter.js -->
+                <dd data-hero-stat="categorie" aria-live="polite"></dd>
               </div>
             </dl>
           </div>
@@ -175,7 +203,7 @@
                 class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold"
               >
                 <span
-                  ><span data-conteggio="riparazione">14</span> servizi</span
+                  ><span data-conteggio="riparazione"></span> servizi</span
                 >
                 <i class="bi bi-arrow-right" aria-hidden="true"></i>
               </span>
@@ -200,7 +228,7 @@
               <span
                 class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold"
               >
-                <span><span data-conteggio="scambio">11</span> servizi</span>
+                <span><span data-conteggio="scambio"></span> servizi</span>
                 <i class="bi bi-arrow-right" aria-hidden="true"></i>
               </span>
             </a>
@@ -224,7 +252,8 @@
               <span
                 class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold"
               >
-                <span><span data-conteggio="donazione">9</span> servizi</span>
+                <!-- valore scritto da counter.js -->
+                <span><span data-conteggio="donazione"></span> servizi</span>
                 <i class="bi bi-arrow-right" aria-hidden="true"></i>
               </span>
             </a>
@@ -248,7 +277,7 @@
               <span
                 class="tile-count d-inline-flex align-items-center gap-2 mt-auto fw-semibold"
               >
-                <span><span data-conteggio="riciclo">14</span> servizi</span>
+                <span><span data-conteggio="riciclo"></span> servizi</span>
                 <i class="bi bi-arrow-right" aria-hidden="true"></i>
               </span>
             </a>
@@ -375,7 +404,7 @@
           >
           <h2 class="fw-bold mt-1">Tutti i servizi di riuso</h2>
           <p class="text-muted">
-            <span data-totale-servizi>48</span> servizi verificati dalla
+            <span data-totale-servizi></span> servizi verificati dalla
             Fondazione in tutta la città.
           </p>
         </div>
@@ -385,7 +414,10 @@
           <div class="row g-3">
             <!-- Cerca per nome/oggetto -->
             <div class="col-md-6">
-              <label class="form-label small fw-semibold text-secondary"
+              <!-- label collegata al campo -->
+              <label
+                for="filtro-testo"
+                class="form-label small fw-semibold text-secondary"
                 >Cerca un servizio o un oggetto</label
               >
               <div class="custom-search-bar">
@@ -401,22 +433,23 @@
 
             <!-- Categoria di oggetti -->
             <div class="col-md-3">
-              <label class="form-label small fw-semibold text-secondary"
+              <!-- opzioni aggiunte da filters.js -->
+              <label
+                for="filtro-tag"
+                class="form-label small fw-semibold text-secondary"
                 >Categoria di oggetti</label
               >
               <select id="filtro-tag" class="form-select">
                 <option value="tutti" selected>Tutte le categorie</option>
-                <option value="Bici">Bici</option>
-                <option value="Abbigliamento">Abbigliamento</option>
-                <option value="Elettrodomestici">Elettrodomestici</option>
-                <option value="Mobili">Mobili</option>
-                <option value="RAEE">RAEE</option>
               </select>
             </div>
 
             <!-- Zona -->
             <div class="col-md-3">
-              <label class="form-label small fw-semibold text-secondary"
+              <!-- label collegata al campo -->
+              <label
+                for="filtro-zona"
+                class="form-label small fw-semibold text-secondary"
                 >Zona</label
               >
               <select id="filtro-zona" class="form-select">
@@ -429,21 +462,57 @@
 
             <!-- Tipo di azione (Unico gruppo di pillole) -->
             <div class="col-12 mt-3">
-              <label class="form-label small fw-semibold text-secondary d-block"
-                >Tipo di azione</label
+              <!-- gruppo accessibile, aria-pressed aggiornato da filters.js -->
+              <span
+                id="etichetta-azione"
+                class="form-label small fw-semibold text-secondary d-block"
+                >Tipo di azione</span
               >
-              <div class="d-flex flex-wrap gap-2">
-                <button class="pill-btn attivo" data-azione="tutti">
+              <div
+                class="d-flex flex-wrap gap-2"
+                role="group"
+                aria-labelledby="etichetta-azione"
+              >
+                <button
+                  type="button"
+                  class="pill-btn attivo"
+                  data-azione="tutti"
+                  aria-pressed="true"
+                >
                   Tutti
                 </button>
-                <button class="pill-btn" data-azione="riparazione">
+                <button
+                  type="button"
+                  class="pill-btn"
+                  data-azione="riparazione"
+                  aria-pressed="false"
+                >
                   Riparazione
                 </button>
-                <button class="pill-btn" data-azione="scambio">Scambio</button>
-                <button class="pill-btn" data-azione="donazione">
+                <button
+                  type="button"
+                  class="pill-btn"
+                  data-azione="scambio"
+                  aria-pressed="false"
+                >
+                  Scambio
+                </button>
+                <button
+                  type="button"
+                  class="pill-btn"
+                  data-azione="donazione"
+                  aria-pressed="false"
+                >
                   Donazione
                 </button>
-                <button class="pill-btn" data-azione="riciclo">Riciclo</button>
+                <button
+                  type="button"
+                  class="pill-btn"
+                  data-azione="riciclo"
+                  aria-pressed="false"
+                >
+                  Riciclo
+                </button>
               </div>
             </div>
           </div>
@@ -510,9 +579,8 @@
 
         <!-- Risultati e Reset -->
         <div class="d-flex justify-content-between align-items-center mb-4">
-          <span id="contatore-servizi" class="fw-semibold text-dark"
-            >0 servizi trovati</span
-          >
+          <!-- testo scritto da filters.js -->
+          <span id="contatore-servizi" class="fw-semibold text-dark"></span>
           <a
             id="reset-filtri"
             href="#"
@@ -675,23 +743,16 @@
                       <div class="invalid-feedback">Campo vuoto</div>
                     </div>
                     <div class="col-md-6">
-                      <label for="categoria" class="form-label fw-medium"
+                      <!-- id diverso dalla sezione #categoria; opzioni da report.js -->
+                      <label for="segnala-categoria" class="form-label fw-medium"
                         >Categoria di oggetti *</label
                       >
                       <select
                         class="form-select"
-                        id="categoria"
+                        id="segnala-categoria"
                         name="categoria"
                         required
-                      >
-                        <option value="" selected>Scegli…</option>
-                        <option>Abbigliamento</option>
-                        <option>Bici</option>
-                        <option>Elettronica</option>
-                        <option>Libri</option>
-                        <option>Mobili</option>
-                        <option>Altro</option>
-                      </select>
+                      ></select>
                       <div class="invalid-feedback">Campo vuoto</div>
                     </div>
                     <div class="col-md-6">
@@ -774,6 +835,8 @@
                             id="ora_chiusura"
                             name="ora_chiusura"
                           />
+                          <!-- errore orari, testo da report.js -->
+                          <div class="invalid-feedback"></div>
                         </div>
                       </div>
                       <div class="form-check form-switch mt-2">
@@ -924,7 +987,7 @@
                   class="alert alert-success mt-3 mb-0 d-none"
                   role="status"
                 >
-                  Grazie! La tua segnalazione è stata inviata.
+                  <!-- testo scritto da report.js -->
                 </div>
               </div>
             </div>

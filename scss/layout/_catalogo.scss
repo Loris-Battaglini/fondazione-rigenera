@@ -7,7 +7,7 @@
 .custom-search-bar {
   display: flex;
   align-items: center;
-  width: 100%; /* <-- Fondamentale per occupare tutta la colonna */
+  width: 100%;
   background: var(--bs-white);
   border: 1px solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
@@ -29,10 +29,6 @@
   font-size: 0.95rem;
   color: var(--bs-body-color);
 }
-
-// fine modifiche per la  larghezza della barra di ricerca in catalogo
-
-
 
 /* Box del catalogo con sfondo verde coordinato all'hero.
    Il padding interno è lo stesso dell'hero ed è dato dalle classi Bootstrap nell'HTML */
@@ -57,7 +53,6 @@
 
 .catalogo-track {
   display: grid;
-  grid-auto-flow: column;  //prova
   grid-auto-columns: 100%;
   /* Una sola riga fissa: la seconda viene creata solo se c'è almeno una card da metterci,
      così con poche card il catalogo (e il riquadro verde) si accorcia */

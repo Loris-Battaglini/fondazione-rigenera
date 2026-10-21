@@ -43,11 +43,6 @@
     --bs-gutter-y: 0.7rem;
   }
 
-  .form-control,
-  .form-select {
-    min-height: 2.6rem;
-  }
-
   textarea.form-control {
     min-height: 3.2rem;
     resize: vertical;
@@ -86,12 +81,21 @@
   line-height: 1;
   box-shadow: none;
 
-  &:hover,
+  // Stato selezionato.
   &[aria-pressed="true"],
   &.active {
     background: var(--bs-primary);
     border-color: var(--bs-primary);
     color: $white;
+  }
+
+  // Hover solo con mouse: su touch resterebbe "attaccato" dopo il tap
+  @media (hover: hover) {
+    &:hover {
+      background: var(--bs-primary);
+      border-color: var(--bs-primary);
+      color: $white;
+    }
   }
 }
 

@@ -1,4 +1,5 @@
 import { renderizzaCard } from "./cards.js";
+import { aggiungiOpzioni } from "../ui/select.js";
 
 let listaServizi = [];
 
@@ -171,9 +172,20 @@ function inizializzaCarosello() {
   aggiornaFreccieCatalogo();
 }
 
+// Segno come attiva solo la pillola indicata.
+function attivaPillola(pillola) {
+  document.querySelectorAll(".pill-btn").forEach((btn) => {
+    const attiva = btn === pillola;
+    btn.classList.toggle("attivo", attiva);
+    btn.setAttribute("aria-pressed", String(attiva));
+  });
+}
+
 // Collego i controlli del catalogo e restituisco l'aggiornamento dei risultati.
-export function inizializzaFiltri(servizi) {
+export function inizializzaFiltri(servizi, categorie) {
   listaServizi = servizi;
+  // Opzioni del filtro categoria dall'elenco condiviso.
+  aggiungiOpzioni(document.getElementById("filtro-tag"), categorie);
   inizializzaCarosello();
   inizializzaVediDiPiu();
   document
@@ -187,11 +199,9 @@ export function inizializzaFiltri(servizi) {
     ?.addEventListener("change", aggiornaFiltri);
 
   document.querySelectorAll(".pill-btn").forEach((bottone) => {
+    // Attivo la pillola cliccata (anche aria-pressed).
     bottone.addEventListener("click", (evento) => {
-      document
-        .querySelectorAll(".pill-btn")
-        .forEach((btn) => btn.classList.remove("attivo"));
-      evento.currentTarget.classList.add("attivo");
+      attivaPillola(evento.currentTarget);
       aggiornaFiltri();
     });
   });
@@ -207,12 +217,8 @@ export function inizializzaFiltri(servizi) {
     if (document.getElementById("filtro-zona"))
       document.getElementById("filtro-zona").value = "tutti";
 
-    document
-      .querySelectorAll(".pill-btn")
-      .forEach((btn) => btn.classList.remove("attivo"));
-    document
-      .querySelector('.pill-btn[data-azione="tutti"]')
-      ?.classList.add("attivo");
+    // Torno alla pillola "Tutti".
+    attivaPillola(document.querySelector('.pill-btn[data-azione="tutti"]'));
 
     aggiornaFiltri();
   });
