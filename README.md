@@ -1,6 +1,6 @@
 # 🌿 Fondazione Rigenera — Web Platform
 
-Una piattaforma web moderna, responsive e accessibile sviluppata per **Fondazione Rigenera**, progettata per la consultazione e la fruizione dei servizi e delle iniziative sul territorio.
+Una piattaforma web moderna, responsive e accessibile sviluppata per **Fondazione Rigenera**, progettata per la consultazione e la fruizione dei servizi e delle iniziative sul territorio[cite: 7].
 
 Il progetto è stato completamente refactorizzato secondo l'architettura **ES6 Modular JavaScript**, garantendo un'elevata manutenibilità, separazione delle responsabilità e caricamento dinamico dei dati.
 
@@ -10,34 +10,89 @@ link al deploy https://loris-battaglini.github.io/fondazione-rigenera/
 
 ---
 
-## 📸 Preview del Progetto
+## 📸 Preview del Progetto & Design
 
-![Hero e Header Section](./assets/img/preview-hero.png)
-_Figura 1: Header con navbar full-width e Hero section aggiornata._
+### 💻 Vista Desktop
+
+|              Hero Section              |                    Catalogo Servizi                    |          Form di Segnalazione          |
+| :------------------------------------: | :----------------------------------------------------: | :------------------------------------: |
+| ![Hero Desktop](./assets/img/hero.png) | ![Catalogo Desktop](./assets/img/catalogo-dekstop.png) | ![Form Desktop](./assets/img/form.png) |
+
+### 📱 Vista Mobile & Responsive
+
+|                   Navbar Mobile                    |                    Catalogo Mobile                     |
+| :------------------------------------------------: | :----------------------------------------------------: |
+| ![Navbar Mobile](./assets/img/navbar-telefono.png) | ![Catalogo Mobile](./assets/img/catalogo-telefono.png) |
+
+---
+
+<details>
+<summary><b>🎨 Sfoglia le slide di presentazione</b></summary>
 
 <br>
 
-![Catalogo Servizi Dinamico](./assets/img/preview-catalogo.png)
-_Figura 2: Catalogo dinamico con filtri di ricerca e gestione dei preferiti._
+#### 1. Il Cliente e il Problema
 
+![Slide 1](./assets/img/1.png)
+
+#### 2. Obiettivi e Vincoli Tecnici
+
+![Slide 2](./assets/img/2.png)
+
+#### 3. Design System & Style Guide
+
+![Slide 3](./assets/img/3.png)
+
+#### 4. Dal Design in Figma al Codice
+
+![Slide 4](./assets/img/4.png)
+
+#### 5. Come è fatta la pagina
+
+![Slide 5](./assets/img/5.png)
+
+#### 6. Rendering Dinamico dei Dati
+
+![Slide 6](./assets/img/6.png)
+
+#### 7. Architettura del Codice
+
+![Slide 7](./assets/img/7.png)
+
+#### 8. Catalogo Dinamico
+
+![Slide 8](./assets/img/8.png)
+
+#### 9. Gestione Preferiti
+
+![Slide 9](./assets/img/9.png)
+
+#### 10. Segnala un Servizio & Accessibilità
+
+![Slide 10](./assets/img/10.png)
+
+#### 11. Lavoro di Squadra & Git Workflow
+
+![Slide 11](./assets/img/11.png)
+
+</details>
 
 ---
 
 ## ✨ Funzionalità Principali
 
 - **🎨 UI/UX Responsive & Modern:** Navbar estesa a tutta larghezza (`container-fluid`) con `max-width` controllato e layout ottimizzato per mobile e desktop.
-- **🧩 Architettura Modulare ES6:** Organizzazione pulita del codice JavaScript diviso in moduli dedicati (`components/`, `data/`, `ui/`).
-- **📦 Carica i dati una sola volta con caricaServizi() dentro un try/catch e li passa a tutti i moduli. Nessuna variabile globale. CaricaServizi() restituisce l'array importato da mock/services.js: niente fetch.
-- **🎠 Carosello Catalogo e Filtri:** Scorrimento fluido e filtri in tempo reale per categoria, tag e zona.
+- **🧩 Architettura Modulare ES6:** Organizzazione pulita del codice JavaScript diviso in moduli dedicati (`components/`, `ui/`, `utils/`, `data/`).
+- **📦 Rendering Dinamico dei Dati:** Le schede del catalogo vengono generate a runtime in JavaScript a partire dai servizi mockati, mantenendo l'HTML snello e privo di componenti statici.
+- **🎠 Carosello Catalogo e Filtri:** Scorrimento fluido e filtri in tempo reale per categoria, tag e zona[cite: 7].
 - **❤️ Gestione Preferiti:** Salvataggio dei servizi preferiti tramite `localStorage` con aggiornamento dinamico dello stato e contatori.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML5, SCSS / CSS3, Bootstrap 5
-- **Logic & Scripts:** Vanilla JavaScript (ES6+ Modules)
-- **Data Format:** modulo ES6 (`mock/services.js`)
+- **Frontend:** HTML5, SCSS / CSS3, Bootstrap 5[cite: 5]
+- **Logic & Scripts:** Vanilla JavaScript (ES6+ Modules)[cite: 5]
 - **Version Control:** Git & GitHub (Workflow a branch)
 
 ---
@@ -48,9 +103,11 @@ _Figura 2: Catalogo dinamico con filtri di ricerca e gestione dei preferiti._
 fondazione-rigenera/
 ├── assets/
 │   ├── css/
-│   │   ├── main.css
+│   │   ├── main.css.map
 │   │   └── main.min.css
 │   └── img/
+├── css/
+│   └── main.css.map
 ├── js/
 │   ├── components/
 │   │   ├── cards.js
@@ -66,6 +123,7 @@ fondazione-rigenera/
 │   └── app.js
 ├── mock/
 │   └── services.js
+├── node_modules/
 ├── scss/
 │   ├── abstracts/
 │   │   └── _variables.scss
