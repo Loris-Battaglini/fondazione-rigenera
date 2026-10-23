@@ -67,8 +67,12 @@ export function inizializzaFormSegnalazione(categorie) {
   const validaCampo = (campo, tipo = "text") => {
     const valore = campo?.value?.trim?.() ?? "";
     if (tipo === "email") {
-      if (!valore) return rimuoviErrore(campo), true;
+      if (!valore) {
+        campo.setCustomValidity("");
+        return rimuoviErrore(campo), true;
+      }
       const valido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valore);
+      campo.setCustomValidity(valido ? "" : "Email non valida");
       if (!valido) mostraErrore(campo, "Email non valida");
       else rimuoviErrore(campo);
       return valido;
