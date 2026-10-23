@@ -37,43 +37,43 @@ link al deploy https://loris-battaglini.github.io/fondazione-rigenera/
 
 #### 2. Obiettivi e Vincoli Tecnici
 
-![Slide 2](./assets/img/2.png)
+![Slide 2](./assets/img/2.jpg)
 
 #### 3. Design System & Style Guide
 
-![Slide 3](./assets/img/3.png)
+![Slide 3](./assets/img/3.jpg)
 
 #### 4. Dal Design in Figma al Codice
 
-![Slide 4](./assets/img/4.png)
+![Slide 4](./assets/img/4.jpg)
 
 #### 5. Come è fatta la pagina
 
-![Slide 5](./assets/img/5.png)
+![Slide 5](./assets/img/5.jpg)
 
 #### 6. Rendering Dinamico dei Dati
 
-![Slide 6](./assets/img/6.png)
+![Slide 6](./assets/img/6.jpg)
 
 #### 7. Architettura del Codice
 
-![Slide 7](./assets/img/7.png)
+![Slide 7](./assets/img/7.jpg)
 
 #### 8. Catalogo Dinamico
 
-![Slide 8](./assets/img/8.png)
+![Slide 8](./assets/img/8.jpg)
 
 #### 9. Gestione Preferiti
 
-![Slide 9](./assets/img/9.png)
+![Slide 9](./assets/img/9.jpg)
 
 #### 10. Segnala un Servizio & Accessibilità
 
-![Slide 10](./assets/img/10.png)
+![Slide 10](./assets/img/10.jpg)
 
 #### 11. Lavoro di Squadra & Git Workflow
 
-![Slide 11](./assets/img/11.png)
+![Slide 11](./assets/img/11.jpg)
 
 </details>
 
