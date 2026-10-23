@@ -33,7 +33,7 @@ link al deploy https://loris-battaglini.github.io/fondazione-rigenera/
 
 #### 1. Il Cliente e il Problema
 
-![Slide 1](./assets/img/1.png)
+![Slide 1](./assets/img/1.jpg)
 
 #### 2. Obiettivi e Vincoli Tecnici
 
@@ -103,11 +103,9 @@ link al deploy https://loris-battaglini.github.io/fondazione-rigenera/
 fondazione-rigenera/
 ├── assets/
 │   ├── css/
-│   │   ├── main.css.map
+│   │   ├── main.css
 │   │   └── main.min.css
 │   └── img/
-├── css/
-│   └── main.css.map
 ├── js/
 │   ├── components/
 │   │   ├── cards.js
