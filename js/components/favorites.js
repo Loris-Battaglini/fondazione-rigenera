@@ -1,5 +1,9 @@
 import { renderizzaCard } from "./cards.js";
-import { isPreferito, togglePreferito } from "../data/storage.js";
+import {
+  ascoltaPreferitiAggiornati,
+  isPreferito,
+  togglePreferito,
+} from "../data/storage.js";
 
 // Aggiorno la lista e il contatore dei preferiti salvati.
 export function aggiornaListaPreferiti(servizi) {
@@ -22,23 +26,23 @@ export function aggiornaListaPreferiti(servizi) {
   }
 }
 
-// Intercetto i cuori in catalogo e nella lista, poi avviso chi deve ridisegnare la pagina.
-export function inizializzaGestionePreferiti(dopoModifica) {
+// Intercetto i cuori in catalogo e nella lista.
+export function inizializzaGestionePreferiti(servizi) {
+  ascoltaPreferitiAggiornati(() => aggiornaListaPreferiti(servizi));
+
   document.addEventListener("click", (evento) => {
     const pulsante = evento.target.closest(
       "#container-servizi [data-preferito], #lista-preferiti [data-preferito]",
     );
     if (!pulsante) return;
-
     const id = pulsante.dataset.preferito;
-    togglePreferito(id);
-    dopoModifica();
-
-    // Ripristino il focus sul cuore ridisegnato.
-    const selettore = `[data-preferito="${CSS.escape(id)}"]`;
     const elenco = pulsante.closest("#lista-preferiti")
       ? "#lista-preferiti"
       : "#container-servizi";
+    togglePreferito(id);
+
+    // Ripristino il focus sul cuore ridisegnato.
+    const selettore = `[data-preferito="${CSS.escape(id)}"]`;
     (
       document.querySelector(`${elenco} ${selettore}`) ??
       document.querySelector(`#container-servizi ${selettore}`)

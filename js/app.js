@@ -4,6 +4,10 @@ import {
   inizializzaGestionePreferiti,
 } from "./components/favorites.js";
 import {
+  ascoltaPreferitiAggiornati,
+  inizializzaAscoltoPreferitiEsterni,
+} from "./data/storage.js";
+import {
   inizializzaHero,
   aggiornaConteggiAzioni,
   aggiornaTotaleServizi,
@@ -35,17 +39,14 @@ function avviaApp() {
   const aggiornaCatalogo = inizializzaFiltri(servizi, categorie);
   const aggiornaPreferiti = () => {
     aggiornaCatalogo();
-    aggiornaListaPreferiti(servizi);
     aggiornaConteggiPreferiti(servizi);
   };
 
   aggiornaListaPreferiti(servizi);
   aggiornaConteggiPreferiti(servizi);
-  inizializzaGestionePreferiti(aggiornaPreferiti);
-  // Sincronizzo i preferiti modificati in altre schede.
-  window.addEventListener("storage", (evento) => {
-    if (evento.key === "rigenera-preferiti") aggiornaPreferiti();
-  });
+  inizializzaAscoltoPreferitiEsterni();
+  ascoltaPreferitiAggiornati(aggiornaPreferiti);
+  inizializzaGestionePreferiti(servizi);
   inizializzaHero(servizi);
   aggiornaConteggiAzioni(servizi);
   aggiornaTotaleServizi(servizi);

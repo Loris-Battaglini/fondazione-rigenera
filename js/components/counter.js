@@ -1,4 +1,7 @@
-import { leggiPreferiti } from "../data/storage.js";
+import {
+  ascoltaPreferitiAggiornati,
+  leggiPreferiti,
+} from "../data/storage.js";
 
 const statisticheHero = {
   servizi: document.querySelector('[data-hero-stat="servizi"]'),
@@ -131,12 +134,7 @@ export function aggiornaTotaleServizi(servizi) {
 export function inizializzaHero(servizi) {
   if (!Object.values(statisticheHero).some(Boolean)) return;
 
-  window.addEventListener("rigenera:preferiti-aggiornati", () =>
-    aggiornaStatisticheHero(servizi),
-  );
-  window.addEventListener("storage", (evento) => {
-    if (evento.key === "rigenera-preferiti") aggiornaStatisticheHero(servizi);
-  });
+  ascoltaPreferitiAggiornati(() => aggiornaStatisticheHero(servizi));
 
   aggiornaStatisticheHero(servizi);
 }
