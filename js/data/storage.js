@@ -1,10 +1,14 @@
 // Salva nel browser (localStorage) i dati dell'utente, come i servizi preferiti.
 // I dati restano anche chiudendo la pagina, ma solo sul browser e dispositivo dell'utente.
 
+const CHIAVE_PREFERITI = "rigenera-preferiti";
+const EVENTO_PREFERITI_AGGIORNATI = "rigenera:preferiti-aggiornati";
+let ascoltoPreferitiInizializzato = false;
+
 // Restituisce la lista degli id dei servizi preferiti
 export function leggiPreferiti() {
   try {
-    const testo = localStorage.getItem("rigenera-preferiti");
+    const testo = localStorage.getItem(CHIAVE_PREFERITI);
     const lista = testo ? JSON.parse(testo) : [];
     return Array.isArray(lista) ? lista : [];
   } catch {
@@ -15,14 +19,31 @@ export function leggiPreferiti() {
 // Scrive la lista nel localStorage
 export function salvaPreferiti(lista) {
   try {
-    localStorage.setItem("rigenera-preferiti", JSON.stringify(lista));
+    localStorage.setItem(CHIAVE_PREFERITI, JSON.stringify(lista));
   } catch {
     // Se non si può salvare, il sito continua a funzionare senza memoria
   }
 }
 
 export function notificaPreferitiAggiornati() {
-  window.dispatchEvent(new Event("rigenera:preferiti-aggiornati"));
+  window.dispatchEvent(new Event(EVENTO_PREFERITI_AGGIORNATI));
+}
+
+export function ascoltaPreferitiAggiornati(ascoltatore) {
+  window.addEventListener(EVENTO_PREFERITI_AGGIORNATI, ascoltatore);
+  return () =>
+    window.removeEventListener(EVENTO_PREFERITI_AGGIORNATI, ascoltatore);
+}
+
+export function inizializzaAscoltoPreferitiEsterni() {
+  if (ascoltoPreferitiInizializzato) return;
+
+  window.addEventListener("storage", (evento) => {
+    if (evento.key === CHIAVE_PREFERITI) {
+      notificaPreferitiAggiornati();
+    }
+  });
+  ascoltoPreferitiInizializzato = true;
 }
 
 export function isPreferito(id) {
