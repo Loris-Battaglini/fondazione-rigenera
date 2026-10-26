@@ -8,9 +8,11 @@ import {
   aggiornaConteggiAzioni,
   aggiornaTotaleServizi,
   aggiornaConteggiPreferiti,
-  collegaCardAzioniAiFiltri,
 } from "./components/counter.js";
-import { inizializzaFiltri } from "./components/filters.js";
+import {
+  inizializzaFiltri,
+  collegaCardAzioniAiFiltri,
+} from "./components/filters.js";
 import { inizializzaFormSegnalazione } from "./components/report.js";
 
 // Carico i dati una volta sola e li passo ai moduli che ne hanno bisogno.

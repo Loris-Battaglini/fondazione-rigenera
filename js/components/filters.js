@@ -181,6 +181,45 @@ function attivaPillola(pillola) {
   });
 }
 
+// Cerco la pillola con quel data-azione, senza costruire selettori a mano.
+function trovaPillola(azione) {
+  return [...document.querySelectorAll(".pill-btn")].find(
+    (btn) => btn.dataset.azione === azione,
+  );
+}
+
+// Riporto tutti i controlli ai valori iniziali, senza ridisegnare.
+function azzeraControlli() {
+  const testo = document.getElementById("filtro-testo");
+  const tag = document.getElementById("filtro-tag");
+  const zona = document.getElementById("filtro-zona");
+  if (testo) testo.value = "";
+  if (tag) tag.value = "tutti";
+  if (zona) zona.value = "tutti";
+  attivaPillola(trovaPillola("tutti"));
+}
+
+// Mostro solo i servizi di un'azione (es. "riparazione") e azzero gli altri filtri.
+// Se l'azione non esiste resta attiva "Tutti".
+function impostaFiltroAzione(azione) {
+  azzeraControlli();
+  const pillola = trovaPillola(azione);
+  if (pillola) attivaPillola(pillola);
+  aggiornaFiltri();
+}
+
+// Al click di una card della sezione azioni filtro il Catalogo per quell'azione.
+// L'azione si legge dallo span data-conteggio della card (lo stesso dei numeri).
+// Lo scorrimento al Catalogo lo fa il link href="#catalogo" della card.
+export function collegaCardAzioniAiFiltri() {
+  document.querySelectorAll(".tile-azione").forEach((card) => {
+    card.addEventListener("click", () => {
+      const azione = card.querySelector("[data-conteggio]")?.dataset.conteggio;
+      if (azione) impostaFiltroAzione(azione);
+    });
+  });
+}
+
 // Collego i controlli del catalogo e restituisco l'aggiornamento dei risultati.
 export function inizializzaFiltri(servizi, categorie) {
   listaServizi = servizi;
@@ -206,22 +245,13 @@ export function inizializzaFiltri(servizi, categorie) {
     });
   });
 
-  const resetFiltri = document.getElementById("reset-filtri");
-  resetFiltri?.addEventListener("click", (evento) => {
-    evento.preventDefault();
-
-    if (document.getElementById("filtro-testo"))
-      document.getElementById("filtro-testo").value = "";
-    if (document.getElementById("filtro-tag"))
-      document.getElementById("filtro-tag").value = "tutti";
-    if (document.getElementById("filtro-zona"))
-      document.getElementById("filtro-zona").value = "tutti";
-
-    // Torno alla pillola "Tutti".
-    attivaPillola(document.querySelector('.pill-btn[data-azione="tutti"]'));
-
-    aggiornaFiltri();
-  });
+  document
+    .getElementById("reset-filtri")
+    ?.addEventListener("click", (evento) => {
+      evento.preventDefault();
+      azzeraControlli();
+      aggiornaFiltri();
+    });
 
   aggiornaPagina();
   return aggiornaPagina;

@@ -82,41 +82,6 @@ export function aggiornaConteggiAzioni(servizi) {
   }
 }
 
-// Al click di una card della sezione categoria attiva il filtro corrispondente nel Catalogo.
-// Legge la categoria dallo span data-conteggio della card (lo stesso usato per i numeri)
-// e clicca il bottone del Catalogo con lo stesso data-azione, così il filtro
-// viene applicato dal codice già esistente in filters.js.
-export function collegaCardAzioniAiFiltri() {
-  const cardAzioni = document.querySelectorAll(".tile-azione");
-
-  for (let i = 0; i < cardAzioni.length; i++) {
-    const card = cardAzioni[i];
-
-    card.addEventListener("click", function () {
-      const elementoConteggio = card.querySelector("[data-conteggio]");
-      if (!elementoConteggio) {
-        return;
-      }
-
-      // Prima azzera la ricerca e gli altri filtri usando il link "Azzera filtri"
-      // già presente nel Catalogo, così resta attivo solo il filtro della card.
-      const linkAzzeraFiltri = document.getElementById("reset-filtri");
-      if (linkAzzeraFiltri) {
-        linkAzzeraFiltri.click();
-      }
-
-      const categoria = elementoConteggio.getAttribute("data-conteggio");
-      const bottoneFiltro = document.querySelector(
-        '.pill-btn[data-azione="' + categoria + '"]',
-      );
-
-      if (bottoneFiltro) {
-        bottoneFiltro.click();
-      }
-    });
-  }
-}
-
 // Scrive il numero totale dei servizi in tutti gli elementi
 // che hanno l'attributo data-totale-servizi (es. il sottotitolo del Catalogo).
 export function aggiornaTotaleServizi(servizi) {
