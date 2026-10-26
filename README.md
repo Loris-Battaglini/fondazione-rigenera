@@ -86,6 +86,7 @@ link al deploy https://loris-battaglini.github.io/fondazione-rigenera/
 - **📦 Rendering Dinamico dei Dati:** Le schede del catalogo vengono generate a runtime in JavaScript a partire dai servizi mockati, mantenendo l'HTML snello e privo di componenti statici.
 - **🎠 Carosello Catalogo e Filtri:** Scorrimento fluido e filtri in tempo reale per categoria, tag e zona[cite: 7].
 - **❤️ Gestione Preferiti:** Salvataggio dei servizi preferiti tramite `localStorage` con aggiornamento dinamico dello stato e contatori.
+- **✅ Validazione del form:** Le regole per i campi obbligatori, email, telefono, giorni e orari sono raccolte in funzioni pure nel modulo `js/utils/validation.js`, separato dalla gestione del form.
 
 ---
 
@@ -113,6 +114,8 @@ fondazione-rigenera/
 │   │   ├── favorites.js
 │   │   ├── filters.js
 │   │   └── report.js
+│   ├── utils/
+│   │   └── validation.js
 │   ├── data/
 │   │   ├── data.js
 │   │   └── storage.js

@@ -197,6 +197,9 @@ export function inizializzaFormSegnalazione(categorie) {
     ];
     if (!risultati.every(Boolean)) {
       form.classList.add("was-validated");
+
+      form.querySelector('[aria-invalid="true"], :invalid')?.focus();
+
       return;
     }
 
