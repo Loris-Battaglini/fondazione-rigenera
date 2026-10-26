@@ -721,8 +721,9 @@
                         name="nome"
                         placeholder="Es. Ciclofficina Popolare"
                         required
+                        aria-describedby="errore-nome"
                       />
-                      <div class="invalid-feedback">Campo vuoto</div>
+                      <div class="invalid-feedback" id="errore-nome">Campo vuoto</div>
                     </div>
                     <div class="col-md-6">
                       <label for="azione" class="form-label fw-medium"
@@ -733,6 +734,7 @@
                         id="azione"
                         name="azione"
                         required
+                        aria-describedby="errore-azione"
                       >
                         <option value="" selected>Scegli…</option>
                         <option value="riparazione">Riparare</option>
@@ -740,7 +742,7 @@
                         <option value="donazione">Donare</option>
                         <option value="riciclo">Riciclare</option>
                       </select>
-                      <div class="invalid-feedback">Campo vuoto</div>
+                      <div class="invalid-feedback" id="errore-azione">Campo vuoto</div>
                     </div>
                     <div class="col-md-6">
                       <!-- id diverso dalla sezione #categoria; opzioni da report.js -->
@@ -752,8 +754,9 @@
                         id="segnala-categoria"
                         name="categoria"
                         required
+                        aria-describedby="errore-categoria"
                       ></select>
-                      <div class="invalid-feedback">Campo vuoto</div>
+                      <div class="invalid-feedback" id="errore-categoria">Campo vuoto</div>
                     </div>
                     <div class="col-md-6">
                       <label for="citta" class="form-label fw-medium"
@@ -766,8 +769,9 @@
                         name="citta"
                         placeholder="Es. Bologna"
                         required
+                        aria-describedby="errore-citta"
                       />
-                      <div class="invalid-feedback">Campo vuoto</div>
+                      <div class="invalid-feedback" id="errore-citta">Campo vuoto</div>
                     </div>
                     <div class="col-md-6">
                       <label for="indirizzo" class="form-label fw-medium"
@@ -780,8 +784,9 @@
                         name="indirizzo"
                         placeholder="Es. Via del Lavoro"
                         required
+                        aria-describedby="errore-indirizzo"
                       />
-                      <div class="invalid-feedback">Campo vuoto</div>
+                      <div class="invalid-feedback" id="errore-indirizzo">Campo vuoto</div>
                     </div>
                     <div class="col-md-3">
                       <label for="numero_civico" class="form-label fw-medium"
@@ -804,13 +809,14 @@
                         id="zona"
                         name="zona"
                         required
+                        aria-describedby="errore-zona"
                       >
                         <option value="" selected>Scegli…</option>
                         <option>Centro</option>
                         <option>Navile</option>
                         <option>San Donato</option>
                       </select>
-                      <div class="invalid-feedback">Campo vuoto</div>
+                      <div class="invalid-feedback" id="errore-zona">Campo vuoto</div>
                     </div>
                     <div class="col-12">
                       <div class="row g-2">
@@ -834,9 +840,10 @@
                             class="form-control"
                             id="ora_chiusura"
                             name="ora_chiusura"
+                            aria-describedby="errore-orari"
                           />
                           <!-- errore orari, testo da report.js -->
-                          <div class="invalid-feedback"></div>
+                          <div class="invalid-feedback" id="errore-orari"></div>
                         </div>
                       </div>
                       <div class="form-check form-switch mt-2">
@@ -859,6 +866,7 @@
                         class="day-selector"
                         role="group"
                         aria-label="Seleziona i giorni di apertura"
+                        aria-describedby="errore-giorni"
                       >
                         <button
                           type="button"
@@ -917,7 +925,7 @@
                           Dom
                         </button>
                       </div>
-                      <div class="invalid-feedback">Campo vuoto</div>
+                      <div class="invalid-feedback" id="errore-giorni">Campo vuoto</div>
                     </div>
                     <div class="col-12">
                       <label for="descrizione" class="form-label fw-medium"
@@ -931,8 +939,9 @@
                         maxlength="300"
                         placeholder="Cosa si può fare qui? (max 300 caratteri)"
                         required
+                        aria-describedby="errore-descrizione"
                       ></textarea>
-                      <div class="invalid-feedback">Campo vuoto</div>
+                      <div class="invalid-feedback" id="errore-descrizione">Campo vuoto</div>
                     </div>
                     <div class="col-md-6">
                       <label for="email" class="form-label fw-medium"
@@ -944,8 +953,9 @@
                         id="email"
                         name="email"
                         placeholder="Es. nome@esempio.it"
+                        aria-describedby="errore-email"
                       />
-                      <div class="invalid-feedback">Email non valida</div>
+                      <div class="invalid-feedback" id="errore-email">Email non valida</div>
                     </div>
                     <div class="col-md-6">
                       <label for="telefono" class="form-label fw-medium"
@@ -969,9 +979,10 @@
                           id="telefono"
                           name="telefono"
                           placeholder="345 123 4567"
+                          aria-describedby="errore-telefono"
                         />
                       </div>
-                      <div class="invalid-feedback">Telefono non valido</div>
+                      <div class="invalid-feedback" id="errore-telefono">Telefono non valido</div>
                     </div>
                     <div class="col-12">
                       <button type="submit" class="btn btn-primary w-100">
