@@ -30,16 +30,21 @@ export function inizializzaGestionePreferiti() {
     );
     if (!pulsante) return;
     const id = pulsante.dataset.preferito;
-    const elenco = pulsante.closest("#lista-preferiti")
-      ? "#lista-preferiti"
-      : "#container-servizi";
+    const elenco = pulsante.closest("#lista-preferiti, #container-servizi");
+
     togglePreferito(id);
 
-    // Ripristino il focus sul cuore ridisegnato.
-    const selettore = `[data-preferito="${CSS.escape(id)}"]`;
-    (
-      document.querySelector(`${elenco} ${selettore}`) ??
-      document.querySelector(`#container-servizi ${selettore}`)
-    )?.focus();
+    // Focus sullo stesso cuore se c'è ancora, altrimenti sul primo della lista, 
+    // se la lista è vuota sul pulsante accordion
+    const stesso = elenco.querySelector(`[data-preferito="${CSS.escape(id)}"]`);
+    const primo = elenco.querySelector("[data-preferito]");
+    const accordion = document.getElementById("collapse-preferiti");
+    if (stesso) {
+      stesso.focus();
+    } else if (primo) {
+      primo.focus();
+    } else if (accordion) {
+      accordion.focus();
+    }
   });
 }
