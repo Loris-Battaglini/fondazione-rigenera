@@ -5,7 +5,6 @@ import {
 
 const statisticheHero = {
   servizi: document.querySelector('[data-hero-stat="servizi"]'),
-  preferiti: document.querySelector('[data-hero-stat="preferiti"]'),
   categorie: document.querySelector('[data-hero-stat="categorie"]'),
 };
 
@@ -60,13 +59,11 @@ export function aggiornaConteggiPreferiti(servizi) {
 
 // Ricalcola i numeri della Hero usando i dati già caricati dall'app.
 export function aggiornaStatisticheHero(servizi) {
-  const numeroPreferiti = contaPreferiti(servizi);
   const categorie = new Set(
     servizi.map((servizio) => servizio.azione).filter(Boolean),
   );
 
   scriviNumero(statisticheHero.servizi, servizi.length);
-  scriviNumero(statisticheHero.preferiti, numeroPreferiti);
   scriviNumero(statisticheHero.categorie, categorie.size);
 }
 
