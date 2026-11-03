@@ -1,7 +1,4 @@
-import {
-  ascoltaPreferitiAggiornati,
-  leggiPreferiti,
-} from "../data/storage.js";
+import { leggiPreferiti } from "../data/storage.js";
 
 const statisticheHero = {
   servizi: document.querySelector('[data-hero-stat="servizi"]'),
@@ -127,11 +124,7 @@ export function aggiornaTotaleServizi(servizi) {
   }
 }
 
-// Collego i contatori agli aggiornamenti dei preferiti.
+// Scrive i numeri fissi della Hero (servizi e azioni).
 export function inizializzaHero(servizi) {
-  if (!Object.values(statisticheHero).some(Boolean)) return;
-
-  ascoltaPreferitiAggiornati(() => aggiornaStatisticheHero(servizi));
-
   aggiornaStatisticheHero(servizi);
 }
