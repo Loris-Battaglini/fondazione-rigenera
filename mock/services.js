@@ -1,4 +1,4 @@
-// Valori ammessi per "categoria": li usano i dati, il filtro e il form.
+// Valori ammessi per "categoria": li usano i dati e il form di segnalazione.
 export const categorie = [
   "Abbigliamento",
   "Bici e mobilità non elettrica",

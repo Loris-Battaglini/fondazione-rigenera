@@ -12,14 +12,16 @@ import {
   aggiornaConteggiAzioni,
   aggiornaTotaleServizi,
   aggiornaConteggiPreferiti,
-  collegaCardAzioniAiFiltri,
 } from "./components/counter.js";
-import { inizializzaFiltri } from "./components/filters.js";
+import {
+  inizializzaFiltri,
+  collegaCardAzioniAiFiltri,
+} from "./components/filters.js";
 import { inizializzaFormSegnalazione } from "./components/report.js";
 
 // Carico i dati una volta sola e li passo ai moduli che ne hanno bisogno.
 function avviaApp() {
-  // Categorie condivise tra form e filtro.
+  // Categorie ammesse nel form di segnalazione.
   const categorie = caricaCategorie();
   inizializzaFormSegnalazione(categorie);
   let servizi;
@@ -36,7 +38,7 @@ function avviaApp() {
     return;
   }
 
-  const aggiornaCatalogo = inizializzaFiltri(servizi, categorie);
+  const aggiornaCatalogo = inizializzaFiltri(servizi);
   // Per aggiornare un nuovo elemento della pagina si aggiunge una riga qui
   const aggiornaPreferiti = () => {
     aggiornaCatalogo();

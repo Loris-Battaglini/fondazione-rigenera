@@ -14,6 +14,24 @@ function normalizza(valore) {
     .toLocaleLowerCase("it");
 }
 
+// "tutti" lascia passare ogni servizio, altrimenti il valore deve essere uguale.
+function corrisponde(selezionato, valore) {
+  return selezionato === "tutti" || normalizza(valore) === selezionato;
+}
+
+// Valori di un campo presenti nei servizi, senza doppioni e in ordine alfabetico.
+// "Altro" va sempre in fondo, perché si sceglie quando le altre voci non vanno bene.
+function valoriDaiServizi(servizi, campo) {
+  const valori = servizi
+    .map((servizio) => servizio[campo]?.trim())
+    .filter(Boolean);
+  const inFondo = (valore) => normalizza(valore) === "altro";
+
+  return [...new Set(valori)].sort(
+    (a, b) => inFondo(a) - inFondo(b) || a.localeCompare(b, "it"),
+  );
+}
+
 // Applico i filtri attivi e ridisegno i risultati del catalogo.
 function aggiornaPagina() {
   const testoCercato = normalizza(
@@ -39,20 +57,9 @@ function aggiornaPagina() {
       servizio.indirizzo,
     ].some((valore) => normalizza(valore).includes(testoCercato));
 
-    const matchTag =
-      tagSelezionato === "tutti" || normalizza(servizio.categoria) === tagSelezionato;
-
-    const indirizzo = normalizza(
-      [servizio.citta, servizio.zona, servizio.indirizzo]
-        .filter(Boolean)
-        .join(" "),
-    );
-    const matchZona =
-      zonaSelezionata === "tutti" || indirizzo.includes(zonaSelezionata);
-
-    const matchAzione =
-      azioneSelezionata === "tutti" ||
-      normalizza(servizio.azione) === azioneSelezionata;
+    const matchTag = corrisponde(tagSelezionato, servizio.categoria);
+    const matchZona = corrisponde(zonaSelezionata, servizio.zona);
+    const matchAzione = corrisponde(azioneSelezionata, servizio.azione);
 
     return matchTesto && matchTag && matchZona && matchAzione;
   });
@@ -181,11 +188,57 @@ function attivaPillola(pillola) {
   });
 }
 
+// Cerco la pillola con quel data-azione, senza costruire selettori a mano.
+function trovaPillola(azione) {
+  return [...document.querySelectorAll(".pill-btn")].find(
+    (btn) => btn.dataset.azione === azione,
+  );
+}
+
+// Riporto tutti i controlli ai valori iniziali, senza ridisegnare.
+function azzeraControlli() {
+  const testo = document.getElementById("filtro-testo");
+  const tag = document.getElementById("filtro-tag");
+  const zona = document.getElementById("filtro-zona");
+  if (testo) testo.value = "";
+  if (tag) tag.value = "tutti";
+  if (zona) zona.value = "tutti";
+  attivaPillola(trovaPillola("tutti"));
+}
+
+// Mostro solo i servizi di un'azione (es. "riparazione") e azzero gli altri filtri.
+// Se l'azione non esiste resta attiva "Tutti".
+function impostaFiltroAzione(azione) {
+  azzeraControlli();
+  const pillola = trovaPillola(azione);
+  if (pillola) attivaPillola(pillola);
+  aggiornaFiltri();
+}
+
+// Al click di una card della sezione azioni filtro il Catalogo per quell'azione.
+// L'azione si legge dallo span data-conteggio della card (lo stesso dei numeri).
+// Lo scorrimento al Catalogo lo fa il link href="#catalogo" della card.
+export function collegaCardAzioniAiFiltri() {
+  document.querySelectorAll(".tile-azione").forEach((card) => {
+    card.addEventListener("click", () => {
+      const azione = card.querySelector("[data-conteggio]")?.dataset.conteggio;
+      if (azione) impostaFiltroAzione(azione);
+    });
+  });
+}
+
 // Collego i controlli del catalogo e restituisco l'aggiornamento dei risultati.
-export function inizializzaFiltri(servizi, categorie) {
+export function inizializzaFiltri(servizi) {
   listaServizi = servizi;
-  // Opzioni del filtro categoria dall'elenco condiviso.
-  aggiungiOpzioni(document.getElementById("filtro-tag"), categorie);
+  // Opzioni dei filtri categoria e zona dai valori presenti nei servizi.
+  aggiungiOpzioni(
+    document.getElementById("filtro-tag"),
+    valoriDaiServizi(servizi, "categoria"),
+  );
+  aggiungiOpzioni(
+    document.getElementById("filtro-zona"),
+    valoriDaiServizi(servizi, "zona"),
+  );
   inizializzaCarosello();
   inizializzaVediDiPiu();
   document
@@ -206,22 +259,13 @@ export function inizializzaFiltri(servizi, categorie) {
     });
   });
 
-  const resetFiltri = document.getElementById("reset-filtri");
-  resetFiltri?.addEventListener("click", (evento) => {
-    evento.preventDefault();
-
-    if (document.getElementById("filtro-testo"))
-      document.getElementById("filtro-testo").value = "";
-    if (document.getElementById("filtro-tag"))
-      document.getElementById("filtro-tag").value = "tutti";
-    if (document.getElementById("filtro-zona"))
-      document.getElementById("filtro-zona").value = "tutti";
-
-    // Torno alla pillola "Tutti".
-    attivaPillola(document.querySelector('.pill-btn[data-azione="tutti"]'));
-
-    aggiornaFiltri();
-  });
+  document
+    .getElementById("reset-filtri")
+    ?.addEventListener("click", (evento) => {
+      evento.preventDefault();
+      azzeraControlli();
+      aggiornaFiltri();
+    });
 
   aggiornaPagina();
   return aggiornaPagina;
