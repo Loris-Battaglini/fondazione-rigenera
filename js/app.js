@@ -48,7 +48,7 @@ function avviaApp() {
   aggiornaConteggiPreferiti(servizi);
   inizializzaAscoltoPreferitiEsterni();
   ascoltaPreferitiAggiornati(aggiornaPreferiti);
-  inizializzaGestionePreferiti(servizi);
+  inizializzaGestionePreferiti();
   inizializzaHero(servizi);
   aggiornaConteggiAzioni(servizi);
   aggiornaTotaleServizi(servizi);
