@@ -1,10 +1,5 @@
 import { renderizzaCard } from "./cards.js";
-import {
-  ascoltaPreferitiAggiornati,
-  isPreferito,
-  togglePreferito,
-} from "../data/storage.js";
-
+import { isPreferito, togglePreferito } from "../data/storage.js";
 // Aggiorno la lista e il contatore dei preferiti salvati.
 export function aggiornaListaPreferiti(servizi) {
   const contenitore = document.getElementById("lista-preferiti");
@@ -26,10 +21,9 @@ export function aggiornaListaPreferiti(servizi) {
   }
 }
 
-// Intercetto i cuori in catalogo e nella lista.
-export function inizializzaGestionePreferiti(servizi) {
-  ascoltaPreferitiAggiornati(() => aggiornaListaPreferiti(servizi));
-
+// Intercetta i cuori in catalogo e nella lista
+// L'aggiornamento della pagina lo fa app.js quando arriva l'evento dei preferiti
+export function inizializzaGestionePreferiti() {
   document.addEventListener("click", (evento) => {
     const pulsante = evento.target.closest(
       "#container-servizi [data-preferito], #lista-preferiti [data-preferito]",
