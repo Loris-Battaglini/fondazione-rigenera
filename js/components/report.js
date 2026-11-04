@@ -214,7 +214,11 @@ export function inizializzaFormSegnalazione(categorie) {
     if (!risultati.every(Boolean)) {
       form.classList.add("was-validated");
 
-      form.querySelector('[aria-invalid="true"], :invalid')?.focus();
+      form
+        .querySelector(
+          '[aria-invalid="true"], :invalid, .day-selector.invalid .day-toggle',
+        )
+        ?.focus();
 
       return;
     }
