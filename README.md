@@ -1,6 +1,6 @@
 # 🌿 Fondazione Rigenera — Web Platform
 
-Una piattaforma web moderna, responsive e accessibile sviluppata per **Fondazione Rigenera**, progettata per la consultazione e la fruizione dei servizi e delle iniziative sul territorio[cite: 7].
+Una piattaforma web moderna, responsive e accessibile sviluppata per **Fondazione Rigenera**, progettata per la consultazione e la fruizione dei servizi e delle iniziative sul territorio.
 
 Il progetto è stato completamente refactorizzato secondo l'architettura **ES6 Modular JavaScript**, garantendo un'elevata manutenibilità, separazione delle responsabilità e caricamento dinamico dei dati.
 
@@ -84,7 +84,7 @@ link al deploy https://loris-battaglini.github.io/fondazione-rigenera/
 - **🎨 UI/UX Responsive & Modern:** Navbar estesa a tutta larghezza (`container-fluid`) con `max-width` controllato e layout ottimizzato per mobile e desktop.
 - **🧩 Architettura Modulare ES6:** Organizzazione pulita del codice JavaScript diviso in moduli dedicati (`components/`, `ui/`, `utils/`, `data/`).
 - **📦 Rendering Dinamico dei Dati:** Le schede del catalogo vengono generate a runtime in JavaScript a partire dai servizi mockati, mantenendo l'HTML snello e privo di componenti statici.
-- **🎠 Carosello Catalogo e Filtri:** Scorrimento fluido e filtri in tempo reale per categoria, tag e zona[cite: 7].
+- **🎠 Carosello Catalogo e Filtri:** Scorrimento fluido e filtri in tempo reale per categoria e zona.
 - **❤️ Gestione Preferiti:** Salvataggio dei servizi preferiti tramite `localStorage` con aggiornamento dinamico dello stato e contatori.
 - **✅ Validazione del form:** Le regole per i campi obbligatori, email, telefono, giorni e orari sono raccolte in funzioni pure nel modulo `js/utils/validation.js`, separato dalla gestione del form.
 
@@ -92,8 +92,8 @@ link al deploy https://loris-battaglini.github.io/fondazione-rigenera/
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** HTML5, SCSS / CSS3, Bootstrap 5[cite: 5]
-- **Logic & Scripts:** Vanilla JavaScript (ES6+ Modules)[cite: 5]
+- **Frontend:** HTML5, SCSS / CSS3, Bootstrap 5
+- **Logic & Scripts:** Vanilla JavaScript (ES6+ Modules)
 - **Version Control:** Git & GitHub (Workflow a branch)
 
 ---
@@ -124,7 +124,6 @@ fondazione-rigenera/
 │   └── app.js
 ├── mock/
 │   └── services.js
-├── node_modules/
 ├── scss/
 │   ├── abstracts/
 │   │   └── _variables.scss
@@ -181,3 +180,7 @@ fondazione-rigenera/
 - Andrea Meini
 - Anna Bonadimani
 - Loris Battaglini
+
+## Decisioni
+
+Gli accordi sull'architettura del progetto, sulla gestione dei preferiti e sulla divisione dei compiti per la revisione sono stati presi e definiti dal team durante una chiamata dedicata prima dell'inizio dello sviluppo. Inoltre, sono state effettuate varie chiamate ogni sera per coordinarsi, verificare i progressi e modificare eventuali criticità in corso d'opera.
