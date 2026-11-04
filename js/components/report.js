@@ -3,6 +3,7 @@ import {
   salvaBozzaSegnalazione,
   leggiBozzaSegnalazione,
 } from "../data/storage.js";
+import { caricaServizi } from "../data/data.js";
 import { aggiungiOpzioni } from "../ui/select.js";
 import {
   campoObbligatorioValido,
@@ -27,6 +28,14 @@ export function inizializzaFormSegnalazione(categorie) {
     categorie,
     CATEGORIA_PREDEFINITA,
   );
+  const zone = [
+    ...new Set(
+      caricaServizi()
+        .map((servizio) => servizio.zona?.trim())
+        .filter(Boolean),
+    ),
+  ].sort((a, b) => a.localeCompare(b, "it"));
+  aggiungiOpzioni(form.elements.namedItem("zona"), zone);
 
   const successo = document.querySelector("#successo");
   const mostraEsito = (messaggio, tipo) => {
