@@ -29,6 +29,13 @@ export function inizializzaFormSegnalazione(categorie) {
   );
 
   const successo = document.querySelector("#successo");
+  const mostraEsito = (messaggio, tipo) => {
+    if (!successo) return;
+    successo.textContent = messaggio;
+    successo.classList.toggle("alert-success", tipo);
+    successo.classList.toggle("alert-danger", !tipo);
+    successo.classList.remove("d-none");
+  };
   const campi = form.querySelectorAll("input, select, textarea");
   const giornoButtons = form.querySelectorAll(".day-toggle");
   const getGiorniSelezionati = () =>
