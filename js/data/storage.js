@@ -10,7 +10,9 @@ export function leggiPreferiti() {
   try {
     const testo = localStorage.getItem(CHIAVE_PREFERITI);
     const lista = testo ? JSON.parse(testo) : [];
-    return Array.isArray(lista) ? lista : [];
+    return Array.isArray(lista) 
+      ? lista.filter((id) => typeof id === "string")
+       : [];
   } catch {
     return [];
   }

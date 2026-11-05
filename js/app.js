@@ -39,8 +39,10 @@ function avviaApp() {
   }
 
   const aggiornaCatalogo = inizializzaFiltri(servizi);
+  // Per aggiornare un nuovo elemento della pagina si aggiunge una riga qui
   const aggiornaPreferiti = () => {
     aggiornaCatalogo();
+    aggiornaListaPreferiti(servizi);
     aggiornaConteggiPreferiti(servizi);
   };
 
@@ -48,7 +50,7 @@ function avviaApp() {
   aggiornaConteggiPreferiti(servizi);
   inizializzaAscoltoPreferitiEsterni();
   ascoltaPreferitiAggiornati(aggiornaPreferiti);
-  inizializzaGestionePreferiti(servizi);
+  inizializzaGestionePreferiti();
   inizializzaHero(servizi);
   aggiornaConteggiAzioni(servizi);
   aggiornaTotaleServizi(servizi);

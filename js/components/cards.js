@@ -32,7 +32,7 @@ export function creaCardHTML(servizio, nelCatalogo = false) {
       <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
         <div class="card-header bg-azione-${azione} text-white p-3 d-flex justify-content-between align-items-center border-0">
           <span class="fw-medium text-capitalize">${azione}</span>
-          <button class="btn btn-link text-white p-0 text-decoration-none" type="button" data-preferito="${id}" aria-pressed="${preferito}" aria-label="${etichettaPreferito}">
+          <button class="btn btn-link btn-fav text-white p-0 text-decoration-none" type="button" data-preferito="${id}" aria-pressed="${preferito}" aria-label="${etichettaPreferito}">
             <i class="bi bi-heart${preferito ? "-fill" : ""}" aria-hidden="true"></i>
           </button>
         </div>

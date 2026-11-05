@@ -71,9 +71,13 @@ link al deploy https://loris-battaglini.github.io/fondazione-rigenera/
 
 ![Slide 10](./assets/img/10.jpg)
 
-#### 11. Lavoro di Squadra & Git Workflow
+#### 11. Chi ha fatto cosa
 
 ![Slide 11](./assets/img/11.jpg)
+
+#### 12. Lavoro di Squadra & Git Workflow
+
+![Slide 12](./assets/img/12.jpg)
 
 </details>
 
