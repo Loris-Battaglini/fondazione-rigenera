@@ -6,7 +6,7 @@ import {
 const statisticheHero = {
   servizi: document.querySelector('[data-hero-stat="servizi"]'),
   preferiti: document.querySelector('[data-hero-stat="preferiti"]'),
-  categorie: document.querySelector('[data-hero-stat="categorie"]'),
+  azioni: document.querySelector('[data-hero-stat="azioni"]'),
 };
 
 // Scrive un numero dentro un elemento della pagina, solo se l'elemento esiste.
@@ -17,12 +17,12 @@ export function scriviNumero(elemento, numero) {
   }
 }
 
-// Conta quanti servizi appartengono a una certa azione (es. "riparazione", "scambio", "donazione", "riciclo").
-export function contaServiziPerCategoria(servizi, categoria) {
+// Conta quanti servizi appartengono a una certa azione.
+export function contaServiziPerAzione(servizi, azione) {
   let conteggio = 0;
 
   for (let i = 0; i < servizi.length; i++) {
-    if (servizi[i].azione === categoria) {
+    if (servizi[i].azione === azione) {
       conteggio = conteggio + 1;
     }
   }
@@ -61,25 +61,25 @@ export function aggiornaConteggiPreferiti(servizi) {
 // Ricalcola i numeri della Hero usando i dati già caricati dall'app.
 export function aggiornaStatisticheHero(servizi) {
   const numeroPreferiti = contaPreferiti(servizi);
-  const categorie = new Set(
+  const azioni = new Set(
     servizi.map((servizio) => servizio.azione).filter(Boolean),
   );
 
   scriviNumero(statisticheHero.servizi, servizi.length);
   scriviNumero(statisticheHero.preferiti, numeroPreferiti);
-  scriviNumero(statisticheHero.categorie, categorie.size);
+  scriviNumero(statisticheHero.azioni, azioni.size);
 }
 
-// Aggiorna i numeri dentro le card della sezione categoria.
-// Ogni card ha uno span con l'attributo data-conteggio="nome-categoria":
-// legge il nome della categoria dall'attributo e ci scrive il numero di servizi.
+// Aggiorna i numeri dentro le card della sezione azioni.
+// Ogni card ha uno span con l'attributo data-conteggio="nome-azione":
+// legge l'azione dall'attributo e ci scrive il numero di servizi.
 export function aggiornaConteggiAzioni(servizi) {
   const elementiConteggio = document.querySelectorAll("[data-conteggio]");
 
   for (let i = 0; i < elementiConteggio.length; i++) {
     const elemento = elementiConteggio[i];
-    const categoria = elemento.getAttribute("data-conteggio");
-    const numeroServizi = contaServiziPerCategoria(servizi, categoria);
+    const azione = elemento.getAttribute("data-conteggio");
+    const numeroServizi = contaServiziPerAzione(servizi, azione);
 
     scriviNumero(elemento, numeroServizi);
   }

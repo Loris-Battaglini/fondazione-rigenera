@@ -208,7 +208,7 @@ function azzeraControlli() {
 
 // Mostro solo i servizi di un'azione (es. "riparazione") e azzero gli altri filtri.
 // Se l'azione non esiste resta attiva "Tutti".
-function impostaFiltroAzione(azione) {
+export function impostaFiltroAzione(azione) {
   azzeraControlli();
   const pillola = trovaPillola(azione);
   if (pillola) attivaPillola(pillola);
@@ -216,12 +216,11 @@ function impostaFiltroAzione(azione) {
 }
 
 // Al click di una card della sezione azioni filtro il Catalogo per quell'azione.
-// L'azione si legge dallo span data-conteggio della card (lo stesso dei numeri).
 // Lo scorrimento al Catalogo lo fa il link href="#catalogo" della card.
 export function collegaCardAzioniAiFiltri() {
   document.querySelectorAll(".tile-azione").forEach((card) => {
     card.addEventListener("click", () => {
-      const azione = card.querySelector("[data-conteggio]")?.dataset.conteggio;
+      const azione = card.dataset.azione;
       if (azione) impostaFiltroAzione(azione);
     });
   });
